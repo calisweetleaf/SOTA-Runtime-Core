@@ -4,3 +4,4 @@ __pycache__/
 reports/*.log
 production_doctor.log
 reports/production_doctor.log
+REDDIT_POST.md

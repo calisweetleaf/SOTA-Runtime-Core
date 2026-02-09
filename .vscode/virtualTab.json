@@ -5,7 +5,9 @@
     "files": [
       "prompt_templates/offline_reasoning_agent.md",
       "docs/USAGE_GUIDE.md",
-      "run_neural_router_smoke.py",
+      "CITATION.cff",
+      ".gitignore",
+      "REDDIT_POST.md",
       "verify_prompt_integration.py",
       "neural_router.py"
     ],
