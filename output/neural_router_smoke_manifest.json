@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-02-09T03:17:12.910105Z",
+  "generated_utc": "2026-02-09T06:06:47.145569Z",
   "suite": "neural_router_smoke",
   "artifacts": {
     "json": "output\\neural_router_smoke.json",
@@ -8,41 +8,41 @@
   },
   "summary": {
     "selected_template": 4,
-    "prompt_length": 1219,
-    "safety_violations_count": 1,
+    "prompt_length": 1216,
+    "safety_violations_count": 3,
     "output_issues_count": 0
   },
   "operation_log": [
     {
-      "timestamp": "2026-02-09T03:17:11.910217Z",
+      "timestamp": "2026-02-09T06:06:46.604917Z",
       "step": "set_seed",
       "status": "ok",
       "details": {
         "seed": 42
       },
-      "duration_ms": 18.567
+      "duration_ms": 10.71
     },
     {
-      "timestamp": "2026-02-09T03:17:11.910217Z",
+      "timestamp": "2026-02-09T06:06:46.604917Z",
       "step": "init_config",
       "status": "ok",
       "details": {
         "context_dim": 768,
         "num_templates": 16
       },
-      "duration_ms": 0.033
+      "duration_ms": 0.032
     },
     {
-      "timestamp": "2026-02-09T03:17:12.443624Z",
+      "timestamp": "2026-02-09T06:06:46.923197Z",
       "step": "init_router",
       "status": "ok",
       "details": {
         "router_class": "NeuralPromptRouter"
       },
-      "duration_ms": 532.646
+      "duration_ms": 318.317
     },
     {
-      "timestamp": "2026-02-09T03:17:12.443624Z",
+      "timestamp": "2026-02-09T06:06:46.923197Z",
       "step": "build_batch",
       "status": "ok",
       "details": {
@@ -60,25 +60,25 @@
           64
         ]
       },
-      "duration_ms": 0.232
+      "duration_ms": 0.19
     },
     {
-      "timestamp": "2026-02-09T03:17:12.896669Z",
+      "timestamp": "2026-02-09T06:06:47.131835Z",
       "step": "router_forward",
       "status": "ok",
       "details": {
-        "prompt_length": 1219,
+        "prompt_length": 1216,
         "selected_template": 4,
         "output_issues_count": 0
       },
-      "duration_ms": 453.617
+      "duration_ms": 208.776
     },
     {
-      "timestamp": "2026-02-09T03:17:12.896669Z",
+      "timestamp": "2026-02-09T06:06:47.131835Z",
       "step": "run_complete",
       "status": "ok",
       "details": {
-        "total_runtime_ms": 1005.148
+        "total_runtime_ms": 538.075
       }
     }
   ]

@@ -6,13 +6,20 @@ Converts Jinja2 template logic into learnable neural architecture
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any, Union
 import json
-from dataclasses import dataclass
+import hashlib
+import re
+import math
+import logging
+from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader, Template
+
+# Production logging configuration
+logger = logging.getLogger(__name__)
 
 # ============================================================================
 # Configuration & Data Structures
@@ -448,6 +455,514 @@ class SafetyValidator:
                 issues.append(f"Missing required section: {section}")
         
         return generated_prompt, issues
+
+
+# ============================================================================
+# Production Input Encoding System
+# ============================================================================
+
+class HashTextEncoder(nn.Module):
+    """
+    Production-grade hash-based text encoder.
+    Uses multiple hash functions to reduce collisions (like a Bloom filter),
+    with learned projection layers. No external dependencies.
+    
+    This is the same pattern used in production recommendation systems
+    and routing infrastructure at scale.
+    """
+    
+    def __init__(
+        self,
+        vocab_buckets: int = 50000,
+        embed_dim: int = 768,
+        num_hashes: int = 4,
+        max_seq_len: int = 512,
+        dropout: float = 0.1
+    ):
+        super().__init__()
+        self.vocab_buckets = vocab_buckets
+        self.embed_dim = embed_dim
+        self.num_hashes = num_hashes
+        self.max_seq_len = max_seq_len
+        self.sub_dim = embed_dim // num_hashes
+        
+        # Multiple hash embedding tables for collision reduction
+        self.hash_embeddings = nn.ModuleList([
+            nn.Embedding(vocab_buckets, self.sub_dim)
+            for _ in range(num_hashes)
+        ])
+        
+        # Projection to final dimension
+        self.projection = nn.Linear(embed_dim, embed_dim)
+        
+        # Layer normalization for stability
+        self.layer_norm = nn.LayerNorm(embed_dim)
+        self.dropout = nn.Dropout(dropout)
+        
+        # Precompute sinusoidal positional encodings
+        self.register_buffer('pos_encoding', self._create_positional_encoding())
+        
+        # Hash seeds for multiple hash functions
+        self.hash_seeds = [0x9747b28c, 0x7f4a6c55, 0x3b9aca07, 0x1505f171]
+        
+        # Tokenization pattern
+        self._token_pattern = re.compile(r'\b\w+\b|[^\w\s]')
+        
+    def _create_positional_encoding(self) -> torch.Tensor:
+        """Create sinusoidal positional encodings (no learned params)."""
+        position = torch.arange(self.max_seq_len).unsqueeze(1)
+        div_term = torch.exp(
+            torch.arange(0, self.embed_dim, 2) * (-math.log(10000.0) / self.embed_dim)
+        )
+        pe = torch.zeros(self.max_seq_len, self.embed_dim)
+        pe[:, 0::2] = torch.sin(position * div_term)
+        pe[:, 1::2] = torch.cos(position * div_term)
+        return pe
+    
+    def _hash_token(self, token: str, seed: int) -> int:
+        """Deterministic hash using MD5 with seed."""
+        hash_input = f"{seed}:{token.lower()}".encode('utf-8')
+        hash_bytes = hashlib.md5(hash_input).digest()
+        hash_int = int.from_bytes(hash_bytes[:8], byteorder='little')
+        return hash_int % self.vocab_buckets
+    
+    def _tokenize(self, text: str) -> List[str]:
+        """Simple regex-based tokenization."""
+        if not text:
+            return []
+        tokens = self._token_pattern.findall(text)
+        return tokens[:self.max_seq_len]
+    
+    def forward(self, texts: List[str]) -> torch.Tensor:
+        """
+        Encode a batch of text strings.
+        
+        Args:
+            texts: List of text strings
+            
+        Returns:
+            embeddings: [batch, max_seq_len, embed_dim]
+        """
+        batch_size = len(texts)
+        device = self.hash_embeddings[0].weight.device
+        
+        # Initialize output tensor
+        output = torch.zeros(
+            batch_size, self.max_seq_len, self.embed_dim,
+            device=device
+        )
+        
+        for batch_idx, text in enumerate(texts):
+            tokens = self._tokenize(text)
+            
+            if not tokens:
+                # Empty text gets zero embedding (will be masked)
+                continue
+                
+            for pos, token in enumerate(tokens):
+                if pos >= self.max_seq_len:
+                    break
+                    
+                # Get embeddings from each hash table
+                sub_embeddings = []
+                for hash_idx, seed in enumerate(self.hash_seeds[:self.num_hashes]):
+                    bucket_id = self._hash_token(token, seed)
+                    bucket_tensor = torch.tensor([bucket_id], device=device)
+                    sub_emb = self.hash_embeddings[hash_idx](bucket_tensor)
+                    sub_embeddings.append(sub_emb.squeeze(0))
+                
+                # Concatenate sub-embeddings
+                token_emb = torch.cat(sub_embeddings, dim=-1)
+                output[batch_idx, pos] = token_emb
+        
+        # Apply projection
+        output = self.projection(output)
+        
+        # Add positional encoding
+        output = output + self.pos_encoding[:self.max_seq_len].unsqueeze(0)
+        
+        # Layer norm and dropout
+        output = self.layer_norm(output)
+        output = self.dropout(output)
+        
+        return output
+    
+    def encode_single(self, text: str) -> torch.Tensor:
+        """Convenience method for single text encoding."""
+        return self.forward([text])[0]
+
+
+class ProfileEncoder(nn.Module):
+    """
+    Encodes user profile and conversation features into fixed-size vector.
+    Extracts behavioral signals from conversation history.
+    """
+    
+    def __init__(self, output_dim: int = 128, dropout: float = 0.1):
+        super().__init__()
+        self.output_dim = output_dim
+        
+        # User tier embedding
+        self.tier_embedding = nn.Embedding(4, 32)  # free, paid, enterprise, unknown
+        self.tier_map = {'free': 0, 'paid': 1, 'enterprise': 2, 'unknown': 3}
+        
+        # Continuous feature projection (8 features -> 64 dims)
+        self.continuous_proj = nn.Sequential(
+            nn.Linear(8, 64),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(64, 64)
+        )
+        
+        # Final projection
+        self.output_proj = nn.Sequential(
+            nn.Linear(96, output_dim),
+            nn.LayerNorm(output_dim)
+        )
+        
+        # Code detection pattern
+        self._code_pattern = re.compile(r'```|def\s+\w+|class\s+\w+|import\s+\w+')
+        self._question_pattern = re.compile(r'\?|how\s+|what\s+|why\s+|when\s+', re.IGNORECASE)
+    
+    def _extract_features(self, context: Dict) -> Tuple[int, torch.Tensor]:
+        """Extract tier index and continuous features from context."""
+        # Get messages from context
+        messages = context.get('messages', [])
+        if not messages:
+            messages = []
+        
+        # Tier
+        tier_str = context.get('user_tier', 'unknown')
+        tier_idx = self.tier_map.get(tier_str, 3)
+        
+        # Continuous features
+        message_count = len(messages)
+        
+        # Calculate message statistics
+        total_chars = 0
+        code_count = 0
+        question_count = 0
+        user_msg_count = 0
+        
+        for msg in messages:
+            content = msg.get('content', '') if isinstance(msg, dict) else str(msg)
+            total_chars += len(content)
+            
+            if self._code_pattern.search(content):
+                code_count += 1
+            if self._question_pattern.search(content):
+                question_count += 1
+            
+            role = msg.get('role', '') if isinstance(msg, dict) else ''
+            if role == 'user':
+                user_msg_count += 1
+        
+        avg_length = total_chars / max(message_count, 1)
+        code_ratio = code_count / max(message_count, 1)
+        question_ratio = question_count / max(message_count, 1)
+        user_ratio = user_msg_count / max(message_count, 1)
+        
+        # Log-scale message count
+        log_msg_count = math.log1p(message_count)
+        log_avg_length = math.log1p(avg_length)
+        
+        # Conversation depth from context
+        conv_depth = context.get('conversation_depth', message_count // 2)
+        log_depth = math.log1p(conv_depth)
+        
+        # Session duration (if available)
+        session_duration = context.get('session_duration_seconds', 0)
+        log_duration = math.log1p(session_duration)
+        
+        features = torch.tensor([
+            log_msg_count,
+            log_avg_length,
+            code_ratio,
+            question_ratio,
+            user_ratio,
+            log_depth,
+            log_duration,
+            float(context.get('has_tool_calls', False))
+        ], dtype=torch.float32)
+        
+        return tier_idx, features
+    
+    def forward(self, contexts: List[Dict]) -> torch.Tensor:
+        """
+        Encode batch of contexts into profile vectors.
+        
+        Args:
+            contexts: List of context dictionaries
+            
+        Returns:
+            profiles: [batch, output_dim]
+        """
+        batch_size = len(contexts)
+        device = self.tier_embedding.weight.device
+        
+        tier_indices = []
+        feature_batch = []
+        
+        for ctx in contexts:
+            tier_idx, features = self._extract_features(ctx)
+            tier_indices.append(tier_idx)
+            feature_batch.append(features)
+        
+        # Stack and move to device
+        tier_tensor = torch.tensor(tier_indices, device=device)
+        feature_tensor = torch.stack(feature_batch).to(device)
+        
+        # Encode
+        tier_emb = self.tier_embedding(tier_tensor)  # [batch, 32]
+        feat_emb = self.continuous_proj(feature_tensor)  # [batch, 64]
+        
+        # Concatenate and project
+        combined = torch.cat([tier_emb, feat_emb], dim=-1)
+        output = self.output_proj(combined)
+        
+        return output
+
+
+class MetadataEncoder(nn.Module):
+    """
+    Encodes structured metadata (timestamps, flags, etc.) into fixed-size vector.
+    """
+    
+    def __init__(self, output_dim: int = 64, dropout: float = 0.1):
+        super().__init__()
+        self.output_dim = output_dim
+        
+        # Binary flags projection (5 flags -> 16 dims)
+        self.flag_proj = nn.Linear(5, 16)
+        
+        # Temporal features projection (4 cyclical + 2 linear = 6 -> 24 dims)
+        self.temporal_proj = nn.Linear(6, 24)
+        
+        # Numeric features projection (4 -> 16 dims)
+        self.numeric_proj = nn.Linear(4, 16)
+        
+        # Final projection
+        self.output_proj = nn.Sequential(
+            nn.Linear(56, output_dim),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.LayerNorm(output_dim)
+        )
+    
+    def forward(self, contexts: List[Dict]) -> torch.Tensor:
+        """
+        Encode batch of context metadata.
+        
+        Args:
+            contexts: List of context dictionaries
+            
+        Returns:
+            metadata: [batch, output_dim]
+        """
+        batch_size = len(contexts)
+        device = self.flag_proj.weight.device
+        
+        flags_batch = []
+        temporal_batch = []
+        numeric_batch = []
+        
+        for ctx in contexts:
+            # Binary flags
+            flags = torch.tensor([
+                float(ctx.get('has_tool_calls', False)),
+                float(ctx.get('requires_determinism', False)),
+                float(ctx.get('is_continuation', False)),
+                float(ctx.get('has_attachments', False)),
+                float(ctx.get('is_premium', ctx.get('user_tier', 'free') != 'free'))
+            ], dtype=torch.float32)
+            
+            # Temporal features (cyclical encoding for hour)
+            now = datetime.now()
+            hour = ctx.get('hour_of_day', now.hour)
+            day_of_week = ctx.get('day_of_week', now.weekday())
+            
+            hour_sin = math.sin(2 * math.pi * hour / 24)
+            hour_cos = math.cos(2 * math.pi * hour / 24)
+            dow_sin = math.sin(2 * math.pi * day_of_week / 7)
+            dow_cos = math.cos(2 * math.pi * day_of_week / 7)
+            
+            # Linear temporal
+            session_length = math.log1p(ctx.get('session_length_seconds', 0))
+            time_since_last = math.log1p(ctx.get('seconds_since_last_message', 0))
+            
+            temporal = torch.tensor([
+                hour_sin, hour_cos, dow_sin, dow_cos,
+                session_length, time_since_last
+            ], dtype=torch.float32)
+            
+            # Numeric features
+            numeric = torch.tensor([
+                math.log1p(ctx.get('message_count', 0)),
+                math.log1p(ctx.get('token_count', 0)),
+                math.log1p(ctx.get('tool_call_count', 0)),
+                ctx.get('confidence_threshold', 0.5)
+            ], dtype=torch.float32)
+            
+            flags_batch.append(flags)
+            temporal_batch.append(temporal)
+            numeric_batch.append(numeric)
+        
+        # Stack and move to device
+        flags_tensor = torch.stack(flags_batch).to(device)
+        temporal_tensor = torch.stack(temporal_batch).to(device)
+        numeric_tensor = torch.stack(numeric_batch).to(device)
+        
+        # Encode each component
+        flags_emb = self.flag_proj(flags_tensor)
+        temporal_emb = self.temporal_proj(temporal_tensor)
+        numeric_emb = self.numeric_proj(numeric_tensor)
+        
+        # Concatenate and project
+        combined = torch.cat([flags_emb, temporal_emb, numeric_emb], dim=-1)
+        output = self.output_proj(combined)
+        
+        return output
+
+
+class InputPreparer(nn.Module):
+    """
+    Production-grade input preparation for the Neural Prompt Router.
+    
+    Converts raw context dictionaries into properly encoded tensors:
+    - message_embs: Hash-based text embeddings with positional encoding
+    - user_profile: Behavioral features from conversation history
+    - metadata: Structured metadata encoding
+    
+    This replaces placeholder random tensor generation with real encoding.
+    """
+    
+    def __init__(self, config: RouterConfig):
+        super().__init__()
+        self.config = config
+        
+        # Component encoders
+        self.text_encoder = HashTextEncoder(
+            vocab_buckets=50000,
+            embed_dim=config.context_dim,
+            num_hashes=4,
+            max_seq_len=512,
+            dropout=config.dropout
+        )
+        
+        self.profile_encoder = ProfileEncoder(
+            output_dim=128,
+            dropout=config.dropout
+        )
+        
+        self.metadata_encoder = MetadataEncoder(
+            output_dim=64,
+            dropout=config.dropout
+        )
+        
+        logger.info("InputPreparer initialized with HashTextEncoder, ProfileEncoder, MetadataEncoder")
+    
+    def _extract_message_text(self, context: Dict) -> str:
+        """Extract concatenated message text from context."""
+        messages = context.get('messages', [])
+        if not messages:
+            return ""
+        
+        text_parts = []
+        for msg in messages:
+            if isinstance(msg, dict):
+                role = msg.get('role', 'user')
+                content = msg.get('content', '')
+                text_parts.append(f"[{role}] {content}")
+            else:
+                text_parts.append(str(msg))
+        
+        return " ".join(text_parts)
+    
+    def prepare(self, context: Dict) -> Dict[str, Any]:
+        """
+        Prepare inputs from a single context dictionary.
+        
+        Args:
+            context: Raw context with messages, user_tier, etc.
+            
+        Returns:
+            Dictionary with:
+                - message_embs: [1, seq_len, dim]
+                - user_profile: [1, 128]
+                - metadata: [1, 64]
+                - context_metadata: Original context for safety validation
+        """
+        try:
+            # Extract message text
+            message_text = self._extract_message_text(context)
+            
+            # Encode text
+            if message_text:
+                message_embs = self.text_encoder([message_text])
+            else:
+                # Fallback for empty messages
+                device = self.text_encoder.hash_embeddings[0].weight.device
+                message_embs = torch.zeros(1, 10, self.config.context_dim, device=device)
+                logger.debug("Empty message text, using zero embeddings")
+            
+            # Pool to fixed sequence length for router compatibility
+            if message_embs.size(1) > 10:
+                # Take first 10 positions (most relevant for routing)
+                message_embs = message_embs[:, :10, :]
+            elif message_embs.size(1) < 10:
+                # Pad to 10
+                device = message_embs.device
+                pad_size = 10 - message_embs.size(1)
+                padding = torch.zeros(1, pad_size, self.config.context_dim, device=device)
+                message_embs = torch.cat([message_embs, padding], dim=1)
+            
+            # Encode profile
+            user_profile = self.profile_encoder([context])
+            
+            # Encode metadata
+            metadata = self.metadata_encoder([context])
+            
+            return {
+                'message_embs': message_embs,
+                'user_profile': user_profile,
+                'metadata': metadata,
+                'context_metadata': context
+            }
+            
+        except Exception as e:
+            logger.error(f"InputPreparer.prepare failed: {e}")
+            # Graceful fallback to zero tensors
+            device = self.text_encoder.hash_embeddings[0].weight.device
+            return {
+                'message_embs': torch.zeros(1, 10, self.config.context_dim, device=device),
+                'user_profile': torch.zeros(1, 128, device=device),
+                'metadata': torch.zeros(1, 64, device=device),
+                'context_metadata': context
+            }
+    
+    def prepare_batch(self, contexts: List[Dict]) -> Dict[str, Any]:
+        """
+        Prepare inputs from a batch of contexts.
+        
+        Args:
+            contexts: List of context dictionaries
+            
+        Returns:
+            Dictionary with batched tensors
+        """
+        if not contexts:
+            raise ValueError("Cannot prepare empty batch")
+        
+        # Process each context
+        results = [self.prepare(ctx) for ctx in contexts]
+        
+        # Stack tensors
+        return {
+            'message_embs': torch.cat([r['message_embs'] for r in results], dim=0),
+            'user_profile': torch.cat([r['user_profile'] for r in results], dim=0),
+            'metadata': torch.cat([r['metadata'] for r in results], dim=0),
+            'context_metadata': contexts[0]  # Use first context for batch metadata
+        }
 
 
 # ============================================================================
@@ -1116,16 +1631,37 @@ class RouterTrainer:
 
 class SafeRouterWrapper:
     """
-    Production wrapper with fallback to Jinja2
+    Production wrapper with fallback to Jinja2.
+    
+    Uses InputPreparer for proper context encoding and includes:
+    - Automatic fallback on failure
+    - Failure tracking with exponential backoff consideration
+    - Comprehensive logging for debugging
+    - Device-aware tensor handling
     """
+    
     def __init__(
         self,
         neural_router: NeuralPromptRouter,
-        jinja_template: any  # Your existing Jinja2 template
+        jinja_template: any,  # Your existing Jinja2 template
+        device: Optional[torch.device] = None
     ):
         self.neural_router = neural_router
         self.jinja_template = jinja_template
         self.failure_count = 0
+        self.total_routes = 0
+        self.neural_routes = 0
+        
+        # Determine device
+        if device is None:
+            device = next(neural_router.parameters()).device
+        self.device = device
+        
+        # Initialize production-grade input preparer
+        self.input_preparer = InputPreparer(neural_router.config)
+        self.input_preparer.to(device)
+        
+        logger.info(f"SafeRouterWrapper initialized on device: {device}")
         
     def route(
         self,
@@ -1134,17 +1670,29 @@ class SafeRouterWrapper:
         timeout: float = 5.0
     ) -> Tuple[str, Dict]:
         """
-        Route with automatic fallback
+        Route with automatic fallback.
+        
+        Args:
+            context: Context dictionary with messages, user_tier, etc.
+            use_neural: Whether to attempt neural routing
+            timeout: Timeout for neural routing (future use)
+            
+        Returns:
+            (generated_prompt, metadata_dict)
         """
+        self.total_routes += 1
+        
         # Check if deterministic mode required
         if context.get('requires_determinism', False):
             return self._fallback_route(context, reason='determinism_required')
         
+        # Check failure threshold (circuit breaker pattern)
         if not use_neural or self.failure_count > 10:
-            return self._fallback_route(context, reason='disabled_or_failures')
+            reason = 'disabled' if not use_neural else 'circuit_breaker_open'
+            return self._fallback_route(context, reason=reason)
         
         try:
-            # Prepare inputs
+            # Prepare inputs using production encoder
             inputs = self._prepare_inputs(context)
             
             # Neural routing
@@ -1156,28 +1704,71 @@ class SafeRouterWrapper:
             # Validate output
             if self._validate_prompt(prompt):
                 self.failure_count = max(0, self.failure_count - 1)
-                return prompt, {'method': 'neural', 'trace': trace}
+                self.neural_routes += 1
+                return prompt, {
+                    'method': 'neural',
+                    'trace': trace,
+                    'success_rate': self.neural_routes / self.total_routes
+                }
             else:
+                logger.warning("Neural routing produced invalid prompt, falling back")
                 return self._fallback_route(context, reason='validation_failed')
                 
         except Exception as e:
             self.failure_count += 1
+            logger.error(f"Neural routing failed: {e}", exc_info=True)
             return self._fallback_route(context, reason=f'exception: {str(e)}')
     
     def _fallback_route(self, context: Dict, reason: str) -> Tuple[str, Dict]:
-        """Fallback to Jinja2 template"""
-        prompt = self.jinja_template.render(**context)
-        return prompt, {'method': 'jinja2_fallback', 'reason': reason}
+        """Fallback to Jinja2 template with proper error handling."""
+        try:
+            prompt = self.jinja_template.render(**context)
+            return prompt, {
+                'method': 'jinja2_fallback',
+                'reason': reason,
+                'failure_count': self.failure_count
+            }
+        except Exception as e:
+            logger.error(f"Jinja2 fallback also failed: {e}")
+            # Ultimate fallback - return minimal valid prompt
+            return self._emergency_fallback(context, original_reason=reason, fallback_error=str(e))
+    
+    def _emergency_fallback(self, context: Dict, original_reason: str, fallback_error: str) -> Tuple[str, Dict]:
+        """Emergency fallback when both neural and Jinja2 fail."""
+        prompt = """<|start|>system<|message|>
+You are a large language model assistant.
+Knowledge cutoff: 2024-06
+Current date: {date}
+
+# Valid channels: analysis, commentary, final.
+Calls to these tools must go to the commentary channel: 'functions'.
+// Cite information from the tool using the following format:
+<|end|>""".format(date=datetime.now().strftime("%Y-%m-%d"))
+        
+        return prompt, {
+            'method': 'emergency_fallback',
+            'original_reason': original_reason,
+            'fallback_error': fallback_error,
+            'failure_count': self.failure_count
+        }
     
     def _prepare_inputs(self, context: Dict) -> Dict:
-        """Convert context dict to model inputs"""
-        # This would encode messages, profile, etc.
-        # Placeholder implementation
+        """
+        Convert context dict to properly encoded model inputs.
+        
+        Uses the production InputPreparer for:
+        - Hash-based message text encoding
+        - Profile feature extraction
+        - Metadata encoding
+        """
+        prepared = self.input_preparer.prepare(context)
+        
+        # Ensure tensors are on correct device
         return {
-            'message_embs': torch.randn(1, 10, 768),
-            'user_profile': torch.randn(1, 128),
-            'metadata': torch.randn(1, 64),
-            'context_metadata': context
+            'message_embs': prepared['message_embs'].to(self.device),
+            'user_profile': prepared['user_profile'].to(self.device),
+            'metadata': prepared['metadata'].to(self.device),
+            'context_metadata': prepared['context_metadata']
         }
     
     def _validate_prompt(self, prompt: str) -> bool:

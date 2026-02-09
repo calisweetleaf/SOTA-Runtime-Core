@@ -1,7 +1,0 @@
-﻿.venv/
-__pycache__/
-*.pyc
-reports/*.log
-production_doctor.log
-reports/production_doctor.log
-REDDIT_POST.md

@@ -3,7 +3,13 @@
     "id": "builtin_group_id",
     "name": "Currently Open Files",
     "files": [
-      "REDDIT_POST.md"
+      "REDDIT_POST.md",
+      "../somnus_router/neural_router.py",
+      "neural_router.py",
+      ".gitignore",
+      "full-terminal-validation.md",
+      "input-preparer-terminal-log.md",
+      "../somnus_router/test_input_preparer.py"
     ],
     "builtIn": true,
     "bookmarks": {}

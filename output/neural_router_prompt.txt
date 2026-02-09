@@ -1,13 +1,13 @@
 <|start|>system<|message|>
 You are a large language model assistant.
 Knowledge cutoff: 2024-06
-Current date: 2026-02-08
+Current date: 2026-02-09
 
 Reasoning: medium
 
 # Tools
 Builtin tools:
-- `web_search`
+- `browser`
 
 // Cite information from the tool using the following format:
 // `【{cursor}†L{line_start}(-L{line_end})?】`
