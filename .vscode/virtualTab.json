@@ -3,11 +3,12 @@
     "id": "builtin_group_id",
     "name": "Currently Open Files",
     "files": [
-      "prompt_templates/offline_reasoning_agent.md",
       "docs/USAGE_GUIDE.md",
       "CITATION.cff",
       ".gitignore",
       "REDDIT_POST.md",
+      "zenodo_doi.txt",
+      "README.md",
       "verify_prompt_integration.py",
       "neural_router.py"
     ],

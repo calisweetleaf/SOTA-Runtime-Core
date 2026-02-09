@@ -280,3 +280,12 @@ Note: `hash-index.ps1` is validated with PowerShell 7 (`pwsh`).
 - `docs/MODULE_GUIDE.md`: class-level surface map and integration notes.
 - `docs/PROVENANCE.md`: manifest workflow and current hash snapshot.
 - `docs/RELEASE_CHECKLIST.md`: release-readiness checklist.
+
+
+### Provenance
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18530654.svg)](https://doi.org/10.5281/zenodo.18530654)
+
+- **Zenodo Archive:** [10.5281/zenodo.18530654](https://doi.org/10.5281/zenodo.18530654)
+- **Author ORCID:** [0009-0008-6550-6316](https://orcid.org/0009-0008-6550-6316)
+- **Prior Work:** [Reinforcement-Learning-Full-Pipeline](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline)
