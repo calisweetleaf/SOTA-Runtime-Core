@@ -3,13 +3,12 @@ message: "If you use this software in your research, please cite it as below."
 title: "Somnus Router Toolkit"
 version: "1.0.0"
 date-released: "2026-02-09"
-license: "LicenseRef-Sovereign-Anti-Exploitation"
 url: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
 repository-code: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
 abstract: "Production-grade neural routing and cross-chat memory systems for local AI infrastructure. Part of the Somnus Sovereign Systems toolkit series."
 authors:
-  - given-names: "Christian Trey Levi"
-    family-names: "Rowell"
+  - family-names: "Rowell"
+    given-names: "Christian Trey Levi"
     affiliation: "Somnus Sovereign Systems"
 keywords:
   - "neural-routing"
@@ -17,12 +16,12 @@ keywords:
   - "llm-infrastructure"
   - "prompt-engineering"
   - "sovereign-ai"
-type: "software"
+license: "Proprietary"
 preferred-citation:
   type: software
   authors:
-    - given-names: "Christian Trey Levi"
-      family-names: "Rowell"
+    - family-names: "Rowell"
+      given-names: "Christian Trey Levi"
   title: "Somnus Router Toolkit"
   version: "1.0.0"
   date-released: "2026-02-09"
