@@ -1,0 +1,9 @@
+# Core dependencies
+numpy
+scipy
+scikit-learn
+torch
+transformers
+tqdm
+rich  
+Jinja2

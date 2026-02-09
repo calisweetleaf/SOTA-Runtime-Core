@@ -1,0 +1,146 @@
+{
+  "timestamp": "2026-02-09T03:17:12.896669Z",
+  "seed": 42,
+  "config": {
+    "context_dim": 768,
+    "num_transformer_layers": 4,
+    "num_attention_heads": 8,
+    "num_templates": 8,
+    "num_tools": 32,
+    "learning_rate": 0.0001,
+    "dropout": 0.1,
+    "weight_decay": 0.01,
+    "reasoning_levels": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "builtin_tools": [
+      "browser",
+      "python",
+      "web_search"
+    ]
+  },
+  "context_metadata": {
+    "user_tier": "free",
+    "message_count": 2,
+    "has_tool_calls": true,
+    "requires_determinism": false
+  },
+  "prompt": "<|start|>system<|message|>\nYou are a large language model assistant.\nKnowledge cutoff: 2024-06\nCurrent date: 2026-02-08\n\nReasoning: medium\n\n# Tools\nBuiltin tools:\n- `web_search`\n\n// Cite information from the tool using the following format:\n// `\u3010{cursor}\u2020L{line_start}(-L{line_end})?\u3011`\n\n# Valid channels: analysis, commentary, final.\nCalls to these tools must go to the commentary channel: 'functions'.\n<|end|>\n\n# Tools\n\n## browser\n// Web retrieval and navigation for time-sensitive or uncertain facts.\nnamespace browser {\ntype search = (_: {\n  query: string,\n  topn?: number,\n}) => any;\ntype open = (_: {\n  id?: number | string,\n  cursor?: number,\n  loc?: number,\n  num_lines?: number,\n}) => any;\ntype find = (_: {\n  pattern: string,\n  cursor?: number,\n}) => any;\n}\n\n## python\n// Use for private analysis and transformations only.\n// Calls to python MUST go in the analysis channel.\n\n## functions\n// Calls to these tools must go to the commentary channel: 'functions'.\n\n# Reference Appendix\n\nReference format:\n- Use explicit channel headers.\n- Keep tool invocation arguments valid JSON.\n- Treat `analysis` as private reasoning and `final` as user-visible output.\n- Keep citations adjacent to claims derived from tools.",
+  "trace": {
+    "context_embedding_norm": 7.8072638511657715,
+    "slot_predictions": {
+      "reasoning_effort": 2,
+      "tool_enables": {
+        "browser": false,
+        "python": false,
+        "web_search": true
+      },
+      "tool_weights_top5": [
+        [
+          0,
+          14,
+          7,
+          25,
+          17
+        ]
+      ],
+      "confidence": 0.4229309558868408
+    },
+    "safety_violations": [
+      {
+        "rule": "reasoning_premature",
+        "severity": "SOFT",
+        "message": "High reasoning inappropriate for short conversations",
+        "field": "reasoning_effort"
+      }
+    ],
+    "template_weights": [
+      [
+        0.1273777186870575,
+        0.13294976949691772,
+        0.11064159125089645,
+        0.13052211701869965,
+        0.13885873556137085,
+        0.12504614889621735,
+        0.11888831853866577,
+        0.11571566015481949
+      ]
+    ],
+    "selected_template": 4,
+    "output_issues": [],
+    "prompt_length": 1219
+  },
+  "prompt_preview": "<|start|>system<|message|>\nYou are a large language model assistant.\nKnowledge cutoff: 2024-06\nCurrent date: 2026-02-08\n\nReasoning: medium\n\n# Tools\nBuiltin tools:\n- `web_search`\n\n// Cite information from the tool using the following format:\n// `\u3010{cursor}\u2020L{line_start}(-L{line_end})?\u3011`\n\n# Valid channels: analysis, commentary, final.\nCalls to these tools must go to the commentary channel: 'functions",
+  "operation_log": [
+    {
+      "timestamp": "2026-02-09T03:17:11.910217Z",
+      "step": "set_seed",
+      "status": "ok",
+      "details": {
+        "seed": 42
+      },
+      "duration_ms": 18.567
+    },
+    {
+      "timestamp": "2026-02-09T03:17:11.910217Z",
+      "step": "init_config",
+      "status": "ok",
+      "details": {
+        "context_dim": 768,
+        "num_templates": 16
+      },
+      "duration_ms": 0.033
+    },
+    {
+      "timestamp": "2026-02-09T03:17:12.443624Z",
+      "step": "init_router",
+      "status": "ok",
+      "details": {
+        "router_class": "NeuralPromptRouter"
+      },
+      "duration_ms": 532.646
+    },
+    {
+      "timestamp": "2026-02-09T03:17:12.443624Z",
+      "step": "build_batch",
+      "status": "ok",
+      "details": {
+        "message_embs_shape": [
+          1,
+          10,
+          768
+        ],
+        "user_profile_shape": [
+          1,
+          128
+        ],
+        "metadata_shape": [
+          1,
+          64
+        ]
+      },
+      "duration_ms": 0.232
+    },
+    {
+      "timestamp": "2026-02-09T03:17:12.896669Z",
+      "step": "router_forward",
+      "status": "ok",
+      "details": {
+        "prompt_length": 1219,
+        "selected_template": 4,
+        "output_issues_count": 0
+      },
+      "duration_ms": 453.617
+    },
+    {
+      "timestamp": "2026-02-09T03:17:12.896669Z",
+      "step": "run_complete",
+      "status": "ok",
+      "details": {
+        "total_runtime_ms": 1005.148
+      }
+    }
+  ]
+}

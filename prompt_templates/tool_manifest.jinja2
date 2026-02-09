@@ -1,0 +1,25 @@
+## browser
+// Web retrieval and navigation for time-sensitive or uncertain facts.
+namespace browser {
+type search = (_: {
+  query: string,
+  topn?: number,
+}) => any;
+type open = (_: {
+  id?: number | string,
+  cursor?: number,
+  loc?: number,
+  num_lines?: number,
+}) => any;
+type find = (_: {
+  pattern: string,
+  cursor?: number,
+}) => any;
+}
+
+## python
+// Use for private analysis and transformations only.
+// Calls to python MUST go in the analysis channel.
+
+## functions
+// Calls to these tools must go to the commentary channel: 'functions'.

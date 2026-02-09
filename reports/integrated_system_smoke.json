@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-02-09T03:18:01.465944Z",
+  "request": {
+    "user_id": "integrated_smoke_user",
+    "conversation_id": "integrated_smoke_conv",
+    "message": "Help me package this router and memory toolkit for release.",
+    "message_history": [
+      {
+        "role": "user",
+        "content": "I need a production-ready release workflow."
+      },
+      {
+        "role": "assistant",
+        "content": "I can help design one."
+      }
+    ],
+    "user_profile": {
+      "tier": "free",
+      "name": "SmokeUser"
+    },
+    "metadata": {
+      "message_count": 3,
+      "has_code": true,
+      "user_tier": "free"
+    }
+  },
+  "response": {
+    "response_preview": "This is a mock response. In production, this would call the LLM API.",
+    "system_prompt_preview": "<|start|>system<|message|>\nYou are a large language model assistant.\nKnowledge cutoff: 2024-06\nCurrent date: 2026-02-08\n\nReasoning: medium\n\n# Tools\nBuiltin tools:\n- `browser`\n- `web_search`\n\n// Cite information from the tool using the following format:\n// `\u3010{cursor}\u2020L{line_start}(-L{line_end})?\u3011`\n\n# Valid channels: analysis, commentary, final.\nCalls to these tools must go to the commentary channel: 'functions'.\n<|end|>\n\n# Tools\n\n## browser\n// Web retrieval and navigation for time-sensitive or un",
+    "memories_used": [],
+    "router_trace_keys": [
+      "context_embedding_norm",
+      "output_issues",
+      "prompt_length",
+      "safety_violations",
+      "selected_template",
+      "slot_predictions",
+      "template_weights"
+    ],
+    "processing_time_seconds": 2.6657350063323975
+  },
+  "memory_summary": {
+    "total_memories": 0,
+    "by_type": {
+      "fact": 0,
+      "preference": 0,
+      "entity": 0,
+      "topic": 0,
+      "conversation": 0,
+      "tool_usage": 0
+    },
+    "top_topics": [],
+    "last_updated": null
+  },
+  "compatibility_shim": {
+    "router_core_implementation": true,
+    "conversation_context_bridge": true
+  },
+  "operation_log": [
+    {
+      "timestamp": "2026-02-09T03:17:57.591094Z",
+      "step": "install_router_shim",
+      "status": "ok",
+      "details": {
+        "module": "router_core_implementation"
+      },
+      "duration_ms": 0.062
+    },
+    {
+      "timestamp": "2026-02-09T03:17:57.598505Z",
+      "step": "import_integrated_system",
+      "status": "ok",
+      "details": {
+        "module": "integrated_system"
+      },
+      "duration_ms": 6.706
+    },
+    {
+      "timestamp": "2026-02-09T03:17:57.598505Z",
+      "step": "bridge_conversation_context",
+      "status": "ok",
+      "duration_ms": 0.01
+    },
+    {
+      "timestamp": "2026-02-09T03:17:58.743974Z",
+      "step": "init_integrated_system",
+      "status": "ok",
+      "details": {
+        "enable_memory": true,
+        "enable_neural_router": true
+      },
+      "duration_ms": 1145.697
+    },
+    {
+      "timestamp": "2026-02-09T03:18:01.409709Z",
+      "step": "process_chat",
+      "status": "ok",
+      "details": {
+        "processing_time_seconds": 2.6657350063323975,
+        "router_trace_keys": [
+          "context_embedding_norm",
+          "output_issues",
+          "prompt_length",
+          "safety_violations",
+          "selected_template",
+          "slot_predictions",
+          "template_weights"
+        ],
+        "memories_used": []
+      },
+      "duration_ms": 2665.509
+    },
+    {
+      "timestamp": "2026-02-09T03:18:01.465944Z",
+      "step": "await_background_cycle",
+      "status": "ok",
+      "details": {
+        "sleep_seconds": 0.05
+      },
+      "duration_ms": 56.48
+    },
+    {
+      "timestamp": "2026-02-09T03:18:01.465944Z",
+      "step": "summarize_memory",
+      "status": "ok",
+      "details": {
+        "total_memories": 0
+      },
+      "duration_ms": 0.075
+    },
+    {
+      "timestamp": "2026-02-09T03:18:01.465944Z",
+      "step": "run_complete",
+      "status": "ok",
+      "details": {
+        "total_runtime_ms": 3874.612
+      }
+    }
+  ]
+}

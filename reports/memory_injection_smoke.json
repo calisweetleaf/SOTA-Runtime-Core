@@ -1,0 +1,132 @@
+{
+  "timestamp": "2026-02-09T03:18:06.006593Z",
+  "seed": 42,
+  "config": {
+    "auto_extract": true,
+    "extraction_interval": 5,
+    "max_context_tokens": 2000,
+    "storage_backend": "in_memory"
+  },
+  "conversation": {
+    "conversation_id": "smoke_conv_001",
+    "user_id": "smoke_user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "I prefer concise architecture summaries."
+      },
+      {
+        "role": "assistant",
+        "content": "Noted. I will keep outputs concise."
+      },
+      {
+        "role": "user",
+        "content": "I am building a neural routing sandbox."
+      }
+    ],
+    "current_topic": "architecture",
+    "active_tools": "set()",
+    "metadata": {
+      "message_count": 3,
+      "user_tier": "free"
+    }
+  },
+  "extracted_count": 0,
+  "seeded_memory_ids": [
+    "smoke_mem_pref",
+    "smoke_mem_fact",
+    "smoke_mem_topic"
+  ],
+  "messages_injected_count": 2,
+  "has_developer_memory_block": true,
+  "memory_block_preview": "<memory>\n\n## User Preferences\n- Prefers concise technical responses.\n\n## User Context\n- Building a neural prompt router toolkit.\n\n## Interest Areas: Interested in production-grade validation workflows.\n\n</memory>",
+  "memory_summary": {
+    "total_memories": 3,
+    "by_type": {
+      "fact": 1,
+      "preference": 1,
+      "entity": 0,
+      "topic": 1,
+      "conversation": 0,
+      "tool_usage": 0
+    },
+    "top_topics": [
+      "Interested in production-grade validation workflows."
+    ],
+    "last_updated": "2026-02-08 21:18:05.999223"
+  },
+  "operation_log": [
+    {
+      "timestamp": "2026-02-09T03:18:05.999223Z",
+      "step": "set_seed",
+      "status": "ok",
+      "details": {
+        "seed": 42
+      },
+      "duration_ms": 54.543
+    },
+    {
+      "timestamp": "2026-02-09T03:18:05.999223Z",
+      "step": "init_memory_manager",
+      "status": "ok",
+      "details": {
+        "storage_backend": "in_memory"
+      },
+      "duration_ms": 0.048
+    },
+    {
+      "timestamp": "2026-02-09T03:18:05.999223Z",
+      "step": "build_conversation_context",
+      "status": "ok",
+      "details": {
+        "message_count": 3
+      },
+      "duration_ms": 0.017
+    },
+    {
+      "timestamp": "2026-02-09T03:18:05.999223Z",
+      "step": "extract_memories",
+      "status": "ok",
+      "details": {
+        "extracted_count": 0
+      },
+      "duration_ms": 0.075
+    },
+    {
+      "timestamp": "2026-02-09T03:18:06.000910Z",
+      "step": "seed_memories",
+      "status": "ok",
+      "details": {
+        "seeded_count": 3
+      },
+      "duration_ms": 1.422
+    },
+    {
+      "timestamp": "2026-02-09T03:18:06.005571Z",
+      "step": "inject_memory_block",
+      "status": "ok",
+      "details": {
+        "messages_returned": 2,
+        "developer_memory_block": true
+      },
+      "duration_ms": 5.313
+    },
+    {
+      "timestamp": "2026-02-09T03:18:06.006593Z",
+      "step": "summarize_memory",
+      "status": "ok",
+      "details": {
+        "total_memories": 3
+      },
+      "duration_ms": 0.096
+    },
+    {
+      "timestamp": "2026-02-09T03:18:06.006593Z",
+      "step": "run_complete",
+      "status": "ok",
+      "details": {
+        "total_runtime_ms": 61.59
+      }
+    }
+  ]
+}

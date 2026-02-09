@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use or distribute this license file in your research, software, or documentation, please cite it as indicated below. Political or legal citations do not constitute endorsement of any party."
+title: "Somnus Sovereign License"
+version: "4.0 (Leviathan Enforcement Edition)"
+date-released: "2026-01-08"
+license: "Proprietary"
+url: "https://github.com/calisweetleaf/somnus-license"
+repository-code: "https://github.com/calisweetleaf/somnus-license"
+abstract: "A sovereign, anti-exploitation software license intended to deny monopolistic capture of AI infrastructure by enforcing strict non-commercial and anti-capture provisions."
+authors:
+  - given-names: "Christian Trey Levi"
+    family-names: "Rowell"
+    affiliation: "Somnus Sovereign Systems"
+keywords:
+  - "license"
+  - "sovereign"
+  - "anti-exploitation"
+  - "software"
+  - "legal"
+type: "software"
+preferred-citation:
+  - "Rowell, C.T.L. (2026). Somnus Sovereign License v4.0 (Leviathan Enforcement Edition). https://github.com/calisweetleaf/somnus-license"

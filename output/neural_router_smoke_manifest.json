@@ -1,0 +1,85 @@
+{
+  "generated_utc": "2026-02-09T03:17:12.910105Z",
+  "suite": "neural_router_smoke",
+  "artifacts": {
+    "json": "output\\neural_router_smoke.json",
+    "markdown": "output\\neural_router_smoke.md",
+    "prompt": "output\\neural_router_prompt.txt"
+  },
+  "summary": {
+    "selected_template": 4,
+    "prompt_length": 1219,
+    "safety_violations_count": 1,
+    "output_issues_count": 0
+  },
+  "operation_log": [
+    {
+      "timestamp": "2026-02-09T03:17:11.910217Z",
+      "step": "set_seed",
+      "status": "ok",
+      "details": {
+        "seed": 42
+      },
+      "duration_ms": 18.567
+    },
+    {
+      "timestamp": "2026-02-09T03:17:11.910217Z",
+      "step": "init_config",
+      "status": "ok",
+      "details": {
+        "context_dim": 768,
+        "num_templates": 16
+      },
+      "duration_ms": 0.033
+    },
+    {
+      "timestamp": "2026-02-09T03:17:12.443624Z",
+      "step": "init_router",
+      "status": "ok",
+      "details": {
+        "router_class": "NeuralPromptRouter"
+      },
+      "duration_ms": 532.646
+    },
+    {
+      "timestamp": "2026-02-09T03:17:12.443624Z",
+      "step": "build_batch",
+      "status": "ok",
+      "details": {
+        "message_embs_shape": [
+          1,
+          10,
+          768
+        ],
+        "user_profile_shape": [
+          1,
+          128
+        ],
+        "metadata_shape": [
+          1,
+          64
+        ]
+      },
+      "duration_ms": 0.232
+    },
+    {
+      "timestamp": "2026-02-09T03:17:12.896669Z",
+      "step": "router_forward",
+      "status": "ok",
+      "details": {
+        "prompt_length": 1219,
+        "selected_template": 4,
+        "output_issues_count": 0
+      },
+      "duration_ms": 453.617
+    },
+    {
+      "timestamp": "2026-02-09T03:17:12.896669Z",
+      "step": "run_complete",
+      "status": "ok",
+      "details": {
+        "total_runtime_ms": 1005.148
+      }
+    }
+  ]
+}

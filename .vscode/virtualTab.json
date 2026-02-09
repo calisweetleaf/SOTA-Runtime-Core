@@ -1,0 +1,15 @@
+[
+  {
+    "id": "builtin_group_id",
+    "name": "Currently Open Files",
+    "files": [
+      "prompt_templates/offline_reasoning_agent.md",
+      "README.md",
+      "docs/USAGE_GUIDE.md",
+      "verify_prompt_integration.py",
+      "neural_router.py"
+    ],
+    "builtIn": true,
+    "bookmarks": {}
+  }
+]

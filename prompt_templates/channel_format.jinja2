@@ -1,0 +1,13 @@
+<|start|>system<|message|>
+You are a large language model assistant.
+Knowledge cutoff: {{ knowledge_cutoff | default("2024-06") }}
+Current date: {{ current_date | default("2026-02-09") }}
+
+Reasoning: {{ reasoning_effort | default("medium") }}
+
+// Cite information from the tool using the following format:
+// `【{cursor}†L{line_start}(-L{line_end})?】`
+
+# Valid channels: analysis, commentary, final.
+Calls to these tools must go to the commentary channel: 'functions'.
+<|end|>

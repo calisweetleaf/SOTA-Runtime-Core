@@ -1,0 +1,14 @@
+<|start|>system<|message|>
+Tokenizer profile: structured channel serialization.
+Model identity: {{ model_identity | default("You are a large language model assistant.") }}
+Reasoning: {{ reasoning_effort | default("medium") }}
+
+Emit channel tags and tool calls in stable machine-readable format.
+Do not include hidden reasoning in final output.
+
+// Cite information from the tool using the following format:
+// `【{cursor}†L{line_start}(-L{line_end})?】`
+
+# Valid channels: analysis, commentary, final.
+Calls to these tools must go to the commentary channel: 'functions'.
+<|end|>
