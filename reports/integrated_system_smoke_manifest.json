@@ -1,57 +1,57 @@
 {
-  "generated_utc": "2026-02-09T03:18:01.476629Z",
+  "generated_utc": "2026-02-09T03:53:34.124868Z",
   "suite": "integrated_system_smoke",
   "artifacts": {
     "json": "reports\\integrated_system_smoke.json",
     "markdown": "reports\\integrated_system_smoke.md"
   },
   "summary": {
-    "processing_time_seconds": 2.6657350063323975,
+    "processing_time_seconds": 0.2924532890319824,
     "router_trace_keys_count": 7,
     "memories_used": [],
     "total_memories": 0
   },
   "operation_log": [
     {
-      "timestamp": "2026-02-09T03:17:57.591094Z",
+      "timestamp": "2026-02-09T03:53:33.369576Z",
       "step": "install_router_shim",
       "status": "ok",
       "details": {
         "module": "router_core_implementation"
       },
-      "duration_ms": 0.062
+      "duration_ms": 0.029
     },
     {
-      "timestamp": "2026-02-09T03:17:57.598505Z",
+      "timestamp": "2026-02-09T03:53:33.373521Z",
       "step": "import_integrated_system",
       "status": "ok",
       "details": {
         "module": "integrated_system"
       },
-      "duration_ms": 6.706
+      "duration_ms": 3.785
     },
     {
-      "timestamp": "2026-02-09T03:17:57.598505Z",
+      "timestamp": "2026-02-09T03:53:33.373521Z",
       "step": "bridge_conversation_context",
       "status": "ok",
-      "duration_ms": 0.01
+      "duration_ms": 0.007
     },
     {
-      "timestamp": "2026-02-09T03:17:58.743974Z",
+      "timestamp": "2026-02-09T03:53:33.764497Z",
       "step": "init_integrated_system",
       "status": "ok",
       "details": {
         "enable_memory": true,
         "enable_neural_router": true
       },
-      "duration_ms": 1145.697
+      "duration_ms": 391.057
     },
     {
-      "timestamp": "2026-02-09T03:18:01.409709Z",
+      "timestamp": "2026-02-09T03:53:34.056951Z",
       "step": "process_chat",
       "status": "ok",
       "details": {
-        "processing_time_seconds": 2.6657350063323975,
+        "processing_time_seconds": 0.2924532890319824,
         "router_trace_keys": [
           "context_embedding_norm",
           "output_issues",
@@ -63,32 +63,32 @@
         ],
         "memories_used": []
       },
-      "duration_ms": 2665.509
+      "duration_ms": 292.593
     },
     {
-      "timestamp": "2026-02-09T03:18:01.465944Z",
+      "timestamp": "2026-02-09T03:53:34.118437Z",
       "step": "await_background_cycle",
       "status": "ok",
       "details": {
         "sleep_seconds": 0.05
       },
-      "duration_ms": 56.48
+      "duration_ms": 61.348
     },
     {
-      "timestamp": "2026-02-09T03:18:01.465944Z",
+      "timestamp": "2026-02-09T03:53:34.118437Z",
       "step": "summarize_memory",
       "status": "ok",
       "details": {
         "total_memories": 0
       },
-      "duration_ms": 0.075
+      "duration_ms": 0.066
     },
     {
-      "timestamp": "2026-02-09T03:18:01.465944Z",
+      "timestamp": "2026-02-09T03:53:34.118437Z",
       "step": "run_complete",
       "status": "ok",
       "details": {
-        "total_runtime_ms": 3874.612
+        "total_runtime_ms": 748.957
       }
     }
   ]

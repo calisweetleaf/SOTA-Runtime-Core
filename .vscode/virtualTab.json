@@ -4,8 +4,8 @@
     "name": "Currently Open Files",
     "files": [
       "prompt_templates/offline_reasoning_agent.md",
-      "README.md",
       "docs/USAGE_GUIDE.md",
+      "run_neural_router_smoke.py",
       "verify_prompt_integration.py",
       "neural_router.py"
     ],

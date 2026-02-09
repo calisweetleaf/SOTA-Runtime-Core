@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-02-09T03:18:06.009802Z",
+  "generated_utc": "2026-02-09T03:53:08.246422Z",
   "suite": "memory_injection_smoke",
   "artifacts": {
     "json": "reports\\memory_injection_smoke.json",
@@ -13,75 +13,75 @@
   },
   "operation_log": [
     {
-      "timestamp": "2026-02-09T03:18:05.999223Z",
+      "timestamp": "2026-02-09T03:53:08.225260Z",
       "step": "set_seed",
       "status": "ok",
       "details": {
         "seed": 42
       },
-      "duration_ms": 54.543
+      "duration_ms": 1472.25
     },
     {
-      "timestamp": "2026-02-09T03:18:05.999223Z",
+      "timestamp": "2026-02-09T03:53:08.225260Z",
       "step": "init_memory_manager",
       "status": "ok",
       "details": {
         "storage_backend": "in_memory"
       },
-      "duration_ms": 0.048
+      "duration_ms": 0.074
     },
     {
-      "timestamp": "2026-02-09T03:18:05.999223Z",
+      "timestamp": "2026-02-09T03:53:08.225260Z",
       "step": "build_conversation_context",
       "status": "ok",
       "details": {
         "message_count": 3
       },
-      "duration_ms": 0.017
+      "duration_ms": 0.029
     },
     {
-      "timestamp": "2026-02-09T03:18:05.999223Z",
+      "timestamp": "2026-02-09T03:53:08.225260Z",
       "step": "extract_memories",
       "status": "ok",
       "details": {
         "extracted_count": 0
       },
-      "duration_ms": 0.075
+      "duration_ms": 0.105
     },
     {
-      "timestamp": "2026-02-09T03:18:06.000910Z",
+      "timestamp": "2026-02-09T03:53:08.227810Z",
       "step": "seed_memories",
       "status": "ok",
       "details": {
         "seeded_count": 3
       },
-      "duration_ms": 1.422
+      "duration_ms": 1.861
     },
     {
-      "timestamp": "2026-02-09T03:18:06.005571Z",
+      "timestamp": "2026-02-09T03:53:08.238724Z",
       "step": "inject_memory_block",
       "status": "ok",
       "details": {
         "messages_returned": 2,
         "developer_memory_block": true
       },
-      "duration_ms": 5.313
+      "duration_ms": 11.151
     },
     {
-      "timestamp": "2026-02-09T03:18:06.006593Z",
+      "timestamp": "2026-02-09T03:53:08.238724Z",
       "step": "summarize_memory",
       "status": "ok",
       "details": {
         "total_memories": 3
       },
-      "duration_ms": 0.096
+      "duration_ms": 0.072
     },
     {
-      "timestamp": "2026-02-09T03:18:06.006593Z",
+      "timestamp": "2026-02-09T03:53:08.238724Z",
       "step": "run_complete",
       "status": "ok",
       "details": {
-        "total_runtime_ms": 61.59
+        "total_runtime_ms": 1485.621
       }
     }
   ]

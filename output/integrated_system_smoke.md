@@ -1,7 +1,7 @@
 # Integrated System Smoke Test
-- Timestamp: 2026-02-09T03:18:01.465944Z
+- Timestamp: 2026-02-09T03:53:34.118437Z
 - Compatibility shim: {'router_core_implementation': True, 'conversation_context_bridge': True}
-- Processing time (s): 2.6657350063323975
+- Processing time (s): 0.2924532890319824
 - Router trace keys: context_embedding_norm, output_issues, prompt_length, safety_violations, selected_template, slot_predictions, template_weights
 
 ## Response Preview
@@ -16,7 +16,7 @@ You are a large language model assistant.
 Knowledge cutoff: 2024-06
 Current date: 2026-02-08
 
-Reasoning: medium
+Reasoning: low
 
 # Tools
 Builtin tools:
@@ -33,7 +33,7 @@ Calls to these tools must go to the commentary channel: 'functions'.
 # Tools
 
 ## browser
-// Web retrieval and navigation for time-sensitive or un
+// Web retrieval and navigation for time-sensitive or uncer
 ```
 
 ## Memory Summary
@@ -54,11 +54,11 @@ Calls to these tools must go to the commentary channel: 'functions'.
 ```
 
 ## Operation Log
-- 2026-02-09T03:17:57.591094Z | install_router_shim | ok | 0.062ms
-- 2026-02-09T03:17:57.598505Z | import_integrated_system | ok | 6.706ms
-- 2026-02-09T03:17:57.598505Z | bridge_conversation_context | ok | 0.01ms
-- 2026-02-09T03:17:58.743974Z | init_integrated_system | ok | 1145.697ms
-- 2026-02-09T03:18:01.409709Z | process_chat | ok | 2665.509ms
-- 2026-02-09T03:18:01.465944Z | await_background_cycle | ok | 56.48ms
-- 2026-02-09T03:18:01.465944Z | summarize_memory | ok | 0.075ms
-- 2026-02-09T03:18:01.465944Z | run_complete | ok | n/a
+- 2026-02-09T03:53:33.369576Z | install_router_shim | ok | 0.029ms
+- 2026-02-09T03:53:33.373521Z | import_integrated_system | ok | 3.785ms
+- 2026-02-09T03:53:33.373521Z | bridge_conversation_context | ok | 0.007ms
+- 2026-02-09T03:53:33.764497Z | init_integrated_system | ok | 391.057ms
+- 2026-02-09T03:53:34.056951Z | process_chat | ok | 292.593ms
+- 2026-02-09T03:53:34.118437Z | await_background_cycle | ok | 61.348ms
+- 2026-02-09T03:53:34.118437Z | summarize_memory | ok | 0.066ms
+- 2026-02-09T03:53:34.118437Z | run_complete | ok | n/a

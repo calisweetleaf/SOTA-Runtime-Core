@@ -385,6 +385,310 @@ print(lib.raw_texts.get('offline_personality', '')[:100])
 
 ---
 
+## Memory Injection System
+
+> **Production Documentation for `memory_injection_system.py`**
+
+The memory system provides cross-chat memory extraction, storage, retrieval, and injection. It learns facts, preferences, and patterns from conversations and uses them to personalize future interactions.
+
+---
+
+### Memory System Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    Memory Injection Pipeline                         │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  [Conversation Messages]                                             │
+│           │                                                          │
+│           ▼                                                          │
+│  ┌───────────────────┐                                              │
+│  │  MemoryExtractor  │ → LLM-based structured extraction            │
+│  │  (facts/prefs/    │   - Facts: "User is a Python developer"      │
+│  │   entities/topics)│   - Preferences: "Prefers concise explanations"│
+│  └───────────────────┘   - Entities: "Works at CompanyX"            │
+│           │              - Topics: "Interested in ML"               │
+│           ▼                                                          │
+│  ┌───────────────────┐                                              │
+│  │  MemoryEmbedder   │ → Vector embeddings with contextual prefix   │
+│  │  (3072-dim)       │                                              │
+│  └───────────────────┘                                              │
+│           │                                                          │
+│           ▼                                                          │
+│  ┌───────────────────┐                                              │
+│  │   MemoryStore     │ → Semantic search + deduplication            │
+│  │  (in-memory/      │                                              │
+│  │   vector DB)      │                                              │
+│  └───────────────────┘                                              │
+│           │                                                          │
+│           ▼                                                          │
+│  ┌───────────────────┐                                              │
+│  │ContextInjection   │ → Builds <memory> block for prompt           │
+│  │    Manager        │                                              │
+│  └───────────────────┘                                              │
+│           │                                                          │
+│           ▼                                                          │
+│  [Enriched Prompt with User Context]                                │
+│                                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### Memory Types
+
+| Type | Description | Example | Importance |
+|------|-------------|---------|------------|
+| `FACT` | Verifiable user information | "User is 23 years old" | 0.7 |
+| `PREFERENCE` | Likes, dislikes, working styles | "Prefers detailed explanations" | 0.8 |
+| `ENTITY` | People, orgs, projects | "Works on Project X" | 0.6 |
+| `TOPIC` | Interest areas | "Neural networks", "ML research" | 0.5 |
+| `TOOL_USAGE` | Tool usage patterns | "Frequently uses code artifacts" | 0.6 |
+
+---
+
+### Core Classes
+
+#### `MemoryItem`
+
+A single memory entry with metadata.
+
+```python
+@dataclass
+class MemoryItem:
+    id: str                              # Unique ID (mem_xxxx)
+    user_id: str                         # Owner
+    memory_type: MemoryType              # FACT/PREFERENCE/ENTITY/TOPIC
+    content: str                         # The actual memory text
+    embedding: Optional[np.ndarray]      # Vector representation
+    created_at: datetime                 # Creation timestamp
+    last_accessed: datetime              # Last retrieval time
+    access_count: int                    # Retrieval count
+    confidence: float                    # Extraction confidence (0-1)
+    importance_score: float              # Priority (0-1)
+    related_memories: Set[str]           # Linked memory IDs
+    tags: Set[str]                       # User-defined tags
+```
+
+#### `MemoryManager`
+
+The main orchestrator - handles extraction, storage, retrieval, and injection.
+
+```python
+from memory_injection_system import MemoryManager, ConversationContext
+
+# Initialize
+memory_manager = MemoryManager(config={
+    'auto_extract': True,
+    'extraction_interval': 5,       # Extract every 5 messages
+    'max_context_tokens': 2000,     # Max tokens for memory block
+    'storage_backend': 'in_memory', # Or 'pinecone', 'qdrant'
+    'embedding_model': 'text-embedding-3-large'
+})
+```
+
+#### `MemoryStore`
+
+Persistent storage with semantic search.
+
+```python
+from memory_injection_system import MemoryStore, MemoryEmbedder, MemoryType
+
+store = MemoryStore(
+    storage_backend='in_memory',
+    embedder=MemoryEmbedder()
+)
+
+# Store a memory
+memory_id = await store.store_memory(memory_item)
+
+# Retrieve by semantic similarity
+result = await store.retrieve_memories(
+    user_id='user_123',
+    query='What programming languages does the user know?',
+    top_k=10,
+    memory_types=[MemoryType.FACT, MemoryType.PREFERENCE],
+    min_importance=0.3
+)
+
+# Retrieve by type only (no semantic search)
+facts = await store.retrieve_by_type(
+    user_id='user_123',
+    memory_type=MemoryType.FACT,
+    limit=20
+)
+```
+
+#### `ContextInjectionManager`
+
+Builds and injects `<memory>` blocks into prompts.
+
+```python
+from memory_injection_system import ContextInjectionManager
+
+injector = ContextInjectionManager(
+    memory_store=store,
+    max_context_tokens=2000
+)
+
+# Build context block
+context_block = await injector.build_context_block(
+    user_id='user_123',
+    current_query='Help me with Python async'
+)
+# Returns:
+# <memory>
+# ## User Preferences
+# - Prefers concise explanations
+# ## User Context
+# - User is a Python developer
+# </memory>
+
+# Or inject directly into messages
+enriched_messages = await injector.inject_into_messages(
+    messages=[{'role': 'user', 'content': 'Help me'}],
+    user_id='user_123',
+    current_query='Help me with Python async'
+)
+```
+
+---
+
+### Usage Patterns
+
+#### Pattern 1: Full Pipeline
+
+```python
+import asyncio
+from memory_injection_system import MemoryManager, ConversationContext
+
+async def main():
+    manager = MemoryManager(config={'auto_extract': True})
+    
+    # 1. Process conversation turn (extracts memories)
+    conversation = ConversationContext(
+        conversation_id='conv_123',
+        user_id='user_456',
+        messages=[
+            {'role': 'user', 'content': 'I prefer TypeScript over JavaScript'}
+        ]
+    )
+    new_memories = await manager.process_conversation_turn(
+        conversation, should_extract=True
+    )
+    
+    # 2. Later: prepare prompt with memory
+    messages_with_memory = await manager.prepare_prompt_with_memory(
+        messages=[{'role': 'user', 'content': 'Help me with web dev'}],
+        user_id='user_456'
+    )
+    
+    # 3. Get summary
+    summary = await manager.get_user_memory_summary('user_456')
+    print(summary)
+
+asyncio.run(main())
+```
+
+#### Pattern 2: Manual Memory Management
+
+```python
+from memory_injection_system import MemoryStore, MemoryItem, MemoryType
+
+store = MemoryStore()
+
+# Manually add a memory
+memory = MemoryItem(
+    id='mem_custom_001',
+    user_id='user_123',
+    memory_type=MemoryType.PREFERENCE,
+    content='User prefers dark mode documentation',
+    importance_score=0.8
+)
+await store.store_memory(memory)
+
+# Update a memory
+await store.update_memory('mem_custom_001', {
+    'content': 'User prefers dark mode with high contrast',
+    'importance_score': 0.9
+})
+
+# Delete a memory
+await store.delete_memory('mem_custom_001')
+```
+
+---
+
+### Memory Retrieval Scoring
+
+Memories are ranked by a combination of:
+
+1. **Semantic Similarity** - Cosine similarity between query and memory embeddings
+2. **Recency** - Recently accessed memories get priority
+3. **Importance Score** - User-defined or auto-assigned priority (0-1)
+4. **Access Count** - Frequently retrieved memories may be more relevant
+
+The deduplication logic:
+- `> 0.95` similarity → Merge into existing memory
+- `0.8 - 0.95` similarity → Mark as related memories
+- `< 0.8` similarity → Store as new memory
+
+---
+
+### Memory Block Format
+
+The injected `<memory>` block follows this structure:
+
+```xml
+<memory>
+
+## User Preferences
+- Prefers detailed technical explanations
+- Likes code examples in responses
+
+## User Context
+- User is a 23-year-old developer
+- Works at TechCorp
+
+## Relevant Entities
+- Working on Project Phoenix
+
+## Interest Areas: Neural networks, ML research, TypeScript
+
+</memory>
+```
+
+---
+
+### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `auto_extract` | bool | `True` | Auto-extract memories during processing |
+| `extraction_interval` | int | `5` | Messages between extractions |
+| `max_context_tokens` | int | `2000` | Max tokens for memory block |
+| `storage_backend` | str | `'in_memory'` | `'in_memory'`, `'pinecone'`, `'qdrant'` |
+| `embedding_model` | str | `'text-embedding-3-large'` | Embedding model name |
+
+---
+
+### Verification
+
+```powershell
+# Smoke test
+python run_memory_injection_smoke.py
+
+# Direct execution demo
+python memory_injection_system.py
+```
+
+Expected output files:
+- `reports/memory_injection_smoke.json`
+- `reports/memory_injection_smoke.md`
+
+---
+
 ## File Reference
 
 | File | Purpose |
