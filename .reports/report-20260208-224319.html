@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Hash Index Report</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0e27; color: #e0e0e0; padding: 20px; }
+ .container { max-width: 1400px; margin: 0 auto; }
+ h1 { font-size: 2.5em; margin-bottom: 10px; color: #00d4ff; text-shadow: 0 0 20px rgba(0,212,255,0.5); }
+ .subtitle { color: #888; margin-bottom: 30px; }
+ .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
+ .stat-card { background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 100%); padding: 20px; border-radius: 10px; border: 1px solid #00d4ff33; }
+ .stat-label { color: #888; font-size: 0.9em; margin-bottom: 5px; }
+ .stat-value { font-size: 2em; color: #00d4ff; font-weight: bold; }
+ .files-table { width: 100%; border-collapse: collapse; background: #1a1f3a; border-radius: 10px; overflow: hidden; }
+ .files-table th { background: #2d3561; padding: 15px; text-align: left; color: #00d4ff; border-bottom: 2px solid #00d4ff; }
+ .files-table td { padding: 12px 15px; border-bottom: 1px solid #2d3561; }
+ .files-table tr:hover { background: #252b4a; }
+ .hash { font-family: 'Courier New', monospace; font-size: 0.85em; color: #00ff88; word-break: break-all; }
+ .size { color: #ffa500; }
+ .footer { margin-top: 40px; text-align: center; color: #666; font-size: 0.9em; }
+ </style>
+</head>
+<body>
+ <div class="container">
+ <h1>🔐 Hash Index Report</h1>
+ <p class="subtitle">Generated on 2026-02-08 22:43:19 UTC</p>
+
+ <div class="stats">
+ <div class="stat-card">
+ <div class="stat-label">Total Files</div>
+ <div class="stat-value">65</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-label">Total Size</div>
+ <div class="stat-value">583.34 KB</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-label">Algorithm</div>
+ <div class="stat-value">SHA384</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-label">Scan Duration</div>
+ <div class="stat-value">863.57s</div>
+ </div>
+ </div>
+
+ <table class="files-table">
+ <thead>
+ <tr>
+ <th>File Path</th>
+ <th>Hash</th>
+ <th>Size</th>
+ <th>Modified</th>
+ </tr>
+ </thead>
+ <tbody> <tr>
+ <td>reports\template_load_20260208_215333.log</td>
+ <td class="hash">8086424de5f2b5e5dfdad8cad4e62b787defbe5c28f7ff2549c5b3ea4e88c08319691e6feae84bf128b056f2f70ea16e</td>
+ <td class="size">650 B</td>
+ <td>2026-02-08T21:53:33.4433381-06:00</td>
+ </tr> <tr>
+ <td>reports\template_load_20260208_214456.log</td>
+ <td class="hash">cdf1a04fd9d4d3c186ac012ca7720ed046a099be3d6aef8321e18891c76466ac00e5b34f499cb483e1c3f685e320aa23</td>
+ <td class="size">650 B</td>
+ <td>2026-02-08T21:44:56.7636337-06:00</td>
+ </tr> <tr>
+ <td>reports\template_load_20260208_212847.log</td>
+ <td class="hash">809ed83e1caedfd94965da43ede8936f668f76dfe325ffa47f3ed892db22f5387831aef7752df8a12ff9e1cf41511876</td>
+ <td class="size">650 B</td>
+ <td>2026-02-08T21:28:48.4829943-06:00</td>
+ </tr> <tr>
+ <td>reports\template_load_20260208_212016.log</td>
+ <td class="hash">a7f1b56219a2cd975fc767c1b9f7a48d7b377271a4d86cbbc88cf4a76e8ba3d064bd081e02d154d38668ce1268314ba9</td>
+ <td class="size">650 B</td>
+ <td>2026-02-08T21:20:16.7892121-06:00</td>
+ </tr> <tr>
+ <td>reports\template_load_20260208_211757.log</td>
+ <td class="hash">5f01d4c3d29b8dca83e688bca80be51430d37dc353b7b21a2f1a917a661761a87bf9ba5d7bb5cbff65891b17e5b76c7c</td>
+ <td class="size">586 B</td>
+ <td>2026-02-08T21:17:57.6885138-06:00</td>
+ </tr> <tr>
+ <td>reports\template_load_20260208_211711.log</td>
+ <td class="hash">6ebcc10630c70cc43ffb26f5f790fb36522637c4f0ab40356ec14992302abd03220f6d10582f018dd998149cdba9334b</td>
+ <td class="size">586 B</td>
+ <td>2026-02-08T21:17:12.0290971-06:00</td>
+ </tr> <tr>
+ <td>reports\template_load_20260208_211558.log</td>
+ <td class="hash">77d847b4693b2521f664fdf8670462a5805a068e75f5d99df5825bf97e1116f55cb5eb054a1a5ec4daa7a2d0c76a2cd2</td>
+ <td class="size">586 B</td>
+ <td>2026-02-08T21:15:58.4268349-06:00</td>
+ </tr> <tr>
+ <td>reports\template_load_20260208_211538.log</td>
+ <td class="hash">b50a4413601f10a116eb563d2f4710250f605759870a4f4fc7a8c029ad176ffaa71d87825e98d589e6c2325e8289cad9</td>
+ <td class="size">586 B</td>
+ <td>2026-02-08T21:15:38.7520432-06:00</td>
+ </tr> <tr>
+ <td>reports\neural_router_smoke.md</td>
+ <td class="hash">1dbef6e796ab1bcbece7a8984151d9e3b8b4c9f6119b7f6ffb22ffc570da439cd1d4b3297660997b53cb845d58c9b04a</td>
+ <td class="size">2.06 KB</td>
+ <td>2026-02-08T21:17:12.9008475-06:00</td>
+ </tr> <tr>
+ <td>reports\neural_router_smoke.json</td>
+ <td class="hash">5f2e6a5cb943bedf653b3e16e203fd2b76051c8c03112fe4849672a3362b24803974f9e7857ad725ed3e7e7ece1935cd</td>
+ <td class="size">4.85 KB</td>
+ <td>2026-02-08T21:17:12.8993271-06:00</td>
+ </tr> <tr>
+ <td>reports\neural_router_smoke_manifest.json</td>
+ <td class="hash">0d3961e2d86751320bb9370916a23a03477db316f75a24674180b32f6484231a03a925b55f03b7c1cd94063f1fff387e</td>
+ <td class="size">1.92 KB</td>
+ <td>2026-02-08T21:17:12.9018635-06:00</td>
+ </tr> <tr>
+ <td>reports\neural_router_prompt.txt</td>
+ <td class="hash">99e0664bda87dbca5e315b28fa573c6aa4c24739d8f0168309480847b71ab806fa0ae2f9a5c0dfb3e54e7566a6c17ea8</td>
+ <td class="size">1.25 KB</td>
+ <td>2026-02-08T21:17:12.9003366-06:00</td>
+ </tr> <tr>
+ <td>reports\memory_injection_smoke.md</td>
+ <td class="hash">b04de849adc4fc9821a2620a2f857de71d34deeda793f2f4f1325abc73917d9b0fa544c5e1e7d4386a9efca8e92649ec</td>
+ <td class="size">1.32 KB</td>
+ <td>2026-02-08T21:53:08.2464222-06:00</td>
+ </tr> <tr>
+ <td>reports\memory_injection_smoke.json</td>
+ <td class="hash">c3bd9d77688fc98c225ec74b928ef5e24206df0a197325e3d620fa871c44b3ddb1ee71fe625597cbe35746d08996b461</td>
+ <td class="size">3.27 KB</td>
+ <td>2026-02-08T21:53:08.2459086-06:00</td>
+ </tr> <tr>
+ <td>reports\memory_injection_smoke_manifest.json</td>
+ <td class="hash">d58386d1cacbd1a1b4e974284053cbd8fd9835d56e2cc16ca7f00710d1c96fb744ce671c9650bf5651ccf4a867cfe519</td>
+ <td class="size">2.06 KB</td>
+ <td>2026-02-08T21:53:08.2479479-06:00</td>
+ </tr> <tr>
+ <td>reports\integrated_system_smoke.md</td>
+ <td class="hash">1b5dc60af53480ee964126e1fe2e908142da731427835256a3f7ceadaa6e72eabc0d13118debc316200aa8210a57dca7</td>
+ <td class="size">1.81 KB</td>
+ <td>2026-02-08T21:53:34.1248681-06:00</td>
+ </tr> <tr>
+ <td>reports\integrated_system_smoke.json</td>
+ <td class="hash">9e975199daae3dbac047fdd49501c8923226f8a7aa196797f85dafb2d2143a1c950b5a48028b04e201abc11330107720</td>
+ <td class="size">3.99 KB</td>
+ <td>2026-02-08T21:53:34.1233255-06:00</td>
+ </tr> <tr>
+ <td>reports\integrated_system_smoke_manifest.json</td>
+ <td class="hash">e9df5b95627e8d2a24d0f83a384da881a07752dff4a16c3e33a8c705f2d758b57f118348a38b52322837580a8cd1c5a2</td>
+ <td class="size">2.38 KB</td>
+ <td>2026-02-08T21:53:34.1260605-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\tool_manifest.jinja2</td>
+ <td class="hash">13768b98046262f71a7d8a99be12a0f16b650c567843ed3998847f624e50ce37b6c046878bdf20962f843cd027da298a</td>
+ <td class="size">549 B</td>
+ <td>2026-02-08T18:54:13.1377680-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\tool_list.md</td>
+ <td class="hash">3182dde97819e25f4b209ee3189e3bc9cff946d1177da938facbdc35f7f2301279562a5dadc7d75f5b838cb6cf582296</td>
+ <td class="size">100 B</td>
+ <td>2025-11-08T19:44:29.0461409-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\tokenizer_profile.jinja2</td>
+ <td class="hash">203fdd3af859c8694ea3969e91c43828bf10960a1f52a564b007141dd22ce0557acca82b508863c6b984d8edd23d3892</td>
+ <td class="size">583 B</td>
+ <td>2026-02-08T19:32:36.8417127-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\system_prompt.md</td>
+ <td class="hash">76f82980ff4fa9bba7ee59fb897be7834e9aa9be12b0eae6b013ece7592487f65b8397c1c9177faa715ffd3a2c83e29e</td>
+ <td class="size">889 B</td>
+ <td>2026-02-08T18:53:43.4990001-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\system_prompt.jinja2</td>
+ <td class="hash">76f82980ff4fa9bba7ee59fb897be7834e9aa9be12b0eae6b013ece7592487f65b8397c1c9177faa715ffd3a2c83e29e</td>
+ <td class="size">889 B</td>
+ <td>2026-02-08T21:03:39.9055302-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\reference_appendix.jinja2</td>
+ <td class="hash">c5a705fd8f1c2a7a00ff0153774dad19b792ab8b6565c56f18fbb4137f41ceac2146a7dafd197a1d1139fa7c6766d234</td>
+ <td class="size">227 B</td>
+ <td>2026-02-08T18:54:26.1129186-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\og_jinja2_template.jinja2</td>
+ <td class="hash">f02ba865e477659a84bbc5f18b448b0e62b583a356df595b1b1cba6fa667f3a730b349d3821684b0a6f90893f9feaec2</td>
+ <td class="size">515 B</td>
+ <td>2026-02-08T18:54:31.7946974-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\offline_reasoning_agent.md</td>
+ <td class="hash">c2763a83ae3418c0d42cdd27012c6d9fbd405a57a9d07fa9964b73f0cfbe92faa29ba4a01081c1a85257302af3392722</td>
+ <td class="size">21.58 KB</td>
+ <td>2026-02-08T21:15:12.7280076-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\message_metadata.md</td>
+ <td class="hash">7db364d116f327d632f099e2c9674e8f7533abb33069e1ee9f8b97f4712d12369720df5f88bc49e4af8c92fabe8d4aaf</td>
+ <td class="size">516 B</td>
+ <td>2026-02-08T18:54:06.5483415-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\jinja2_template.md</td>
+ <td class="hash">76f82980ff4fa9bba7ee59fb897be7834e9aa9be12b0eae6b013ece7592487f65b8397c1c9177faa715ffd3a2c83e29e</td>
+ <td class="size">889 B</td>
+ <td>2026-02-08T18:53:56.1675815-06:00</td>
+ </tr> <tr>
+ <td>prompt_templates\channel_format.jinja2</td>
+ <td class="hash">c5207315c5f8dbac9bed94353109052574014f452f14696ce7b25ccf9c06247fa05b9d5a48c8fb3174f98a757cc41a02</td>
+ <td class="size">482 B</td>
+ <td>2026-02-08T18:54:18.4180520-06:00</td>
+ </tr> <tr>
+ <td>output\neural_router_smoke.md</td>
+ <td class="hash">1dbef6e796ab1bcbece7a8984151d9e3b8b4c9f6119b7f6ffb22ffc570da439cd1d4b3297660997b53cb845d58c9b04a</td>
+ <td class="size">2.06 KB</td>
+ <td>2026-02-08T21:17:12.9101051-06:00</td>
+ </tr> <tr>
+ <td>output\neural_router_smoke.json</td>
+ <td class="hash">5f2e6a5cb943bedf653b3e16e203fd2b76051c8c03112fe4849672a3362b24803974f9e7857ad725ed3e7e7ece1935cd</td>
+ <td class="size">4.85 KB</td>
+ <td>2026-02-08T21:17:12.9080664-06:00</td>
+ </tr> <tr>
+ <td>output\neural_router_smoke_manifest.json</td>
+ <td class="hash">fcdbaeb60ea338a33d49041ff3e99eda9c3a02f8f1099da6ff91f7ed1d98cb3336f70d74d929fc7639efb284ff049938</td>
+ <td class="size">1.92 KB</td>
+ <td>2026-02-08T21:17:12.9111214-06:00</td>
+ </tr> <tr>
+ <td>output\neural_router_prompt.txt</td>
+ <td class="hash">99e0664bda87dbca5e315b28fa573c6aa4c24739d8f0168309480847b71ab806fa0ae2f9a5c0dfb3e54e7566a6c17ea8</td>
+ <td class="size">1.25 KB</td>
+ <td>2026-02-08T21:17:12.9095896-06:00</td>
+ </tr> <tr>
+ <td>output\memory_injection_smoke.md</td>
+ <td class="hash">b04de849adc4fc9821a2620a2f857de71d34deeda793f2f4f1325abc73917d9b0fa544c5e1e7d4386a9efca8e92649ec</td>
+ <td class="size">1.32 KB</td>
+ <td>2026-02-08T21:53:08.2507732-06:00</td>
+ </tr> <tr>
+ <td>output\memory_injection_smoke.json</td>
+ <td class="hash">c3bd9d77688fc98c225ec74b928ef5e24206df0a197325e3d620fa871c44b3ddb1ee71fe625597cbe35746d08996b461</td>
+ <td class="size">3.27 KB</td>
+ <td>2026-02-08T21:53:08.2497060-06:00</td>
+ </tr> <tr>
+ <td>output\memory_injection_smoke_manifest.json</td>
+ <td class="hash">bf248e8a23e67991fb1878b4ecc2e304b7f456c6b2c22a63cd228040357a4449b9c4b7541e211563b07ee0c69930943a</td>
+ <td class="size">2.06 KB</td>
+ <td>2026-02-08T21:53:08.2513895-06:00</td>
+ </tr> <tr>
+ <td>output\integrated_system_smoke.md</td>
+ <td class="hash">1b5dc60af53480ee964126e1fe2e908142da731427835256a3f7ceadaa6e72eabc0d13118debc316200aa8210a57dca7</td>
+ <td class="size">1.81 KB</td>
+ <td>2026-02-08T21:53:34.1290247-06:00</td>
+ </tr> <tr>
+ <td>output\integrated_system_smoke.json</td>
+ <td class="hash">9e975199daae3dbac047fdd49501c8923226f8a7aa196797f85dafb2d2143a1c950b5a48028b04e201abc11330107720</td>
+ <td class="size">3.99 KB</td>
+ <td>2026-02-08T21:53:34.1284134-06:00</td>
+ </tr> <tr>
+ <td>output\integrated_system_smoke_manifest.json</td>
+ <td class="hash">a4bf5e65e52f3eadc995b2f3dad21eca2057ee5c6bf4ca656ad30dc9c7e564efeeed5e28954342fad8aaedb190db28b6</td>
+ <td class="size">2.38 KB</td>
+ <td>2026-02-08T21:53:34.1305496-06:00</td>
+ </tr> <tr>
+ <td>output\generated_system_prompt_20260208_214456.txt</td>
+ <td class="hash">3a20fc5d15343be3250613cbffe9b1b058e6bf87c6fcd85f154017c5226d6741ff4ff649139372d92662bd8873f92b59</td>
+ <td class="size">22.18 KB</td>
+ <td>2026-02-08T21:44:56.7928598-06:00</td>
+ </tr> <tr>
+ <td>docs\USAGE_GUIDE.md</td>
+ <td class="hash">ed8728e46be1a000a8a02eadfe9b352b2a1f8a2a709f7291c6709a5d88b73b7f01925ef8e17bc56f94a8220a20b8b13e</td>
+ <td class="size">25.08 KB</td>
+ <td>2026-02-08T21:50:41.5893632-06:00</td>
+ </tr> <tr>
+ <td>docs\RELEASE_CHECKLIST.md</td>
+ <td class="hash">5976b852e2f84baaaa723588696a2c0cfafce874af29be89f97124f7ab3944ba589db653403bdb57214d528cd76d62bb</td>
+ <td class="size">1.77 KB</td>
+ <td>2026-02-08T17:58:37.3795568-06:00</td>
+ </tr> <tr>
+ <td>docs\PROVENANCE.md</td>
+ <td class="hash">f338122e1c2fa8e867793ed02376da12a5e626979953d588d07391218d59e1c4200bcbba6fa4971522bc06da35c77d9c</td>
+ <td class="size">1.85 KB</td>
+ <td>2026-02-08T18:03:59.9351269-06:00</td>
+ </tr> <tr>
+ <td>docs\MODULE_GUIDE.md</td>
+ <td class="hash">6231860581b2f15cb1f912de7423e51a33ef2f2effe74fd58bcefef6a8feac672a792cb7aec388ba75f8580cabe08c52</td>
+ <td class="size">3.27 KB</td>
+ <td>2026-02-08T16:16:16.3174042-06:00</td>
+ </tr> <tr>
+ <td>.vscode\virtualTab.json</td>
+ <td class="hash">3c56132c9f3d817a2ada7c9460044fe6af177b95e39a31bffcad6055fceec7dddf9012fb60900dd9a47a248e1af7e0f1</td>
+ <td class="size">341 B</td>
+ <td>2026-02-08T22:28:09.4545452-06:00</td>
+ </tr> <tr>
+ <td>zenodo.json</td>
+ <td class="hash">287f42428101adcb7c5441b386dcc30a86b08fa45f731d8236aac9cb14e5a35142fef9e272358257d40d0fc36f62d55a</td>
+ <td class="size">6.3 KB</td>
+ <td>2026-02-08T22:27:29.8878978-06:00</td>
+ </tr> <tr>
+ <td>zenodo_doi.txt</td>
+ <td class="hash">2c4908f86fdd55121d41cd67bb68a092af66d398715c39226a3944be9f9e87ac619a20c9e55597907087ed3be1544a2e</td>
+ <td class="size">312 B</td>
+ <td>2026-02-08T22:27:17.3883254-06:00</td>
+ </tr> <tr>
+ <td>verify_prompt_integration.py</td>
+ <td class="hash">6c52637295f1f4098868af966b9c48da15de6ab860b6d88c83105410f0d7bbdbafc11e9e896325d28d2b96bf6670394a</td>
+ <td class="size">7.1 KB</td>
+ <td>2026-02-08T21:44:25.2989834-06:00</td>
+ </tr> <tr>
+ <td>SHA256SUMS.txt</td>
+ <td class="hash">e3186136bf1753bbfb8303253adf780fa5374528c149047fd06bcc5d5bda3fa4f74686c19cd59444dc6bb7ee5a81f0fa</td>
+ <td class="size">5.69 KB</td>
+ <td>2026-02-08T22:13:07.2973603-06:00</td>
+ </tr> <tr>
+ <td>SHA256SUMS.json</td>
+ <td class="hash">e78eccc6c7302c059387ee485d817184e8de183d7f9b84435716994b28214f16dae4e993d1901bf768e1c07c5df3c1c3</td>
+ <td class="size">67.43 KB</td>
+ <td>2026-02-08T22:13:07.8588822-06:00</td>
+ </tr> <tr>
+ <td>SHA256SUMS.csv</td>
+ <td class="hash">452812267499913b0bf2d042cb1f9485e2a55284b5c753f9e4f533d13485229ce28c5d868eccc64a27b4f8b4b6ec63ec</td>
+ <td class="size">8.43 KB</td>
+ <td>2026-02-08T22:13:07.9611138-06:00</td>
+ </tr> <tr>
+ <td>SHA1SUMS.txt</td>
+ <td class="hash">8d075a83c8922a509e584f68dbf7be8f0d89a79ba34cea2d4f1510689060221b261883d3ceea47c2ef2d6df219243131</td>
+ <td class="size">4.36 KB</td>
+ <td>2026-02-08T22:28:52.8542492-06:00</td>
+ </tr> <tr>
+ <td>SHA1SUMS.json</td>
+ <td class="hash">c1fd2f1f146586857cf2e491e41233afafe5d07d5c2e6573040ed7912bf0fcd0ca7839a383ee129b812e0536c03ec138</td>
+ <td class="size">66.99 KB</td>
+ <td>2026-02-08T22:28:53.5571029-06:00</td>
+ </tr> <tr>
+ <td>SHA1SUMS.csv</td>
+ <td class="hash">911c545dc2024fd5e8e9bbf362fb36d56bfe787dbf4035c52445cc9ce3c572a2047af081865d882694e03d6b80eec534</td>
+ <td class="size">7.14 KB</td>
+ <td>2026-02-08T22:28:53.8190123-06:00</td>
+ </tr> <tr>
+ <td>run_neural_router_smoke.py</td>
+ <td class="hash">8f7d1a4bfae8c73880221dc1369a6c2848a621614e419f67ad5dec386059fa8307d9b97b5214123b018d9ada8e5b678b</td>
+ <td class="size">7.38 KB</td>
+ <td>2026-02-08T20:48:26.2070606-06:00</td>
+ </tr> <tr>
+ <td>run_memory_injection_smoke.py</td>
+ <td class="hash">1cb3cd1981a1b9b0744791252203194ab980c7d97ea0a739dc32fbef8e62c26a08fc14f6c59eef207bb77985f1c6f8be</td>
+ <td class="size">8.1 KB</td>
+ <td>2026-02-08T20:43:18.7301526-06:00</td>
+ </tr> <tr>
+ <td>run_integrated_system_smoke.py</td>
+ <td class="hash">7985ee7ea7087c939a89430bcc320337f8b80f690d4c60a128fc1fd52c1cea36fa60c5ea68c8d85eb755226d26b9ac83</td>
+ <td class="size">8.1 KB</td>
+ <td>2026-02-08T20:43:56.3304126-06:00</td>
+ </tr> <tr>
+ <td>requirements.txt</td>
+ <td class="hash">310f5f3befe1c3252d1c4755039da21d8e8f9515f38332e29419ec6fcc674b16dd25e68f5ba83c515c7f3fc42ea08461</td>
+ <td class="size">92 B</td>
+ <td>2026-02-08T20:32:40.9728242-06:00</td>
+ </tr> <tr>
+ <td>README.md</td>
+ <td class="hash">d3941601831b5880c373833a399489e6dd53d2ae5aecaa574ed78986841c6e257b48dcc25e44a5441e78209d69aa60c3</td>
+ <td class="size">11.96 KB</td>
+ <td>2026-02-08T22:28:12.4899063-06:00</td>
+ </tr> <tr>
+ <td>neural_router.py</td>
+ <td class="hash">3eec0d0ea629f41439663ab8ca502980a2de8f6e2de1b12ddea64cc12426e7c06a189029c294a46eef4967f63ae0df07</td>
+ <td class="size">42.33 KB</td>
+ <td>2026-02-08T21:19:23.5800613-06:00</td>
+ </tr> <tr>
+ <td>memory_injection_system.py</td>
+ <td class="hash">c3c9f006c33b29eef14c0dd6bc6641843b1f2ee0ea5b898a204bb6e748f679e07ed12ee6b3050d8230c1dba7b0499453</td>
+ <td class="size">29.43 KB</td>
+ <td>2026-02-08T20:26:42.1336651-06:00</td>
+ </tr> <tr>
+ <td>LICENSE</td>
+ <td class="hash">ac127bd47a41469b2e45a7e706138c929f645571ef1a0c7de5bcae3aed7ea27f0636396ffab1c19d2697ec208fdde07f</td>
+ <td class="size">80.97 KB</td>
+ <td>2026-01-08T22:19:24.5100770-06:00</td>
+ </tr> <tr>
+ <td>integrated_system.py</td>
+ <td class="hash">2e5b1d6f8e292de6c127f5325a0857e8f3dc5d6534fd9547916c968ba1083c13f08853f3bf31a4870cc438aa1f9d9894</td>
+ <td class="size">23.34 KB</td>
+ <td>2025-12-27T20:07:47.9319920-06:00</td>
+ </tr> <tr>
+ <td>hash-index.ps1</td>
+ <td class="hash">e54552156ad50ef761d5241b605d298a2d08ae7c48a0491d32456341aa7d4b965d13113fb532b229c09f2ca53d89fa58</td>
+ <td class="size">61.31 KB</td>
+ <td>2026-01-31T01:39:08.0051378-06:00</td>
+ </tr> <tr>
+ <td>CITATION.cff</td>
+ <td class="hash">71ba2841f5bf06d57561991dc752800d9f935acb7d47264775afd2e7928fd5fd14280d2aeaf1544e3d26d20dbcec5d37</td>
+ <td class="size">340 B</td>
+ <td>2026-02-08T22:19:24.0153390-06:00</td>
+ </tr> </tbody>
+ </table>
+
+ <div class="footer">
+ <p>Generated by hash-index.ps1 - Master Hash Integrity System</p>
+ </div>
+ </div>
+</body>
+</html>

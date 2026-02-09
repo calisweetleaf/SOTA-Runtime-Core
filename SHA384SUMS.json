@@ -1,0 +1,1634 @@
+{
+  "GitCommit": "44c380413961dfd7b75fd284ffae193355b2b11c",
+  "ReleaseVersion": "",
+  "Generated": "2026-02-09T04:43:19.8902459Z",
+  "GitTag": "N/A",
+  "Algorithm": "SHA384",
+  "Files": [
+    {
+      "PerceptualHash": "F87AC0D0F070F8F8",
+      "Size": 650,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_215333.log",
+      "RelativePath": "reports\\template_load_20260208_215333.log",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:48.4881529Z",
+        "ZeroCrossingRate": 0.2077,
+        "Entropy": 4.9642,
+        "SpectralCentroid": 0.5034,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "8086424de5f2b5e5dfdad8cad4e62b787defbe5c28f7ff2549c5b3ea4e88c08319691e6feae84bf128b056f2f70ea16e",
+      "Metadata": {
+        "Size": 650,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".log",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_215333.log",
+        "Modified": "2026-02-08T21:53:33.4433381-06:00",
+        "Created": "2026-02-08T21:53:33.3758022-06:00"
+      },
+      "Modified": "2026-02-08T21:53:33.4433381-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F87AC0D0F070F8F8",
+      "Size": 650,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_214456.log",
+      "RelativePath": "reports\\template_load_20260208_214456.log",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:49.7025385Z",
+        "ZeroCrossingRate": 0.2077,
+        "Entropy": 4.9864,
+        "SpectralCentroid": 0.5035,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "cdf1a04fd9d4d3c186ac012ca7720ed046a099be3d6aef8321e18891c76466ac00e5b34f499cb483e1c3f685e320aa23",
+      "Metadata": {
+        "Size": 650,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".log",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_214456.log",
+        "Modified": "2026-02-08T21:44:56.7636337-06:00",
+        "Created": "2026-02-08T21:44:56.6429019-06:00"
+      },
+      "Modified": "2026-02-08T21:44:56.7636337-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F87AC0D0F070F8F8",
+      "Size": 650,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_212847.log",
+      "RelativePath": "reports\\template_load_20260208_212847.log",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:50.8798832Z",
+        "ZeroCrossingRate": 0.2077,
+        "Entropy": 4.9312,
+        "SpectralCentroid": 0.5035,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "809ed83e1caedfd94965da43ede8936f668f76dfe325ffa47f3ed892db22f5387831aef7752df8a12ff9e1cf41511876",
+      "Metadata": {
+        "Size": 650,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".log",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_212847.log",
+        "Modified": "2026-02-08T21:28:48.4829943-06:00",
+        "Created": "2026-02-08T21:28:47.6259151-06:00"
+      },
+      "Modified": "2026-02-08T21:28:48.4829943-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F87AC0D0F070F8F8",
+      "Size": 650,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_212016.log",
+      "RelativePath": "reports\\template_load_20260208_212016.log",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:52.0551167Z",
+        "ZeroCrossingRate": 0.2077,
+        "Entropy": 4.8848,
+        "SpectralCentroid": 0.5037,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "a7f1b56219a2cd975fc767c1b9f7a48d7b377271a4d86cbbc88cf4a76e8ba3d064bd081e02d154d38668ce1268314ba9",
+      "Metadata": {
+        "Size": 650,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".log",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_212016.log",
+        "Modified": "2026-02-08T21:20:16.7892121-06:00",
+        "Created": "2026-02-08T21:20:16.5811679-06:00"
+      },
+      "Modified": "2026-02-08T21:20:16.7892121-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "B87AE0F8F070F8F8",
+      "Size": 586,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_211757.log",
+      "RelativePath": "reports\\template_load_20260208_211757.log",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:53.1755277Z",
+        "ZeroCrossingRate": 0.2099,
+        "Entropy": 4.9536,
+        "SpectralCentroid": 0.5024,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "5f01d4c3d29b8dca83e688bca80be51430d37dc353b7b21a2f1a917a661761a87bf9ba5d7bb5cbff65891b17e5b76c7c",
+      "Metadata": {
+        "Size": 586,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".log",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_211757.log",
+        "Modified": "2026-02-08T21:17:57.6885138-06:00",
+        "Created": "2026-02-08T21:17:57.6025448-06:00"
+      },
+      "Modified": "2026-02-08T21:17:57.6885138-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "B878E0F8F078F8F8",
+      "Size": 586,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_211711.log",
+      "RelativePath": "reports\\template_load_20260208_211711.log",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:54.3299003Z",
+        "ZeroCrossingRate": 0.2099,
+        "Entropy": 4.9259,
+        "SpectralCentroid": 0.5019,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "6ebcc10630c70cc43ffb26f5f790fb36522637c4f0ab40356ec14992302abd03220f6d10582f018dd998149cdba9334b",
+      "Metadata": {
+        "Size": 586,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".log",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_211711.log",
+        "Modified": "2026-02-08T21:17:12.0290971-06:00",
+        "Created": "2026-02-08T21:17:11.9156357-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.0290971-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "B87AE0F8F078F8F8",
+      "Size": 586,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_211558.log",
+      "RelativePath": "reports\\template_load_20260208_211558.log",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:55.4562967Z",
+        "ZeroCrossingRate": 0.2099,
+        "Entropy": 4.9507,
+        "SpectralCentroid": 0.5023,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "77d847b4693b2521f664fdf8670462a5805a068e75f5d99df5825bf97e1116f55cb5eb054a1a5ec4daa7a2d0c76a2cd2",
+      "Metadata": {
+        "Size": 586,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".log",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_211558.log",
+        "Modified": "2026-02-08T21:15:58.4268349-06:00",
+        "Created": "2026-02-08T21:15:58.1306263-06:00"
+      },
+      "Modified": "2026-02-08T21:15:58.4268349-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "B87AE0F8F070F8F8",
+      "Size": 586,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_211538.log",
+      "RelativePath": "reports\\template_load_20260208_211538.log",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:56.6755558Z",
+        "ZeroCrossingRate": 0.2099,
+        "Entropy": 4.9735,
+        "SpectralCentroid": 0.5019,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "b50a4413601f10a116eb563d2f4710250f605759870a4f4fc7a8c029ad176ffaa71d87825e98d589e6c2325e8289cad9",
+      "Metadata": {
+        "Size": 586,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".log",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\template_load_20260208_211538.log",
+        "Modified": "2026-02-08T21:15:38.7520432-06:00",
+        "Created": "2026-02-08T21:15:38.6709808-06:00"
+      },
+      "Modified": "2026-02-08T21:15:38.7520432-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "5B7E4A5F545ED8A8",
+      "Size": 2108,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\neural_router_smoke.md",
+      "RelativePath": "reports\\neural_router_smoke.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:57.9087041Z",
+        "ZeroCrossingRate": 0.1741,
+        "Entropy": 5.2018,
+        "SpectralCentroid": 0.4654,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "1dbef6e796ab1bcbece7a8984151d9e3b8b4c9f6119b7f6ffb22ffc570da439cd1d4b3297660997b53cb845d58c9b04a",
+      "Metadata": {
+        "Size": 2108,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\neural_router_smoke.md",
+        "Modified": "2026-02-08T21:17:12.9008475-06:00",
+        "Created": "2026-02-08T21:16:00.8879066-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.9008475-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F195F43313472323",
+      "Size": 4964,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\neural_router_smoke.json",
+      "RelativePath": "reports\\neural_router_smoke.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:41:59.1765018Z",
+        "ZeroCrossingRate": 0.1716,
+        "Entropy": 4.8673,
+        "SpectralCentroid": 0.47,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "5f2e6a5cb943bedf653b3e16e203fd2b76051c8c03112fe4849672a3362b24803974f9e7857ad725ed3e7e7ece1935cd",
+      "Metadata": {
+        "Size": 4964,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\neural_router_smoke.json",
+        "Modified": "2026-02-08T21:17:12.8993271-06:00",
+        "Created": "2026-02-08T21:16:00.8859580-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.8993271-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "C48A888B898DADB9",
+      "Size": 1968,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\neural_router_smoke_manifest.json",
+      "RelativePath": "reports\\neural_router_smoke_manifest.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:00.4301720Z",
+        "ZeroCrossingRate": 0.125,
+        "Entropy": 4.4522,
+        "SpectralCentroid": 0.4742,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "0d3961e2d86751320bb9370916a23a03477db316f75a24674180b32f6484231a03a925b55f03b7c1cd94063f1fff387e",
+      "Metadata": {
+        "Size": 1968,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\neural_router_smoke_manifest.json",
+        "Modified": "2026-02-08T21:17:12.9018635-06:00",
+        "Created": "2026-02-08T21:16:00.8891760-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.9018635-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "DDC9E8E0F872F2E0",
+      "Size": 1277,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\neural_router_prompt.txt",
+      "RelativePath": "reports\\neural_router_prompt.txt",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:01.6887138Z",
+        "ZeroCrossingRate": 0.2537,
+        "Entropy": 4.9862,
+        "SpectralCentroid": 0.5004,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "99e0664bda87dbca5e315b28fa573c6aa4c24739d8f0168309480847b71ab806fa0ae2f9a5c0dfb3e54e7566a6c17ea8",
+      "Metadata": {
+        "Size": 1277,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".txt",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\neural_router_prompt.txt",
+        "Modified": "2026-02-08T21:17:12.9003366-06:00",
+        "Created": "2026-02-08T21:16:00.8872067-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.9003366-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "A5ADAD89594B4B49",
+      "Size": 1356,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\memory_injection_smoke.md",
+      "RelativePath": "reports\\memory_injection_smoke.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:02.8691203Z",
+        "ZeroCrossingRate": 0.2117,
+        "Entropy": 5.1828,
+        "SpectralCentroid": 0.4925,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "b04de849adc4fc9821a2620a2f857de71d34deeda793f2f4f1325abc73917d9b0fa544c5e1e7d4386a9efca8e92649ec",
+      "Metadata": {
+        "Size": 1356,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\memory_injection_smoke.md",
+        "Modified": "2026-02-08T21:53:08.2464222-06:00",
+        "Created": "2026-02-08T21:17:34.6615328-06:00"
+      },
+      "Modified": "2026-02-08T21:53:08.2464222-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "5B79D3535717A2B2",
+      "Size": 3352,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\memory_injection_smoke.json",
+      "RelativePath": "reports\\memory_injection_smoke.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:04.0496778Z",
+        "ZeroCrossingRate": 0.1468,
+        "Entropy": 4.5963,
+        "SpectralCentroid": 0.4797,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "c3bd9d77688fc98c225ec74b928ef5e24206df0a197325e3d620fa871c44b3ddb1ee71fe625597cbe35746d08996b461",
+      "Metadata": {
+        "Size": 3352,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\memory_injection_smoke.json",
+        "Modified": "2026-02-08T21:53:08.2459086-06:00",
+        "Created": "2026-02-08T21:17:34.6529809-06:00"
+      },
+      "Modified": "2026-02-08T21:53:08.2459086-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "A163E177676343F0",
+      "Size": 2110,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\memory_injection_smoke_manifest.json",
+      "RelativePath": "reports\\memory_injection_smoke_manifest.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:05.1926206Z",
+        "ZeroCrossingRate": 0.1327,
+        "Entropy": 4.5176,
+        "SpectralCentroid": 0.4823,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "d58386d1cacbd1a1b4e974284053cbd8fd9835d56e2cc16ca7f00710d1c96fb744ce671c9650bf5651ccf4a867cfe519",
+      "Metadata": {
+        "Size": 2110,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\memory_injection_smoke_manifest.json",
+        "Modified": "2026-02-08T21:53:08.2479479-06:00",
+        "Created": "2026-02-08T21:17:34.6625341-06:00"
+      },
+      "Modified": "2026-02-08T21:53:08.2479479-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "5C7E321AB27A2BC9",
+      "Size": 1849,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\integrated_system_smoke.md",
+      "RelativePath": "reports\\integrated_system_smoke.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:06.4016245Z",
+        "ZeroCrossingRate": 0.2125,
+        "Entropy": 5.3287,
+        "SpectralCentroid": 0.4764,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "1b5dc60af53480ee964126e1fe2e908142da731427835256a3f7ceadaa6e72eabc0d13118debc316200aa8210a57dca7",
+      "Metadata": {
+        "Size": 1849,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\integrated_system_smoke.md",
+        "Modified": "2026-02-08T21:53:34.1248681-06:00",
+        "Created": "2026-02-08T21:15:39.5248690-06:00"
+      },
+      "Modified": "2026-02-08T21:53:34.1248681-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "690B4B0B6BFB0373",
+      "Size": 4089,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\integrated_system_smoke.json",
+      "RelativePath": "reports\\integrated_system_smoke.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:07.6849483Z",
+        "ZeroCrossingRate": 0.1536,
+        "Entropy": 4.7046,
+        "SpectralCentroid": 0.4752,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "9e975199daae3dbac047fdd49501c8923226f8a7aa196797f85dafb2d2143a1c950b5a48028b04e201abc11330107720",
+      "Metadata": {
+        "Size": 4089,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\integrated_system_smoke.json",
+        "Modified": "2026-02-08T21:53:34.1233255-06:00",
+        "Created": "2026-02-08T21:15:39.5242797-06:00"
+      },
+      "Modified": "2026-02-08T21:53:34.1233255-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "7672F4E4C5E5C7E4",
+      "Size": 2442,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\integrated_system_smoke_manifest.json",
+      "RelativePath": "reports\\integrated_system_smoke_manifest.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:08.8800232Z",
+        "ZeroCrossingRate": 0.1229,
+        "Entropy": 4.5588,
+        "SpectralCentroid": 0.4818,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "e9df5b95627e8d2a24d0f83a384da881a07752dff4a16c3e33a8c705f2d758b57f118348a38b52322837580a8cd1c5a2",
+      "Metadata": {
+        "Size": 2442,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\reports\\integrated_system_smoke_manifest.json",
+        "Modified": "2026-02-08T21:53:34.1260605-06:00",
+        "Created": "2026-02-08T21:15:39.5254121-06:00"
+      },
+      "Modified": "2026-02-08T21:53:34.1260605-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "58CCC8A0A4E5A3BE",
+      "Size": 549,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\tool_manifest.jinja2",
+      "RelativePath": "prompt_templates\\tool_manifest.jinja2",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:10.0540768Z",
+        "ZeroCrossingRate": 0.2878,
+        "Entropy": 4.7266,
+        "SpectralCentroid": 0.5003,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "13768b98046262f71a7d8a99be12a0f16b650c567843ed3998847f624e50ce37b6c046878bdf20962f843cd027da298a",
+      "Metadata": {
+        "Size": 549,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".jinja2",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\tool_manifest.jinja2",
+        "Modified": "2026-02-08T18:54:13.1377680-06:00",
+        "Created": "2026-02-08T20:26:27.8468491-06:00"
+      },
+      "Modified": "2026-02-08T18:54:13.1377680-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "D0B8F8F8E0F070D0",
+      "Size": 100,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\tool_list.md",
+      "RelativePath": "prompt_templates\\tool_list.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:11.1745801Z",
+        "ZeroCrossingRate": 0.3,
+        "Entropy": 4.125,
+        "SpectralCentroid": 0.4936,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "3182dde97819e25f4b209ee3189e3bc9cff946d1177da938facbdc35f7f2301279562a5dadc7d75f5b838cb6cf582296",
+      "Metadata": {
+        "Size": 100,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\tool_list.md",
+        "Modified": "2025-11-08T19:44:29.0461409-06:00",
+        "Created": "2026-02-08T20:26:27.8375160-06:00"
+      },
+      "Modified": "2025-11-08T19:44:29.0461409-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "6EACA5EBAA900C96",
+      "Size": 583,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\tokenizer_profile.jinja2",
+      "RelativePath": "prompt_templates\\tokenizer_profile.jinja2",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:12.4222533Z",
+        "ZeroCrossingRate": 0.2676,
+        "Entropy": 4.8056,
+        "SpectralCentroid": 0.4959,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "203fdd3af859c8694ea3969e91c43828bf10960a1f52a564b007141dd22ce0557acca82b508863c6b984d8edd23d3892",
+      "Metadata": {
+        "Size": 583,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".jinja2",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\tokenizer_profile.jinja2",
+        "Modified": "2026-02-08T19:32:36.8417127-06:00",
+        "Created": "2026-02-08T20:26:27.8321575-06:00"
+      },
+      "Modified": "2026-02-08T19:32:36.8417127-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "367B3AA076F2E87C",
+      "Size": 889,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\system_prompt.md",
+      "RelativePath": "prompt_templates\\system_prompt.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:13.6053390Z",
+        "ZeroCrossingRate": 0.2688,
+        "Entropy": 4.9395,
+        "SpectralCentroid": 0.5065,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "76f82980ff4fa9bba7ee59fb897be7834e9aa9be12b0eae6b013ece7592487f65b8397c1c9177faa715ffd3a2c83e29e",
+      "Metadata": {
+        "Size": 889,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\system_prompt.md",
+        "Modified": "2026-02-08T18:53:43.4990001-06:00",
+        "Created": "2026-02-08T20:26:27.8244259-06:00"
+      },
+      "Modified": "2026-02-08T18:53:43.4990001-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "367B3AA076F2E87C",
+      "Size": 889,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\system_prompt.jinja2",
+      "RelativePath": "prompt_templates\\system_prompt.jinja2",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:14.7377659Z",
+        "ZeroCrossingRate": 0.2688,
+        "Entropy": 4.9395,
+        "SpectralCentroid": 0.5065,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "76f82980ff4fa9bba7ee59fb897be7834e9aa9be12b0eae6b013ece7592487f65b8397c1c9177faa715ffd3a2c83e29e",
+      "Metadata": {
+        "Size": 889,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".jinja2",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\system_prompt.jinja2",
+        "Modified": "2026-02-08T21:03:39.9055302-06:00",
+        "Created": "2026-02-08T20:26:27.8171020-06:00"
+      },
+      "Modified": "2026-02-08T21:03:39.9055302-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F0F8D1F0F0F8F2F4",
+      "Size": 227,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\reference_appendix.jinja2",
+      "RelativePath": "prompt_templates\\reference_appendix.jinja2",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:15.8547810Z",
+        "ZeroCrossingRate": 0.2643,
+        "Entropy": 4.4777,
+        "SpectralCentroid": 0.5001,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "c5a705fd8f1c2a7a00ff0153774dad19b792ab8b6565c56f18fbb4137f41ceac2146a7dafd197a1d1139fa7c6766d234",
+      "Metadata": {
+        "Size": 227,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".jinja2",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\reference_appendix.jinja2",
+        "Modified": "2026-02-08T18:54:26.1129186-06:00",
+        "Created": "2026-02-08T20:26:27.8084403-06:00"
+      },
+      "Modified": "2026-02-08T18:54:26.1129186-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "CAE78DDE5AC9181E",
+      "Size": 515,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\og_jinja2_template.jinja2",
+      "RelativePath": "prompt_templates\\og_jinja2_template.jinja2",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:17.0103379Z",
+        "ZeroCrossingRate": 0.2563,
+        "Entropy": 4.9967,
+        "SpectralCentroid": 0.4996,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "f02ba865e477659a84bbc5f18b448b0e62b583a356df595b1b1cba6fa667f3a730b349d3821684b0a6f90893f9feaec2",
+      "Metadata": {
+        "Size": 515,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".jinja2",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\og_jinja2_template.jinja2",
+        "Modified": "2026-02-08T18:54:31.7946974-06:00",
+        "Created": "2026-02-08T20:26:27.7996837-06:00"
+      },
+      "Modified": "2026-02-08T18:54:31.7946974-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "517242434BBB3B6B",
+      "Size": 22098,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\offline_reasoning_agent.md",
+      "RelativePath": "prompt_templates\\offline_reasoning_agent.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:18.7588709Z",
+        "ZeroCrossingRate": 0.2473,
+        "Entropy": 4.8274,
+        "SpectralCentroid": 0.5002,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "c2763a83ae3418c0d42cdd27012c6d9fbd405a57a9d07fa9964b73f0cfbe92faa29ba4a01081c1a85257302af3392722",
+      "Metadata": {
+        "Size": 22098,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\offline_reasoning_agent.md",
+        "Modified": "2026-02-08T21:15:12.7280076-06:00",
+        "Created": "2026-02-08T21:14:03.6915787-06:00"
+      },
+      "Modified": "2026-02-08T21:15:12.7280076-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "E2EF1ADC2464B4F0",
+      "Size": 516,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\message_metadata.md",
+      "RelativePath": "prompt_templates\\message_metadata.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:19.9486611Z",
+        "ZeroCrossingRate": 0.2481,
+        "Entropy": 4.4561,
+        "SpectralCentroid": 0.5026,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "7db364d116f327d632f099e2c9674e8f7533abb33069e1ee9f8b97f4712d12369720df5f88bc49e4af8c92fabe8d4aaf",
+      "Metadata": {
+        "Size": 516,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\message_metadata.md",
+        "Modified": "2026-02-08T18:54:06.5483415-06:00",
+        "Created": "2026-02-08T20:26:27.7930832-06:00"
+      },
+      "Modified": "2026-02-08T18:54:06.5483415-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "367B3AA076F2E87C",
+      "Size": 889,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\jinja2_template.md",
+      "RelativePath": "prompt_templates\\jinja2_template.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:21.1398420Z",
+        "ZeroCrossingRate": 0.2688,
+        "Entropy": 4.9395,
+        "SpectralCentroid": 0.5065,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "76f82980ff4fa9bba7ee59fb897be7834e9aa9be12b0eae6b013ece7592487f65b8397c1c9177faa715ffd3a2c83e29e",
+      "Metadata": {
+        "Size": 889,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\jinja2_template.md",
+        "Modified": "2026-02-08T18:53:56.1675815-06:00",
+        "Created": "2026-02-08T20:26:27.7846049-06:00"
+      },
+      "Modified": "2026-02-08T18:53:56.1675815-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "FCE8E0D4B0D0F0F9",
+      "Size": 482,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\channel_format.jinja2",
+      "RelativePath": "prompt_templates\\channel_format.jinja2",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:22.2851769Z",
+        "ZeroCrossingRate": 0.2531,
+        "Entropy": 5.0055,
+        "SpectralCentroid": 0.5007,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "c5207315c5f8dbac9bed94353109052574014f452f14696ce7b25ccf9c06247fa05b9d5a48c8fb3174f98a757cc41a02",
+      "Metadata": {
+        "Size": 482,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".jinja2",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\prompt_templates\\channel_format.jinja2",
+        "Modified": "2026-02-08T18:54:18.4180520-06:00",
+        "Created": "2026-02-08T20:26:27.7744297-06:00"
+      },
+      "Modified": "2026-02-08T18:54:18.4180520-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "5B7E4A5F545ED8A8",
+      "Size": 2108,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\neural_router_smoke.md",
+      "RelativePath": "output\\neural_router_smoke.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:23.4940547Z",
+        "ZeroCrossingRate": 0.1741,
+        "Entropy": 5.2018,
+        "SpectralCentroid": 0.4654,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "1dbef6e796ab1bcbece7a8984151d9e3b8b4c9f6119b7f6ffb22ffc570da439cd1d4b3297660997b53cb845d58c9b04a",
+      "Metadata": {
+        "Size": 2108,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\neural_router_smoke.md",
+        "Modified": "2026-02-08T21:17:12.9101051-06:00",
+        "Created": "2026-02-08T21:16:00.8928469-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.9101051-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F195F43313472323",
+      "Size": 4964,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\neural_router_smoke.json",
+      "RelativePath": "output\\neural_router_smoke.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:24.7293640Z",
+        "ZeroCrossingRate": 0.1716,
+        "Entropy": 4.8673,
+        "SpectralCentroid": 0.47,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "5f2e6a5cb943bedf653b3e16e203fd2b76051c8c03112fe4849672a3362b24803974f9e7857ad725ed3e7e7ece1935cd",
+      "Metadata": {
+        "Size": 4964,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\neural_router_smoke.json",
+        "Modified": "2026-02-08T21:17:12.9080664-06:00",
+        "Created": "2026-02-08T21:16:00.8907185-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.9080664-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "868BCD89B9890999",
+      "Size": 1965,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\neural_router_smoke_manifest.json",
+      "RelativePath": "output\\neural_router_smoke_manifest.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:25.8857977Z",
+        "ZeroCrossingRate": 0.1252,
+        "Entropy": 4.45,
+        "SpectralCentroid": 0.4745,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "fcdbaeb60ea338a33d49041ff3e99eda9c3a02f8f1099da6ff91f7ed1d98cb3336f70d74d929fc7639efb284ff049938",
+      "Metadata": {
+        "Size": 1965,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\neural_router_smoke_manifest.json",
+        "Modified": "2026-02-08T21:17:12.9111214-06:00",
+        "Created": "2026-02-08T21:16:00.8937120-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.9111214-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "DDC9E8E0F872F2E0",
+      "Size": 1277,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\neural_router_prompt.txt",
+      "RelativePath": "output\\neural_router_prompt.txt",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:27.0953593Z",
+        "ZeroCrossingRate": 0.2537,
+        "Entropy": 4.9862,
+        "SpectralCentroid": 0.5004,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "99e0664bda87dbca5e315b28fa573c6aa4c24739d8f0168309480847b71ab806fa0ae2f9a5c0dfb3e54e7566a6c17ea8",
+      "Metadata": {
+        "Size": 1277,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".txt",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\neural_router_prompt.txt",
+        "Modified": "2026-02-08T21:17:12.9095896-06:00",
+        "Created": "2026-02-08T21:16:00.8917427-06:00"
+      },
+      "Modified": "2026-02-08T21:17:12.9095896-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "A5ADAD89594B4B49",
+      "Size": 1356,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\memory_injection_smoke.md",
+      "RelativePath": "output\\memory_injection_smoke.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:28.2843599Z",
+        "ZeroCrossingRate": 0.2117,
+        "Entropy": 5.1828,
+        "SpectralCentroid": 0.4925,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "b04de849adc4fc9821a2620a2f857de71d34deeda793f2f4f1325abc73917d9b0fa544c5e1e7d4386a9efca8e92649ec",
+      "Metadata": {
+        "Size": 1356,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\memory_injection_smoke.md",
+        "Modified": "2026-02-08T21:53:08.2507732-06:00",
+        "Created": "2026-02-08T21:17:34.6662329-06:00"
+      },
+      "Modified": "2026-02-08T21:53:08.2507732-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "5B79D3535717A2B2",
+      "Size": 3352,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\memory_injection_smoke.json",
+      "RelativePath": "output\\memory_injection_smoke.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:29.5537688Z",
+        "ZeroCrossingRate": 0.1468,
+        "Entropy": 4.5963,
+        "SpectralCentroid": 0.4797,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "c3bd9d77688fc98c225ec74b928ef5e24206df0a197325e3d620fa871c44b3ddb1ee71fe625597cbe35746d08996b461",
+      "Metadata": {
+        "Size": 3352,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\memory_injection_smoke.json",
+        "Modified": "2026-02-08T21:53:08.2497060-06:00",
+        "Created": "2026-02-08T21:17:34.6645336-06:00"
+      },
+      "Modified": "2026-02-08T21:53:08.2497060-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "E17767634372C2E2",
+      "Size": 2108,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\memory_injection_smoke_manifest.json",
+      "RelativePath": "output\\memory_injection_smoke_manifest.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:30.8223124Z",
+        "ZeroCrossingRate": 0.1328,
+        "Entropy": 4.5184,
+        "SpectralCentroid": 0.4824,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "bf248e8a23e67991fb1878b4ecc2e304b7f456c6b2c22a63cd228040357a4449b9c4b7541e211563b07ee0c69930943a",
+      "Metadata": {
+        "Size": 2108,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\memory_injection_smoke_manifest.json",
+        "Modified": "2026-02-08T21:53:08.2513895-06:00",
+        "Created": "2026-02-08T21:17:34.6677499-06:00"
+      },
+      "Modified": "2026-02-08T21:53:08.2513895-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "5C7E321AB27A2BC9",
+      "Size": 1849,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\integrated_system_smoke.md",
+      "RelativePath": "output\\integrated_system_smoke.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:32.0088020Z",
+        "ZeroCrossingRate": 0.2125,
+        "Entropy": 5.3287,
+        "SpectralCentroid": 0.4764,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "1b5dc60af53480ee964126e1fe2e908142da731427835256a3f7ceadaa6e72eabc0d13118debc316200aa8210a57dca7",
+      "Metadata": {
+        "Size": 1849,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\integrated_system_smoke.md",
+        "Modified": "2026-02-08T21:53:34.1290247-06:00",
+        "Created": "2026-02-08T21:15:39.5301376-06:00"
+      },
+      "Modified": "2026-02-08T21:53:34.1290247-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "690B4B0B6BFB0373",
+      "Size": 4089,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\integrated_system_smoke.json",
+      "RelativePath": "output\\integrated_system_smoke.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:33.2316471Z",
+        "ZeroCrossingRate": 0.1536,
+        "Entropy": 4.7046,
+        "SpectralCentroid": 0.4752,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "9e975199daae3dbac047fdd49501c8923226f8a7aa196797f85dafb2d2143a1c950b5a48028b04e201abc11330107720",
+      "Metadata": {
+        "Size": 4089,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\integrated_system_smoke.json",
+        "Modified": "2026-02-08T21:53:34.1284134-06:00",
+        "Created": "2026-02-08T21:15:39.5288848-06:00"
+      },
+      "Modified": "2026-02-08T21:53:34.1284134-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F664C4E4C565EEEC",
+      "Size": 2440,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\integrated_system_smoke_manifest.json",
+      "RelativePath": "output\\integrated_system_smoke_manifest.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:34.4861911Z",
+        "ZeroCrossingRate": 0.123,
+        "Entropy": 4.5575,
+        "SpectralCentroid": 0.4819,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "a4bf5e65e52f3eadc995b2f3dad21eca2057ee5c6bf4ca656ad30dc9c7e564efeeed5e28954342fad8aaedb190db28b6",
+      "Metadata": {
+        "Size": 2440,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\integrated_system_smoke_manifest.json",
+        "Modified": "2026-02-08T21:53:34.1305496-06:00",
+        "Created": "2026-02-08T21:15:39.5317632-06:00"
+      },
+      "Modified": "2026-02-08T21:53:34.1305496-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "170B4143EC1D9D96",
+      "Size": 22717,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\generated_system_prompt_20260208_214456.txt",
+      "RelativePath": "output\\generated_system_prompt_20260208_214456.txt",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:36.1162931Z",
+        "ZeroCrossingRate": 0.2443,
+        "Entropy": 4.879,
+        "SpectralCentroid": 0.5001,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "3a20fc5d15343be3250613cbffe9b1b058e6bf87c6fcd85f154017c5226d6741ff4ff649139372d92662bd8873f92b59",
+      "Metadata": {
+        "Size": 22717,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".txt",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\output\\generated_system_prompt_20260208_214456.txt",
+        "Modified": "2026-02-08T21:44:56.7928598-06:00",
+        "Created": "2026-02-08T21:44:56.7915781-06:00"
+      },
+      "Modified": "2026-02-08T21:44:56.7928598-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "1B99BB2C27278727",
+      "Size": 25683,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\docs\\USAGE_GUIDE.md",
+      "RelativePath": "docs\\USAGE_GUIDE.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:37.8713301Z",
+        "ZeroCrossingRate": 0.1842,
+        "Entropy": 4.8151,
+        "SpectralCentroid": 0.4877,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "ed8728e46be1a000a8a02eadfe9b352b2a1f8a2a709f7291c6709a5d88b73b7f01925ef8e17bc56f94a8220a20b8b13e",
+      "Metadata": {
+        "Size": 25683,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\docs\\USAGE_GUIDE.md",
+        "Modified": "2026-02-08T21:50:41.5893632-06:00",
+        "Created": "2026-02-08T21:48:14.2157738-06:00"
+      },
+      "Modified": "2026-02-08T21:50:41.5893632-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "5C0E0DCB9D8D9597",
+      "Size": 1814,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\docs\\RELEASE_CHECKLIST.md",
+      "RelativePath": "docs\\RELEASE_CHECKLIST.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:39.0858998Z",
+        "ZeroCrossingRate": 0.2381,
+        "Entropy": 4.8011,
+        "SpectralCentroid": 0.5025,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "5976b852e2f84baaaa723588696a2c0cfafce874af29be89f97124f7ab3944ba589db653403bdb57214d528cd76d62bb",
+      "Metadata": {
+        "Size": 1814,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\docs\\RELEASE_CHECKLIST.md",
+        "Modified": "2026-02-08T17:58:37.3795568-06:00",
+        "Created": "2026-02-08T20:26:49.8990622-06:00"
+      },
+      "Modified": "2026-02-08T17:58:37.3795568-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "2B2B2198B69E9FDB",
+      "Size": 1899,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\docs\\PROVENANCE.md",
+      "RelativePath": "docs\\PROVENANCE.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:40.3000910Z",
+        "ZeroCrossingRate": 0.2201,
+        "Entropy": 4.9641,
+        "SpectralCentroid": 0.4947,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "f338122e1c2fa8e867793ed02376da12a5e626979953d588d07391218d59e1c4200bcbba6fa4971522bc06da35c77d9c",
+      "Metadata": {
+        "Size": 1899,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\docs\\PROVENANCE.md",
+        "Modified": "2026-02-08T18:03:59.9351269-06:00",
+        "Created": "2026-02-08T20:26:49.8912629-06:00"
+      },
+      "Modified": "2026-02-08T18:03:59.9351269-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "0A0B036BC1C26D8B",
+      "Size": 3347,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\docs\\MODULE_GUIDE.md",
+      "RelativePath": "docs\\MODULE_GUIDE.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:41.5444006Z",
+        "ZeroCrossingRate": 0.2456,
+        "Entropy": 4.7394,
+        "SpectralCentroid": 0.4992,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "6231860581b2f15cb1f912de7423e51a33ef2f2effe74fd58bcefef6a8feac672a792cb7aec388ba75f8580cabe08c52",
+      "Metadata": {
+        "Size": 3347,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\docs\\MODULE_GUIDE.md",
+        "Modified": "2026-02-08T16:16:16.3174042-06:00",
+        "Created": "2026-02-08T20:26:49.8824732-06:00"
+      },
+      "Modified": "2026-02-08T16:16:16.3174042-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "A830BE35B121F170",
+      "Size": 341,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\.vscode\\virtualTab.json",
+      "RelativePath": ".vscode\\virtualTab.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:42.6984574Z",
+        "ZeroCrossingRate": 0.2331,
+        "Entropy": 4.4247,
+        "SpectralCentroid": 0.4937,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "3c56132c9f3d817a2ada7c9460044fe6af177b95e39a31bffcad6055fceec7dddf9012fb60900dd9a47a248e1af7e0f1",
+      "Metadata": {
+        "Size": 163,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\.vscode\\virtualTab.json",
+        "Modified": "2026-02-08T22:31:37.3136027-06:00",
+        "Created": "2026-02-08T21:14:53.5476230-06:00"
+      },
+      "Modified": "2026-02-08T22:28:09.4545452-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "DA5C78B838782831",
+      "Size": 6450,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\zenodo.json",
+      "RelativePath": "zenodo.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:43.9583871Z",
+        "ZeroCrossingRate": 0.1978,
+        "Entropy": 4.7893,
+        "SpectralCentroid": 0.4897,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "287f42428101adcb7c5441b386dcc30a86b08fa45f731d8236aac9cb14e5a35142fef9e272358257d40d0fc36f62d55a",
+      "Metadata": {
+        "Size": 6450,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\zenodo.json",
+        "Modified": "2026-02-08T22:27:29.8878978-06:00",
+        "Created": "2026-02-08T22:21:55.9024412-06:00"
+      },
+      "Modified": "2026-02-08T22:27:29.8878978-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "8E8EF8FAFA32149D",
+      "Size": 312,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\zenodo_doi.txt",
+      "RelativePath": "zenodo_doi.txt",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:45.1644228Z",
+        "ZeroCrossingRate": 0.2212,
+        "Entropy": 5.2518,
+        "SpectralCentroid": 0.5338,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "2c4908f86fdd55121d41cd67bb68a092af66d398715c39226a3944be9f9e87ac619a20c9e55597907087ed3be1544a2e",
+      "Metadata": {
+        "Size": 312,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".txt",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\zenodo_doi.txt",
+        "Modified": "2026-02-08T22:27:17.3883254-06:00",
+        "Created": "2026-02-08T22:25:03.0171040-06:00"
+      },
+      "Modified": "2026-02-08T22:27:17.3883254-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "645E4ED5C0C0C2DD",
+      "Size": 7273,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\verify_prompt_integration.py",
+      "RelativePath": "verify_prompt_integration.py",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:46.5010663Z",
+        "ZeroCrossingRate": 0.201,
+        "Entropy": 4.6889,
+        "SpectralCentroid": 0.493,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "6c52637295f1f4098868af966b9c48da15de6ab860b6d88c83105410f0d7bbdbafc11e9e896325d28d2b96bf6670394a",
+      "Metadata": {
+        "Size": 7273,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".py",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\verify_prompt_integration.py",
+        "Modified": "2026-02-08T21:44:25.2989834-06:00",
+        "Created": "2026-02-08T21:19:39.7205554-06:00"
+      },
+      "Modified": "2026-02-08T21:44:25.2989834-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "0852F5C2CFEB21A1",
+      "Size": 5825,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA256SUMS.txt",
+      "RelativePath": "SHA256SUMS.txt",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:47.7681913Z",
+        "ZeroCrossingRate": 0.3533,
+        "Entropy": 4.9499,
+        "SpectralCentroid": 0.4995,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "e3186136bf1753bbfb8303253adf780fa5374528c149047fd06bcc5d5bda3fa4f74686c19cd59444dc6bb7ee5a81f0fa",
+      "Metadata": {
+        "Size": 5825,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".txt",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA256SUMS.txt",
+        "Modified": "2026-02-08T22:13:07.2973603-06:00",
+        "Created": "2026-02-08T21:43:39.8796177-06:00"
+      },
+      "Modified": "2026-02-08T22:13:07.2973603-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "BA18093B3F3B307C",
+      "Size": 69048,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA256SUMS.json",
+      "RelativePath": "SHA256SUMS.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:50.4997019Z",
+        "ZeroCrossingRate": 0.1791,
+        "Entropy": 5.1213,
+        "SpectralCentroid": 0.4984,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "e78eccc6c7302c059387ee485d817184e8de183d7f9b84435716994b28214f16dae4e993d1901bf768e1c07c5df3c1c3",
+      "Metadata": {
+        "Size": 69048,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA256SUMS.json",
+        "Modified": "2026-02-08T22:13:07.8588822-06:00",
+        "Created": "2026-02-08T21:43:41.1971938-06:00"
+      },
+      "Modified": "2026-02-08T22:13:07.8588822-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "5BF167652C8CA392",
+      "Size": 8628,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA256SUMS.csv",
+      "RelativePath": "SHA256SUMS.csv",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:51.9099115Z",
+        "ZeroCrossingRate": 0.2529,
+        "Entropy": 4.9729,
+        "SpectralCentroid": 0.4938,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "452812267499913b0bf2d042cb1f9485e2a55284b5c753f9e4f533d13485229ce28c5d868eccc64a27b4f8b4b6ec63ec",
+      "Metadata": {
+        "Size": 8628,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".csv",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA256SUMS.csv",
+        "Modified": "2026-02-08T22:13:07.9611138-06:00",
+        "Created": "2026-02-08T21:43:41.2762762-06:00"
+      },
+      "Modified": "2026-02-08T22:13:07.9611138-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "7C3E791C7CFA1869",
+      "Size": 4466,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA1SUMS.txt",
+      "RelativePath": "SHA1SUMS.txt",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:53.1580066Z",
+        "ZeroCrossingRate": 0.3211,
+        "Entropy": 5.0918,
+        "SpectralCentroid": 0.5005,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "8d075a83c8922a509e584f68dbf7be8f0d89a79ba34cea2d4f1510689060221b261883d3ceea47c2ef2d6df219243131",
+      "Metadata": {
+        "Size": 4466,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".txt",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA1SUMS.txt",
+        "Modified": "2026-02-08T22:28:52.8542492-06:00",
+        "Created": "2026-02-08T22:28:52.8532549-06:00"
+      },
+      "Modified": "2026-02-08T22:28:52.8542492-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "091B2B3B32767F36",
+      "Size": 68597,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA1SUMS.json",
+      "RelativePath": "SHA1SUMS.json",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:55.6156565Z",
+        "ZeroCrossingRate": 0.1735,
+        "Entropy": 5.099,
+        "SpectralCentroid": 0.498,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "c1fd2f1f146586857cf2e491e41233afafe5d07d5c2e6573040ed7912bf0fcd0ca7839a383ee129b812e0536c03ec138",
+      "Metadata": {
+        "Size": 68597,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".json",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA1SUMS.json",
+        "Modified": "2026-02-08T22:28:53.5571029-06:00",
+        "Created": "2026-02-08T22:28:53.5561050-06:00"
+      },
+      "Modified": "2026-02-08T22:28:53.5571029-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "898383838F870797",
+      "Size": 7316,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA1SUMS.csv",
+      "RelativePath": "SHA1SUMS.csv",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:56.9199033Z",
+        "ZeroCrossingRate": 0.213,
+        "Entropy": 5.0308,
+        "SpectralCentroid": 0.4902,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "911c545dc2024fd5e8e9bbf362fb36d56bfe787dbf4035c52445cc9ce3c572a2047af081865d882694e03d6b80eec534",
+      "Metadata": {
+        "Size": 7316,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".csv",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\SHA1SUMS.csv",
+        "Modified": "2026-02-08T22:28:53.8190123-06:00",
+        "Created": "2026-02-08T22:28:53.6943347-06:00"
+      },
+      "Modified": "2026-02-08T22:28:53.8190123-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "A0B0BA1A1EECCD7B",
+      "Size": 7557,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\run_neural_router_smoke.py",
+      "RelativePath": "run_neural_router_smoke.py",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:58.2319929Z",
+        "ZeroCrossingRate": 0.1966,
+        "Entropy": 4.6584,
+        "SpectralCentroid": 0.4946,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "8f7d1a4bfae8c73880221dc1369a6c2848a621614e419f67ad5dec386059fa8307d9b97b5214123b018d9ada8e5b678b",
+      "Metadata": {
+        "Size": 7557,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".py",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\run_neural_router_smoke.py",
+        "Modified": "2026-02-08T20:48:26.2070606-06:00",
+        "Created": "2026-02-08T20:26:06.3202267-06:00"
+      },
+      "Modified": "2026-02-08T20:48:26.2070606-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "B3EAEA6242E06A74",
+      "Size": 8295,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\run_memory_injection_smoke.py",
+      "RelativePath": "run_memory_injection_smoke.py",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:42:59.6508378Z",
+        "ZeroCrossingRate": 0.1832,
+        "Entropy": 4.6587,
+        "SpectralCentroid": 0.499,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "1cb3cd1981a1b9b0744791252203194ab980c7d97ea0a739dc32fbef8e62c26a08fc14f6c59eef207bb77985f1c6f8be",
+      "Metadata": {
+        "Size": 8295,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".py",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\run_memory_injection_smoke.py",
+        "Modified": "2026-02-08T20:43:18.7301526-06:00",
+        "Created": "2026-02-08T20:50:09.6869220-06:00"
+      },
+      "Modified": "2026-02-08T20:43:18.7301526-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "24DE76F256785859",
+      "Size": 8299,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\run_integrated_system_smoke.py",
+      "RelativePath": "run_integrated_system_smoke.py",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:01.0404172Z",
+        "ZeroCrossingRate": 0.1834,
+        "Entropy": 4.6581,
+        "SpectralCentroid": 0.4931,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "7985ee7ea7087c939a89430bcc320337f8b80f690d4c60a128fc1fd52c1cea36fa60c5ea68c8d85eb755226d26b9ac83",
+      "Metadata": {
+        "Size": 8299,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".py",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\run_integrated_system_smoke.py",
+        "Modified": "2026-02-08T20:43:56.3304126-06:00",
+        "Created": "2026-02-08T20:50:09.6776985-06:00"
+      },
+      "Modified": "2026-02-08T20:43:56.3304126-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F8F0A0C0C060E0E0",
+      "Size": 92,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\requirements.txt",
+      "RelativePath": "requirements.txt",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:02.1710643Z",
+        "ZeroCrossingRate": 0.2391,
+        "Entropy": 4.4108,
+        "SpectralCentroid": 0.4743,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "310f5f3befe1c3252d1c4755039da21d8e8f9515f38332e29419ec6fcc674b16dd25e68f5ba83c515c7f3fc42ea08461",
+      "Metadata": {
+        "Size": 92,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".txt",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\requirements.txt",
+        "Modified": "2026-02-08T20:32:40.9728242-06:00",
+        "Created": "2026-02-08T20:26:49.9119153-06:00"
+      },
+      "Modified": "2026-02-08T20:32:40.9728242-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "75769F8D4250CBCA",
+      "Size": 12251,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\README.md",
+      "RelativePath": "README.md",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:03.5980637Z",
+        "ZeroCrossingRate": 0.2426,
+        "Entropy": 5.0017,
+        "SpectralCentroid": 0.4959,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "d3941601831b5880c373833a399489e6dd53d2ae5aecaa574ed78986841c6e257b48dcc25e44a5441e78209d69aa60c3",
+      "Metadata": {
+        "Size": 12251,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".md",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\README.md",
+        "Modified": "2026-02-08T22:28:12.4899063-06:00",
+        "Created": "2026-02-08T20:50:09.6945987-06:00"
+      },
+      "Modified": "2026-02-08T22:28:12.4899063-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "E6D26612A6FEE964",
+      "Size": 43348,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\neural_router.py",
+      "RelativePath": "neural_router.py",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:05.7920571Z",
+        "ZeroCrossingRate": 0.1691,
+        "Entropy": 4.513,
+        "SpectralCentroid": 0.4991,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "3eec0d0ea629f41439663ab8ca502980a2de8f6e2de1b12ddea64cc12426e7c06a189029c294a46eef4967f63ae0df07",
+      "Metadata": {
+        "Size": 43348,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".py",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\neural_router.py",
+        "Modified": "2026-02-08T21:19:23.5800613-06:00",
+        "Created": "2026-02-08T20:26:06.3085275-06:00"
+      },
+      "Modified": "2026-02-08T21:19:23.5800613-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "DC78343E3EB200EA",
+      "Size": 30137,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\memory_injection_system.py",
+      "RelativePath": "memory_injection_system.py",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:07.5698135Z",
+        "ZeroCrossingRate": 0.1689,
+        "Entropy": 4.4238,
+        "SpectralCentroid": 0.4944,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "c3c9f006c33b29eef14c0dd6bc6641843b1f2ee0ea5b898a204bb6e748f679e07ed12ee6b3050d8230c1dba7b0499453",
+      "Metadata": {
+        "Size": 30137,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".py",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\memory_injection_system.py",
+        "Modified": "2026-02-08T20:26:42.1336651-06:00",
+        "Created": "2026-02-08T20:50:09.7021727-06:00"
+      },
+      "Modified": "2026-02-08T20:26:42.1336651-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "7CFB325C76564351",
+      "Size": 82913,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\LICENSE",
+      "RelativePath": "LICENSE",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:10.1671622Z",
+        "ZeroCrossingRate": 0.2501,
+        "Entropy": 4.933,
+        "SpectralCentroid": 0.5004,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "ac127bd47a41469b2e45a7e706138c929f645571ef1a0c7de5bcae3aed7ea27f0636396ffab1c19d2697ec208fdde07f",
+      "Metadata": {
+        "Size": 82913,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": "",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\LICENSE",
+        "Modified": "2026-01-08T22:19:24.5100770-06:00",
+        "Created": "2026-02-08T20:26:06.2932630-06:00"
+      },
+      "Modified": "2026-01-08T22:19:24.5100770-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "F6CE6ACD48443CC5",
+      "Size": 23905,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\integrated_system.py",
+      "RelativePath": "integrated_system.py",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:12.7725000Z",
+        "ZeroCrossingRate": 0.1646,
+        "Entropy": 4.3981,
+        "SpectralCentroid": 0.5008,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "2e5b1d6f8e292de6c127f5325a0857e8f3dc5d6534fd9547916c968ba1083c13f08853f3bf31a4870cc438aa1f9d9894",
+      "Metadata": {
+        "Size": 23905,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".py",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\integrated_system.py",
+        "Modified": "2025-12-27T20:07:47.9319920-06:00",
+        "Created": "2026-02-08T20:50:09.7411337-06:00"
+      },
+      "Modified": "2025-12-27T20:07:47.9319920-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "C327B7E3B2332A82",
+      "Size": 62786,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\hash-index.ps1",
+      "RelativePath": "hash-index.ps1",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:16.5479881Z",
+        "ZeroCrossingRate": 0.2321,
+        "Entropy": 4.9297,
+        "SpectralCentroid": 0.5008,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "e54552156ad50ef761d5241b605d298a2d08ae7c48a0491d32456341aa7d4b965d13113fb532b229c09f2ca53d89fa58",
+      "Metadata": {
+        "Size": 62786,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".ps1",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\hash-index.ps1",
+        "Modified": "2026-01-31T01:39:08.0051378-06:00",
+        "Created": "2026-02-08T20:58:52.1151154-06:00"
+      },
+      "Modified": "2026-01-31T01:39:08.0051378-06:00",
+      "Algorithm": "SHA384"
+    },
+    {
+      "PerceptualHash": "D1FABE28A6A69C90",
+      "Size": 340,
+      "FullPath": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\CITATION.cff",
+      "RelativePath": "CITATION.cff",
+      "FrequencySignature": {
+        "SignatureTime": "2026-02-09T04:43:17.7685276Z",
+        "ZeroCrossingRate": 0.2639,
+        "Entropy": 5.0161,
+        "SpectralCentroid": 0.4938,
+        "DCTCoefficients": "NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN"
+      },
+      "Hash": "71ba2841f5bf06d57561991dc752800d9f935acb7d47264775afd2e7928fd5fd14280d2aeaf1544e3d26d20dbcec5d37",
+      "Metadata": {
+        "Size": 413,
+        "ContentType": "application/octet-stream",
+        "Encoding": "",
+        "Extension": ".cff",
+        "Path": "C:\\Users\\treyr\\Desktop\\Dev-Drive\\SOTA_Runtime_Tools\\CITATION.cff",
+        "Modified": "2026-02-08T22:30:08.1896191-06:00",
+        "Created": "2026-02-08T20:42:48.4303302-06:00"
+      },
+      "Modified": "2026-02-08T22:19:24.0153390-06:00",
+      "Algorithm": "SHA384"
+    }
+  ]
+}
