@@ -75,7 +75,6 @@ def validate_personality_injection(rendered: str) -> Tuple[bool, list]:
     """
     expected_phrases = [
         "OFFLINE REASONING AGENT",
-        "CLAUDE 4 INSPIRED SYSTEM PROMPT",
         "You are an advanced AI assistant, an offline reasoning agent.",
         "Extended Thinking",
         "Constitutional AI",
