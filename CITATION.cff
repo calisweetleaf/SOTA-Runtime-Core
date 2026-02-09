@@ -1,28 +1,15 @@
-cff-version: 1.2.0
-message: "If you use this software in your research, please cite it as below."
-title: "Somnus Router Toolkit"
-version: "1.0.0"
-date-released: "2026-02-09"
-url: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
-repository-code: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
-abstract: "Production-grade neural routing and cross-chat memory systems for local AI infrastructure. Part of the Somnus Sovereign Systems toolkit series."
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
 authors:
-  - family-names: "Rowell"
-    given-names: "Christian Trey Levi"
-    affiliation: "Somnus Sovereign Systems"
-keywords:
-  - "neural-routing"
-  - "memory-injection"
-  - "llm-infrastructure"
-  - "prompt-engineering"
-  - "sovereign-ai"
-license: "Proprietary"
-preferred-citation:
-  type: software
-  authors:
-    - family-names: "Rowell"
-      given-names: "Christian Trey Levi"
-  title: "Somnus Router Toolkit"
-  version: "1.0.0"
-  date-released: "2026-02-09"
-  url: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
+- family-names: Rowell
+  given-names: Christian Trey Levi
+orcid: https://orcid.org/0009-0008-6550-6316
+title: "SOTA Runtime Core"
+version: v1.5.2
+date-released: 2026-02-08
+repository-code: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
+prior-works:
+- title: "Reinforcement Learning Full Pipeline"
+  version: v1.0.1
+  date-released: 2026-01-25
+  repository-code: "https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline"
