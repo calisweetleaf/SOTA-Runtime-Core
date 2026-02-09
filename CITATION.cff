@@ -8,8 +8,3 @@ title: "SOTA Runtime Core"
 version: v1.5.2
 date-released: 2026-02-08
 repository-code: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
-prior-works:
-- title: "Reinforcement Learning Full Pipeline"
-  version: v1.0.1
-  date-released: 2026-01-25
-  repository-code: "https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline"
