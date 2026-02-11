@@ -5,6 +5,6 @@ authors:
   given-names: Christian Trey Levi
 orcid: https://orcid.org/0009-0008-6550-6316
 title: "SOTA Runtime Core"
-version: v1.5.2
+version: v2.0.0
 date-released: 2026-02-08
 repository-code: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
