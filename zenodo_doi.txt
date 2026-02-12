@@ -1,9 +1,25 @@
-Personal ORCID:  https://orcid.org/0009-0008-6550-6316
+Personal ORCID: 
 
-DOI: 10.5281/zenodo.18530654
+https://orcid.org/0009-0008-6550-6316
 
-Zenodo Link: https://doi.org/10.5281/zenodo.18530654
+Repository DOI: 10.5281/zenodo.18607898
 
-Github Repo Link: https://github.com/calisweetleaf/SOTA-Runtime-Core
+Zenodo Link:
 
-Prior Works Github Repo: https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline
+<https://doi.org/10.5281/zenodo.18607898>
+
+Github Repo Link:
+ <https://github.com/calisweetleaf/SOTA-Runtime-Core>
+
+Prior Works Github Repo:
+ https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline
+
+Licence Repo:
+
+https://github.com/calisweetleaf/somnus-license
+
+APA Citation:
+
+```apa
+Rowell, C. T. L. (2026). SOTA Runtime Core: Neural Prompt Router and Dual-Method Memory System (v2.0 0). Zenodo. https://doi.org/10.5281/zenodo.18607898
+```

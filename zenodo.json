@@ -8,74 +8,106 @@
     "record": "public",
     "status": "open"
   },
-  "created": "2026-02-09T04:21:14.412825+00:00",
+  "created": "2026-02-11T10:42:18.123173+00:00",
   "custom_fields": {
-    "code:codeRepository": "https://github.com/calisweetleaf/SOTA-Runtime-Core"
+    "code:codeRepository": "https://github.com/calisweetleaf/SOTA-Runtime-Core",
+    "code:developmentStatus": {
+      "id": "active",
+      "title": {
+        "en": "Active"
+      }
+    },
+    "code:programmingLanguage": [
+      {
+        "id": "python",
+        "title": {
+          "en": "Python"
+        }
+      }
+    ]
   },
   "deletion_status": {
     "is_deleted": false,
     "status": "P"
   },
   "files": {
-    "count": 1,
+    "count": 2,
+    "default_preview": "LICENSE",
     "enabled": true,
     "entries": {
-      "calisweetleaf/SOTA-Runtime-Core-v1.5.2.zip": {
+      "LICENSE": {
         "access": {
           "hidden": false
         },
-        "checksum": "md5:ee19d6c9bf2b3d3d09f4d7a1444577b2",
-        "ext": "zip",
-        "id": "bd281f8f-a518-4f6a-a294-91b81a712e0c",
-        "key": "calisweetleaf/SOTA-Runtime-Core-v1.5.2.zip",
+        "checksum": "md5:bd7ddca7943e825ccf4cc9944315a8d7",
+        "ext": "bin",
+        "id": "e88eb0e3-f0a5-49bf-944d-8f8a20fdf9d1",
+        "key": "LICENSE",
         "links": {
-          "content": "https://zenodo.org/api/records/18530654/files/calisweetleaf/SOTA-Runtime-Core-v1.5.2.zip/content",
-          "self": "https://zenodo.org/api/records/18530654/files/calisweetleaf/SOTA-Runtime-Core-v1.5.2.zip"
+          "content": "https://zenodo.org/api/records/18607898/files/LICENSE/content",
+          "self": "https://zenodo.org/api/records/18607898/files/LICENSE"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 82913,
+        "storage_class": "L"
+      },
+      "calisweetleaf/SOTA-Runtime-Core-v2.0.0.zip": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:68ac6aa1a8e5621b610ffb179e0403be",
+        "ext": "zip",
+        "id": "d54492b7-b6ec-4d32-acb2-b7b75c91807c",
+        "key": "calisweetleaf/SOTA-Runtime-Core-v2.0.0.zip",
+        "links": {
+          "content": "https://zenodo.org/api/records/18607898/files/calisweetleaf/SOTA-Runtime-Core-v2.0.0.zip/content",
+          "self": "https://zenodo.org/api/records/18607898/files/calisweetleaf/SOTA-Runtime-Core-v2.0.0.zip"
         },
         "metadata": null,
         "mimetype": "application/zip",
-        "size": 757364,
+        "size": 921829,
         "storage_class": "L"
       }
     },
     "order": [],
-    "total_bytes": 757364
+    "total_bytes": 1004742
   },
-  "id": "18530654",
+  "id": "18607898",
   "is_draft": false,
   "is_published": true,
   "links": {
-    "access": "https://zenodo.org/api/records/18530654/access",
-    "access_grants": "https://zenodo.org/api/records/18530654/access/grants",
-    "access_links": "https://zenodo.org/api/records/18530654/access/links",
-    "access_request": "https://zenodo.org/api/records/18530654/access/request",
-    "access_users": "https://zenodo.org/api/records/18530654/access/users",
-    "archive": "https://zenodo.org/api/records/18530654/files-archive",
-    "archive_media": "https://zenodo.org/api/records/18530654/media-files-archive",
-    "communities": "https://zenodo.org/api/records/18530654/communities",
-    "communities-suggestions": "https://zenodo.org/api/records/18530654/communities-suggestions",
-    "doi": "https://doi.org/10.5281/zenodo.18530654",
-    "draft": "https://zenodo.org/api/records/18530654/draft",
-    "file_modification": "https://zenodo.org/api/records/18530654/file-modification",
-    "files": "https://zenodo.org/api/records/18530654/files",
-    "latest": "https://zenodo.org/api/records/18530654/versions/latest",
-    "latest_html": "https://zenodo.org/records/18530654/latest",
-    "media_files": "https://zenodo.org/api/records/18530654/media-files",
+    "access": "https://zenodo.org/api/records/18607898/access",
+    "access_grants": "https://zenodo.org/api/records/18607898/access/grants",
+    "access_links": "https://zenodo.org/api/records/18607898/access/links",
+    "access_request": "https://zenodo.org/api/records/18607898/access/request",
+    "access_users": "https://zenodo.org/api/records/18607898/access/users",
+    "archive": "https://zenodo.org/api/records/18607898/files-archive",
+    "archive_media": "https://zenodo.org/api/records/18607898/media-files-archive",
+    "communities": "https://zenodo.org/api/records/18607898/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/18607898/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.18607898",
+    "draft": "https://zenodo.org/api/records/18607898/draft",
+    "file_modification": "https://zenodo.org/api/records/18607898/file-modification",
+    "files": "https://zenodo.org/api/records/18607898/files",
+    "latest": "https://zenodo.org/api/records/18607898/versions/latest",
+    "latest_html": "https://zenodo.org/records/18607898/latest",
+    "media_files": "https://zenodo.org/api/records/18607898/media-files",
     "parent": "https://zenodo.org/api/records/18530653",
     "parent_doi": "https://doi.org/10.5281/zenodo.18530653",
     "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18530653",
     "parent_html": "https://zenodo.org/records/18530653",
-    "preview_html": "https://zenodo.org/records/18530654?preview=1",
-    "request_deletion": "https://zenodo.org/api/records/18530654/request-deletion",
-    "requests": "https://zenodo.org/api/records/18530654/requests",
-    "reserve_doi": "https://zenodo.org/api/records/18530654/draft/pids/doi",
-    "self": "https://zenodo.org/api/records/18530654",
-    "self_doi": "https://doi.org/10.5281/zenodo.18530654",
-    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18530654",
-    "self_html": "https://zenodo.org/records/18530654",
-    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:18530654/manifest",
-    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:18530654/sequence/default",
-    "versions": "https://zenodo.org/api/records/18530654/versions"
+    "preview_html": "https://zenodo.org/records/18607898?preview=1",
+    "request_deletion": "https://zenodo.org/api/records/18607898/request-deletion",
+    "requests": "https://zenodo.org/api/records/18607898/requests",
+    "reserve_doi": "https://zenodo.org/api/records/18607898/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/18607898",
+    "self_doi": "https://doi.org/10.5281/zenodo.18607898",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18607898",
+    "self_html": "https://zenodo.org/records/18607898",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:18607898/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:18607898/sequence/default",
+    "versions": "https://zenodo.org/api/records/18607898/versions"
   },
   "media_files": {
     "count": 0,
@@ -85,6 +117,24 @@
     "total_bytes": 0
   },
   "metadata": {
+    "additional_descriptions": [
+      {
+        "description": "If you use this software, please cite it as below. All software, files, ideas etc are under the Anti-Exploit License Terms.",
+        "lang": {
+          "id": "eng",
+          "title": {
+            "en": "English"
+          }
+        },
+        "type": {
+          "id": "notes",
+          "title": {
+            "de": "Anmerkungen",
+            "en": "Notes"
+          }
+        }
+      }
+    ],
     "creators": [
       {
         "person_or_org": {
@@ -95,12 +145,18 @@
         }
       }
     ],
-    "description": "<p>This is&nbsp;the second installment in my open-source toolkit series: a free-to-use, local Python implementation of two runtime systems typically locked behind commercial APIs. Neural prompt routing with dynamic reasoning depth, and a cross-chat memory extraction/injection system. Clone, drop into your project, run. No sign-ups, no API keys required.</p>",
+    "description": "<p>This repository provides production-grade implementations of three runtime tools built for SOTA-tier local AI systems. `neural_router.py` handles prompt policy generation and tool-routing decisions, `memory_injection_system.py` handles cross-chat memory extraction/retrieval/injection, and `integrated_system.py` demonstrates composition. Each file is intentionally reusable as a standalone module so teams can copy, drop-in, and integrate without adopting a full monolith.</p>\n<p>&nbsp;</p>\n<p>This is positioned as installment #2 in a broader open toolkit line. The design goal is practical decentralization: high-leverage runtime infrastructure available through open research reconstruction and non-proprietary implementation, with reproducible smoke evidence and integrity artifacts.</p>\n<p>&nbsp;</p>\n<p>These tools have standalone test, and an integration example. You can do whatever you like, adhering to the Anti-Exploit license governing all contents that touch this repository. The goal is to make it easy as Copy/Paste into your personal projects, integrate an already finished Production Module, and get an SaaS worthy experience free, easy, and local.&nbsp;</p>",
+    "identifiers": [
+      {
+        "identifier": "https://github.com/calisweetleaf",
+        "scheme": "url"
+      }
+    ],
     "publication_date": "2026-02-09",
     "publisher": "Zenodo",
     "related_identifiers": [
       {
-        "identifier": "https://github.com/calisweetleaf/SOTA-Runtime-Core/tree/v1.5.2",
+        "identifier": "https://github.com/calisweetleaf/SOTA-Runtime-Core/tree/v2.0.0",
         "relation_type": {
           "id": "issupplementto",
           "title": {
@@ -116,6 +172,42 @@
           }
         },
         "scheme": "url"
+      },
+      {
+        "identifier": "https://github.com/calisweetleaf/somnus-license",
+        "relation_type": {
+          "id": "cites",
+          "title": {
+            "de": "Zitiert",
+            "en": "Cites"
+          }
+        },
+        "resource_type": {
+          "id": "software",
+          "title": {
+            "de": "Software",
+            "en": "Software"
+          }
+        },
+        "scheme": "url"
+      },
+      {
+        "identifier": "10.5281/zenodo.18607464",
+        "relation_type": {
+          "id": "continues",
+          "title": {
+            "de": "Setzt fort",
+            "en": "Continues"
+          }
+        },
+        "resource_type": {
+          "id": "software",
+          "title": {
+            "de": "Software",
+            "en": "Software"
+          }
+        },
+        "scheme": "doi"
       }
     ],
     "resource_type": {
@@ -127,14 +219,14 @@
     },
     "rights": [
       {
-        "link": "https://github.com/calisweetleaf/somnus-license",
+        "link": "https://github.com/calisweetleaf/somnus-license/blob/main/LICENSE",
         "title": {
-          "en": "Sovereign Anti-Exploitation Software License"
+          "en": "Somnus Anti-Exploitation License "
         }
       }
     ],
-    "title": "SOTA Runtime Core",
-    "version": "v1.5.2"
+    "title": "SOTA Runtime Core: Neural Prompt Router and Dual-Method Memory System",
+    "version": "v2.0 0"
   },
   "parent": {
     "access": {
@@ -163,22 +255,22 @@
   "pids": {
     "doi": {
       "client": "datacite",
-      "identifier": "10.5281/zenodo.18530654",
+      "identifier": "10.5281/zenodo.18607898",
       "provider": "datacite"
     },
     "oai": {
-      "identifier": "oai:zenodo.org:18530654",
+      "identifier": "oai:zenodo.org:18607898",
       "provider": "oai"
     }
   },
-  "revision_id": 4,
+  "revision_id": 3,
   "stats": {
     "all_versions": {
       "data_volume": 0.0,
       "downloads": 0,
       "unique_downloads": 0,
-      "unique_views": 0,
-      "views": 0
+      "unique_views": 22,
+      "views": 25
     },
     "this_version": {
       "data_volume": 0.0,
@@ -190,9 +282,9 @@
   },
   "status": "published",
   "swh": {},
-  "updated": "2026-02-09T04:24:42.909003+00:00",
+  "updated": "2026-02-11T10:42:18.411641+00:00",
   "versions": {
-    "index": 1,
+    "index": 3,
     "is_latest": true,
     "is_latest_draft": true
   }
