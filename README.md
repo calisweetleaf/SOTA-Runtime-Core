@@ -31,7 +31,7 @@ This repository provides production-grade implementations of three runtime tools
 
 This is positioned as installment #2 in a broader open toolkit line. The design goal is practical decentralization: high-leverage runtime infrastructure available through open research reconstruction and non-proprietary implementation, with reproducible smoke evidence and integrity artifacts.
 
-These tools have standalone test, and an integration example. You can do whatever you like, adhering to the Anti-Exploit license governing all contents that touch this repository. The goal is to make it easy as Copy/Paste into your personal projects, integrate an already finished Production Module, and get an SaaS worthy experience free, easy, and local. 
+These tools have standalone test, and an integration example. You can do whatever you like, adhering to the Anti-Exploit license governing all contents that touch this repository. The goal is to make it easy as Copy/Paste into your personal projects, integrate an already finished Production Module, and get an SaaS worthy experience free, easy, and local.
 
 Be looking for drop 3 in this trilogy which involves even larger advancements. Drop 3 will be the biggest drop and will broadly be about "infinite" effective context with an 80-92% compression enabling pretrained open models to be able to do long horizon task, guided reasoning, and context conversion.(it is not full compression more than it is a reprentational conversion.)
 
@@ -286,7 +286,6 @@ Note: `hash-index.ps1` is validated with PowerShell 7 (`pwsh`).
 - `docs/MODULE_GUIDE.md`: class-level surface map and integration notes.
 - `docs/PROVENANCE.md`: manifest workflow and current hash snapshot.
 - `docs/RELEASE_CHECKLIST.md`: release-readiness checklist.
-
 
 ### Provenance
 
