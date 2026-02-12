@@ -4,11 +4,17 @@
 
 ### Standalone SOTA Runtime Components (Drop 2)
 
-![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![Python 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=yellow)
+
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=orange)
+
 ![License](https://img.shields.io/badge/License-Sovereign-blueviolet?style=for-the-badge)
-[![Toolkit Lineage: RLHF](https://img.shields.io/badge/Toolkit_Lineage-RLHF%20Pipeline-0A66C2?style=for-the-badge)](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline)
+
+[![SOTA-Toolkit-Drop-One: RLHF](https://img.shields.io/badge/Toolkit_Drop_One-RLHF%20Pipeline-0A66C2?style=for-the-badge)](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline)
+
 [![License Repo: somnus-license](https://img.shields.io/badge/License_Repo-somnus--license-111111?style=for-the-badge)](https://github.com/calisweetleaf/somnus-license)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18607898.svg)](10.5281/zenodo.18607898)
 
 <br/>
 
@@ -284,8 +290,14 @@ Note: `hash-index.ps1` is validated with PowerShell 7 (`pwsh`).
 
 ### Provenance
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18530654.svg)](https://doi.org/10.5281/zenodo.18530654)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18607898.svg)](https://doi.org/10.5281/zenodo.18607898)
 
-- **Zenodo Archive:** [10.5281/zenodo.18530654](https://doi.org/10.5281/zenodo.18530654)
 - **Author ORCID:** [0009-0008-6550-6316](https://orcid.org/0009-0008-6550-6316)
 - **Prior Work:** [Reinforcement-Learning-Full-Pipeline](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline)
+- **License:** [Sovereign Anti-Exploitation Software License](https://github.com/calisweetleaf/somnus-license)
+
+## Citation
+
+```bibtex
+@misc{https://doi.org/10.5281/zenodo.18607898,  doi = {10.5281/ZENODO.18607898},  url = {https://zenodo.org/doi/10.5281/zenodo.18607898},  author = {Rowell, Christian Trey Levi},  title = {SOTA Runtime Core: Neural Prompt Router and Dual-Method Memory System},  publisher = {Zenodo},  year = {2026},  copyright = {Somnus Anti-Exploitation License }}
+```
