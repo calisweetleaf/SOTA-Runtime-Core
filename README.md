@@ -14,7 +14,7 @@
 
 [![License Repo: somnus-license](https://img.shields.io/badge/License_Repo-somnus--license-111111?style=for-the-badge)](https://github.com/calisweetleaf/somnus-license)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18607898.svg)](https://doi.org/10.5281/zenodo.18607898)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18607898.svg)](10.5281/zenodo.18607898)
 
 <br/>
 
