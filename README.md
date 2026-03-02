@@ -37,6 +37,14 @@ Be looking for drop 3 in this trilogy which involves even larger advancements. D
 
 ---
 
+## Update March 2, 2026
+
+The discord server has been setup for the broader ecosystem from toolkit to the recursive-categorical-framework, this was done as I move towards more open collaboration and engagement. I am new to setting up these channels so quality and entry barrier will decrease. Feel free to message the categories channels, message me personally for any questions, collaborations, or other general discussion.
+
+[Discord-New-Channel](https://discord.gg/uj6ug5Sdw)
+
+---
+
 ## Mission
 
 The exclusive control over post-training infrastructure has allowed a few organizations to artificially monopolize AI capabilities. They claim innovation while simply gating access to standard reinforcement learning techniques. THIS REPOSITORY IS GOVERNED BY THE Sovereign Anti-Exploitation Software License
