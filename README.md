@@ -8,8 +8,6 @@
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=orange)
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blueviolet.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
 [![SOTA-Toolkit-Drop-One: RLHF](https://img.shields.io/badge/Toolkit_Drop_One-RLHF%20Pipeline-0A66C2?style=for-the-badge)](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blueviolet.svg)](https://www.gnu.org/licenses/gpl-3.0)
