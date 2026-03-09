@@ -1,6 +1,6 @@
 <div align="center">
 
-# Somnus Router Toolkit
+# Somnus Router Toolkit: Last Updated 03-08-2026 retiring the somnus-license and changing completely to GPLv3.
 
 ### Standalone SOTA Runtime Components (Drop 2)
 
@@ -8,11 +8,11 @@
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=orange)
 
-![License](https://img.shields.io/badge/License-Sovereign-blueviolet?style=for-the-badge)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blueviolet.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [![SOTA-Toolkit-Drop-One: RLHF](https://img.shields.io/badge/Toolkit_Drop_One-RLHF%20Pipeline-0A66C2?style=for-the-badge)](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline)
 
-[![License Repo: somnus-license](https://img.shields.io/badge/License_Repo-somnus--license-111111?style=for-the-badge)](https://github.com/calisweetleaf/somnus-license)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blueviolet.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18607898.svg)](https://doi.org/10.5281/zenodo.18607898)
 
@@ -47,7 +47,7 @@ The discord server has been setup for the broader ecosystem from toolkit to the 
 
 ## Mission
 
-The exclusive control over post-training infrastructure has allowed a few organizations to artificially monopolize AI capabilities. They claim innovation while simply gating access to standard reinforcement learning techniques. THIS REPOSITORY IS GOVERNED BY THE Sovereign Anti-Exploitation Software License
+The exclusive control over post-training infrastructure has allowed a few organizations to artificially monopolize AI capabilities. They claim innovation while simply gating access to standard reinforcement learning techniques. THIS REPOSITORY IS GOVERNED BY GPLv3 AS OF March 08, 2026. The anti-exploitation, for the current released drops, further planned, and then qwen3-pinion models are droping the custom restrictive LICENSE, and swithcing to one that is more public friendly, makes barrier of entry easy for engagement, I'd love people using my tools, genuinely benefiting everyday from them and not being exploited during the process, but actual dedication put into cattering purely against monetary gain, and shifting more towards a "stance." I hope you all will joing discussion, I have added the link to the public discord Serve (apologies if it is poorly setup. It is my 'just enough to get by' extended public engagement until the official websites are published. My end goal is one website, categories of my internal research over the past year and month+, then explain out my systems, etc akin to how the industry does just tailored the "Somnus Sovereign Systems" way so no user data collection etc, but the end goal is a high fidelity experience to engage with the mass of innovation I have been building up from Jan 2025 to today, 3-08-2026.
 
 This repository dismantles that barrier by open-sourcing runtime infrastructure that is usually hidden behind service boundaries. The goal is direct and practical: put state-of-the-art routing and memory tooling into local developer workflows so users are not blocked by closed deployment gates.
 
@@ -257,14 +257,13 @@ This release is positioned as SOTA-grade engineering through:
 
 - `Reinforcement-Learning-Full-Pipeline` (installment #1): foundational behavior/alignment toolkit release.
   - `https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline`
-- `somnus-license`: canonical license governance repository used across toolkit releases.
-  - `https://github.com/calisweetleaf/somnus-license`
+- `distill-the-flow` (installment #3): JSON/JSONL to DB TOken Forensice cleaning and organizational processing pipeline.
 
 ## License Governance
 
 Canonical license governance lives in the dedicated license repository:
 
-- `https://github.com/calisweetleaf/somnus-license`
+- <https://github.com/calisweetleaf/SOTA-Runtime-Core/blob/main/LICENSE>
 
 For repo handoff, include:
 
