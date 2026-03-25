@@ -1,36 +1,36 @@
 """
 Neural Prompt Router - Complete Production Implementation
-Converts Jinja2 template logic into learnable neural architecture
+Converts .jinja2 template's and spec templates, "compiles" together and fills in with the MD templates implementing Dynamic Prompt Creation and  logic into learnable neural architecture
 """
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Dict, List, Optional, Tuple, Any, Union
+from typing import Dict, List, Optional, Tuple, Any, Union, Protocol, runtime_checkable
+import numpy as np
 import json
 import hashlib
 import re
 import math
 import logging
+import asyncio
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader, Template
 
-# Production logging configuration
 logger = logging.getLogger(__name__)
 
-# ============================================================================
-# Configuration & Data Structures
-# ============================================================================
-
-PROJECT_ROOT = Path(__file__).parent
+MODULE_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = (
+    MODULE_ROOT.parent if (MODULE_ROOT.parent / "prompt_templates").exists() else MODULE_ROOT
+)
 PROMPT_TEMPLATE_DIR = PROJECT_ROOT / "prompt_templates"
 TOOL_LIST_PATH = PROMPT_TEMPLATE_DIR / "tool_list.md"
-LEGACY_TOOL_LIST_PATH = PROJECT_ROOT / "tool_list.md"
+LEGACY_TOOL_LIST_PATH = MODULE_ROOT / "tool_list.md"
 JINJA_TEMPLATE_PATH = PROMPT_TEMPLATE_DIR / "jinja2_template.md"
-LEGACY_JINJA_TEMPLATE_PATH = PROJECT_ROOT / "jinja2_template.md"
+LEGACY_JINJA_TEMPLATE_PATH = MODULE_ROOT / "jinja2_template.md"
 
 
 def read_tool_list(path: Path = TOOL_LIST_PATH) -> List[str]:
@@ -71,8 +71,6 @@ class RouterConfig:
     learning_rate: float = 1e-4
     dropout: float = 0.1
     weight_decay: float = 0.01
-    
-    # Slot configuration
     reasoning_levels: List[str] = None
     builtin_tools: List[str] = None
     
@@ -105,11 +103,6 @@ class ContextFeatures:
     user_profile: torch.Tensor  # [batch, profile_dim]
     metadata: Dict[str, any]
 
-
-# ============================================================================
-# Core Neural Components
-# ============================================================================
-
 class ContextEncoder(nn.Module):
     """
     Encodes conversation history and user profile into context embedding
@@ -118,7 +111,6 @@ class ContextEncoder(nn.Module):
         super().__init__()
         self.config = config
         
-        # Transformer for message sequence encoding
         encoder_layer = nn.TransformerEncoderLayer(
             d_model=config.context_dim,
             nhead=config.num_attention_heads,
@@ -362,46 +354,7 @@ class SafetyValidator:
         """
         violations = []
         
-        # Rule 1: Tier-based tool access
-        user_tier = context_metadata.get('user_tier', 'free')
-        if user_tier == 'free':
-            # Free tier: no python, limited browser
-            python_enable = slot_preds.tool_enables.get(
-                'python',
-                torch.zeros_like(slot_preds.tool_weights[:, :1])
-            )
-            if (python_enable > 0.5).any().item():
-                violations.append({
-                    'rule': 'tier_restriction',
-                    'severity': 'HARD',
-                    'message': 'Python tool requires paid tier',
-                    'field': 'tool_enables.python'
-                })
-                slot_preds.tool_enables['python'] = torch.zeros_like(python_enable)
-        
-        # Rule 2: Reasoning effort bounds
-        msg_count = context_metadata.get('message_count', 0)
-        reasoning_idx = slot_preds.reasoning_effort.argmax(dim=-1)
-        
-        if msg_count < 3:
-            high_mask = reasoning_idx == ReasoningEffort.HIGH.value
-        else:
-            high_mask = torch.zeros_like(reasoning_idx, dtype=torch.bool)
-        
-        if high_mask.any().item():
-            violations.append({
-                'rule': 'reasoning_premature',
-                'severity': 'SOFT',
-                'message': 'High reasoning inappropriate for short conversations',
-                'field': 'reasoning_effort'
-            })
-            # Force to medium
-            new_reasoning = slot_preds.reasoning_effort.clone()
-            new_reasoning[high_mask] = 0.0
-            new_reasoning[high_mask, ReasoningEffort.MEDIUM.value] = 1.0
-            slot_preds.reasoning_effort = new_reasoning
-        
-        # Rule 3: Tool sparsity constraint
+        # Rule 1: Tool sparsity constraint
         tool_weight_sum = slot_preds.tool_weights.sum(dim=-1)
         over_limit = tool_weight_sum > 3.0
         if over_limit.any().item():
@@ -419,10 +372,8 @@ class SafetyValidator:
             )
             slot_preds.tool_weights = scaled_weights
         
-        # Rule 4: Tool dependency check
         has_tool_calls = context_metadata.get('has_tool_calls', False)
         if has_tool_calls:
-            # Ensure at least one tool is enabled
             any_tool_enabled = any(
                 (enable > 0.5).any().item()
                 for enable in slot_preds.tool_enables.values()
@@ -455,11 +406,6 @@ class SafetyValidator:
                 issues.append(f"Missing required section: {section}")
         
         return generated_prompt, issues
-
-
-# ============================================================================
-# Production Input Encoding System
-# ============================================================================
 
 class HashTextEncoder(nn.Module):
     """
@@ -520,9 +466,13 @@ class HashTextEncoder(nn.Module):
         return pe
     
     def _hash_token(self, token: str, seed: int) -> int:
-        """Deterministic hash using MD5 with seed."""
+        """Deterministic hash using SHA256 with seed.
+        
+        Aligned with memory system's HashEmbeddingStage to ensure
+        consistent token representation across router and memory pipelines.
+        """
         hash_input = f"{seed}:{token.lower()}".encode('utf-8')
-        hash_bytes = hashlib.md5(hash_input).digest()
+        hash_bytes = hashlib.sha256(hash_input).digest()
         hash_int = int.from_bytes(hash_bytes[:8], byteorder='little')
         return hash_int % self.vocab_buckets
     
@@ -591,20 +541,38 @@ class HashTextEncoder(nn.Module):
         """Convenience method for single text encoding."""
         return self.forward([text])[0]
 
+    def embed(self, text: str) -> np.ndarray:
+        """Produce a numpy embedding vector from text.
+        
+        Satisfies the EmbeddingInterface protocol for shared
+        embedding contract between router and memory system.
+        """
+        with torch.no_grad():
+            tensor = self.encode_single(text)
+            # Mean-pool across sequence dimension to get fixed-size vector
+            pooled = tensor.mean(dim=0)
+            return pooled.cpu().numpy()
+
+    @property
+    def dim(self) -> int:
+        """Embedding dimensionality. Satisfies EmbeddingInterface."""
+        return self.embed_dim
+
 
 class ProfileEncoder(nn.Module):
     """
     Encodes user profile and conversation features into fixed-size vector.
-    Extracts behavioral signals from conversation history.
+    Extracts behavioral signals from conversation history using a neutral
+    access class (user/unknown), not paid-tier semantics.
     """
     
     def __init__(self, output_dim: int = 128, dropout: float = 0.1):
         super().__init__()
         self.output_dim = output_dim
         
-        # User tier embedding
-        self.tier_embedding = nn.Embedding(4, 32)  # free, paid, enterprise, unknown
-        self.tier_map = {'free': 0, 'paid': 1, 'enterprise': 2, 'unknown': 3}
+        # Access class embedding (non-tiered)
+        self.access_embedding = nn.Embedding(2, 32)  # user, unknown
+        self.access_map = {'user': 0, 'unknown': 1}
         
         # Continuous feature projection (8 features -> 64 dims)
         self.continuous_proj = nn.Sequential(
@@ -625,15 +593,33 @@ class ProfileEncoder(nn.Module):
         self._question_pattern = re.compile(r'\?|how\s+|what\s+|why\s+|when\s+', re.IGNORECASE)
     
     def _extract_features(self, context: Dict) -> Tuple[int, torch.Tensor]:
-        """Extract tier index and continuous features from context."""
+        """Extract neutral access index and continuous features from context."""
         # Get messages from context
         messages = context.get('messages', [])
         if not messages:
             messages = []
         
-        # Tier
-        tier_str = context.get('user_tier', 'unknown')
-        tier_idx = self.tier_map.get(tier_str, 3)
+        # Access class (normalize away paid/free distinctions)
+        access_raw = context.get(
+            'user_access',
+            context.get('user_class', context.get('user_tier', 'user')),
+        )
+        access_label = str(access_raw).strip().lower()
+        if access_label in {
+            'user',
+            'standard',
+            'free',
+            'paid',
+            'paid_user',
+            'premium',
+            'pro',
+            'max',
+            'team',
+            'enterprise',
+        }:
+            access_idx = self.access_map['user']
+        else:
+            access_idx = self.access_map['unknown']
         
         # Continuous features
         message_count = len(messages)
@@ -685,7 +671,7 @@ class ProfileEncoder(nn.Module):
             float(context.get('has_tool_calls', False))
         ], dtype=torch.float32)
         
-        return tier_idx, features
+        return access_idx, features
     
     def forward(self, contexts: List[Dict]) -> torch.Tensor:
         """
@@ -698,22 +684,22 @@ class ProfileEncoder(nn.Module):
             profiles: [batch, output_dim]
         """
         batch_size = len(contexts)
-        device = self.tier_embedding.weight.device
+        device = self.access_embedding.weight.device
         
-        tier_indices = []
+        access_indices = []
         feature_batch = []
         
         for ctx in contexts:
-            tier_idx, features = self._extract_features(ctx)
-            tier_indices.append(tier_idx)
+            access_idx, features = self._extract_features(ctx)
+            access_indices.append(access_idx)
             feature_batch.append(features)
         
         # Stack and move to device
-        tier_tensor = torch.tensor(tier_indices, device=device)
+        access_tensor = torch.tensor(access_indices, device=device)
         feature_tensor = torch.stack(feature_batch).to(device)
         
         # Encode
-        tier_emb = self.tier_embedding(tier_tensor)  # [batch, 32]
+        tier_emb = self.access_embedding(access_tensor)  # [batch, 32]
         feat_emb = self.continuous_proj(feature_tensor)  # [batch, 64]
         
         # Concatenate and project
@@ -773,7 +759,7 @@ class MetadataEncoder(nn.Module):
                 float(ctx.get('requires_determinism', False)),
                 float(ctx.get('is_continuation', False)),
                 float(ctx.get('has_attachments', False)),
-                float(ctx.get('is_premium', ctx.get('user_tier', 'free') != 'free'))
+                float(ctx.get('has_priority_access', ctx.get('is_premium', False)))
             ], dtype=torch.float32)
             
             # Temporal features (cyclical encoding for hour)
@@ -883,7 +869,7 @@ class InputPreparer(nn.Module):
         Prepare inputs from a single context dictionary.
         
         Args:
-            context: Raw context with messages, user_tier, etc.
+            context: Raw context with messages, user_access, etc.
             
         Returns:
             Dictionary with:
@@ -944,6 +930,10 @@ class InputPreparer(nn.Module):
         """
         Prepare inputs from a batch of contexts.
         
+        Note: NeuralPromptRouter.forward() uses context_metadata for safety
+        validation which is inherently per-sample. For batch routing, call
+        prepare() per context. This method is for tensor batching only.
+        
         Args:
             contexts: List of context dictionaries
             
@@ -961,7 +951,8 @@ class InputPreparer(nn.Module):
             'message_embs': torch.cat([r['message_embs'] for r in results], dim=0),
             'user_profile': torch.cat([r['user_profile'] for r in results], dim=0),
             'metadata': torch.cat([r['metadata'] for r in results], dim=0),
-            'context_metadata': contexts[0]  # Use first context for batch metadata
+            'context_metadata': contexts[0],
+            'all_context_metadata': contexts
         }
 
 
@@ -1001,14 +992,47 @@ class TemplateLibrary:
     - Template 3: Research (medium reasoning, browser + web)
     - Template 4: Advanced (high reasoning, all tools)
     """
+    MEMORY_LAYER_KEYS = (
+        "user_memories_xml",
+        "profile_preferences_xml",
+        "project_instructions_xml",
+        "styles_xml",
+        "semantic_memories_xml",
+        "archive_references_xml",
+        "memory_context_xml",
+    )
+    MEMORY_TAG_HINTS = (
+        "<userMemories>",
+        "<projectMemories>",
+        "<profilePreferences>",
+        "<projectInstructions>",
+        "<userStyles>",
+        "<semanticMemories>",
+        "<conversationReferences>",
+    )
+
     def __init__(self, config: RouterConfig):
         self.config = config
-        self.repo_root = Path(__file__).parent
-        self.template_root = self.repo_root / "prompt_templates"
-        if not self.template_root.exists():
-            self.template_root = self.repo_root
+        self.module_root = Path(__file__).resolve().parent
+        self.workspace_root = (
+            self.module_root.parent
+            if (self.module_root.parent / "prompt_templates").exists()
+            else self.module_root
+        )
+        self.repo_root = self.workspace_root
+
+        template_candidates = [
+            self.workspace_root / "prompt_templates",
+            self.module_root / "prompt_templates",
+            self.module_root,
+        ]
+        self.template_root = next(
+            (candidate for candidate in template_candidates if candidate.exists()),
+            self.module_root,
+        )
+
         self.load_log_path = (
-            self.repo_root
+            self.workspace_root
             / "reports"
             / f"template_load_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
         )
@@ -1036,14 +1060,110 @@ class TemplateLibrary:
         
     def _load_memories(self) -> str:
         """Load persistent memory blob for prompt conditioning."""
-        mem_path = self.repo_root / "input_templates" / "reformatted_plaintext_memories.txt"
-        try:
-            return mem_path.read_text(encoding="utf-8")
-        except FileNotFoundError:
+        memory_candidates = [
+            self.workspace_root / "input_templates" / "reformatted_plaintext_memories.txt",
+            self.module_root / "input_templates" / "reformatted_plaintext_memories.txt",
+        ]
+        for mem_path in memory_candidates:
+            try:
+                return mem_path.read_text(encoding="utf-8")
+            except FileNotFoundError:
+                continue
+            except Exception as e:
+                self._log_template(f"memory_load_failed: {e}")
+                return ""
+        return ""
+
+    @staticmethod
+    def _coerce_xml_text(value: Any) -> str:
+        """Normalize any value into a trimmed XML-ish string."""
+        if value is None:
             return ""
-        except Exception as e:
-            self._log_template(f"memory_load_failed: {e}")
-            return ""
+        if isinstance(value, str):
+            return value.strip()
+        return str(value).strip()
+
+    def _extract_memory_context_layers(self, context: Optional[Dict[str, Any]]) -> Dict[str, str]:
+        """
+        Extract structured XML context from metadata/context payloads.
+
+        Supports both camelCase (MemoryManager.as_dict) and snake_case keys.
+        """
+        blank = {key: "" for key in self.MEMORY_LAYER_KEYS}
+        if not isinstance(context, dict):
+            return blank
+
+        source: Dict[str, Any] = {}
+        nested_context = context.get("memory_context")
+        if isinstance(nested_context, dict):
+            source.update(nested_context)
+        legacy_nested = context.get("memoryContext")
+        if isinstance(legacy_nested, dict):
+            source.update(legacy_nested)
+        source.update(context)
+
+        key_aliases = {
+            "user_memories_xml": ("user_memories_xml", "userMemories", "user_memories"),
+            "profile_preferences_xml": (
+                "profile_preferences_xml",
+                "profilePreferences",
+                "profile_preferences",
+            ),
+            "project_instructions_xml": (
+                "project_instructions_xml",
+                "projectInstructions",
+                "project_instructions",
+            ),
+            "styles_xml": ("styles_xml", "styles"),
+            "semantic_memories_xml": (
+                "semantic_memories_xml",
+                "semanticMemories",
+                "semantic_memories",
+            ),
+            "archive_references_xml": (
+                "archive_references_xml",
+                "archiveReferences",
+                "archive_references",
+                "conversationReferences",
+            ),
+        }
+
+        layers = dict(blank)
+        for target_key, aliases in key_aliases.items():
+            for alias in aliases:
+                value = self._coerce_xml_text(source.get(alias))
+                if value:
+                    layers[target_key] = value
+                    break
+
+        direct_xml = self._coerce_xml_text(
+            source.get("memory_context_xml") or source.get("memoryContextXml")
+        )
+        if direct_xml:
+            layers["memory_context_xml"] = direct_xml
+            return layers
+
+        parts = [
+            layers["user_memories_xml"],
+            layers["profile_preferences_xml"],
+            layers["project_instructions_xml"],
+            layers["styles_xml"],
+            layers["semantic_memories_xml"],
+            layers["archive_references_xml"],
+        ]
+        layers["memory_context_xml"] = "\n\n".join(part for part in parts if part)
+        return layers
+
+    def _inject_memory_context_block(self, prompt: str, memory_context_xml: str) -> str:
+        """Inject XML memory context into the system prompt body once."""
+        memory_block = self._coerce_xml_text(memory_context_xml)
+        if not memory_block:
+            return prompt
+        if memory_block in prompt:
+            return prompt
+        if "<|end|>" in prompt:
+            return prompt.replace("<|end|>", f"\n\n{memory_block}\n<|end|>", 1)
+        return f"{prompt}\n\n{memory_block}"
     
     def _load_reference_appendix_spec(self) -> str:
         """Load neutral reference appendix text (raw, non-executable)."""
@@ -1168,6 +1288,7 @@ class TemplateLibrary:
         if template_key in self.loaded_templates:
             try:
                 template = self.loaded_templates[template_key]
+                context_layers = self._extract_memory_context_layers(params)
                 
                 # Determine model identity: use offline personality if available
                 model_identity = "You are a large language model assistant."
@@ -1186,10 +1307,15 @@ class TemplateLibrary:
                     'memory_blob': self.memories_text,
                     'reference_appendix_spec': self.reference_appendix_spec,
                     'model_identity': model_identity,
+                    **context_layers,
                     **params
                 }
                 
                 rendered = template.render(**render_params)
+                rendered = self._inject_memory_context_block(
+                    rendered,
+                    render_params.get('memory_context_xml', ''),
+                )
                 return rendered
             except Exception as e:
                 print(f"Template render error ({template_key}): {e}")
@@ -1336,20 +1462,21 @@ Calls to these tools must go to the commentary channel: 'functions'.
         Assemble final prompt from template selection.
         FIXED: Now properly renders appended sub-templates (reference appendix).
         """
-        # 1. Hard selection for inference
+        # 1. Neural selection: use network output, fall back if ID out of range
         template_id = template_weights.argmax(dim=-1).item()
-
-        # Prefer system_prompt if available
-        if 'system_prompt' in self.template_id_by_key:
-            template_id = self.template_id_by_key['system_prompt']
-
-        template_config = self.templates.get(template_id, next(iter(self.templates.values())))
+        template_config = self.templates.get(template_id)
+        if template_config is None:
+            # Selected ID out of range — fall back to first loaded template
+            template_config = next(iter(self.templates.values()))
         
         # 2. Override params based on slot predictions
+        context_layers = self._extract_memory_context_layers(context_metadata)
         render_params = template_config['params'].copy()
         render_params.setdefault('memories', self.memories_text)
         render_params.setdefault('memory_blob', self.memories_text)
         render_params.setdefault('reference_appendix_spec', self.reference_appendix_spec)
+        for key, value in context_layers.items():
+            render_params.setdefault(key, value)
         
         # Map reasoning effort from slot prediction
         reasoning_idx = slot_preds.reasoning_effort.argmax(dim=-1).item()
@@ -1381,32 +1508,29 @@ Calls to these tools must go to the commentary channel: 'functions'.
             from datetime import datetime
             current_date = datetime.now().strftime("%Y-%m-%d")
             prompt = template_config['fallback_builder']().format(current_date=current_date)
+        prompt = self._inject_memory_context_block(
+            prompt,
+            render_params.get('memory_context_xml', ''),
+        )
 
-        # 4. Handle Appended Templates (The Critical Fix)
-        if template_config['template_key'] == 'system_prompt':
+        # 4. Handle Appended Templates (tool specs and reference appendix)
+        # Append to any rendered template that needs them, not just system_prompt
 
-            # A. Handle Tools
-            tool_spec = self.raw_texts.get('current_tools', '')
-            if tool_spec:
-                # Render the tool spec in case it has variables
-                tool_tmpl = self.jinja_env.from_string(tool_spec)
-                rendered_tools = tool_tmpl.render(**render_params)
-                prompt += "\n\n# Tools\n\n" + rendered_tools
+        # A. Handle Tools
+        tool_spec = self.raw_texts.get('current_tools', '')
+        if tool_spec:
+            tool_tmpl = self.jinja_env.from_string(tool_spec)
+            rendered_tools = tool_tmpl.render(**render_params)
+            prompt += "\n\n# Tools\n\n" + rendered_tools
 
-            # B. Handle reference appendix
-            # Get the raw text first
-            appendix_raw = self.raw_texts.get('reference_appendix', '')
-            
-            if appendix_raw:
-                # RENDER it to process {{ current_date }} and {{ model_identity }}
-                appendix_tmpl = self.jinja_env.from_string(appendix_raw)
-                rendered_appendix = appendix_tmpl.render(**render_params)
-                
-                # STRIP invalid headers that cause "Inception" errors
-                # We remove the <|start|> tags if they exist in the appendix
-                rendered_appendix = rendered_appendix.replace("<|start|>system<|message|>", "").replace("<|end|>", "")
-                
-                prompt += "\n\n# Reference Appendix\n\n" + rendered_appendix.strip()
+        # B. Handle reference appendix
+        appendix_raw = self.raw_texts.get('reference_appendix', '')
+        if appendix_raw:
+            appendix_tmpl = self.jinja_env.from_string(appendix_raw)
+            rendered_appendix = appendix_tmpl.render(**render_params)
+            # Strip system message delimiters to prevent nesting
+            rendered_appendix = rendered_appendix.replace("<|start|>system<|message|>", "").replace("<|end|>", "")
+            prompt += "\n\n# Reference Appendix\n\n" + rendered_appendix.strip()
         
         # 5. Ensure required sections are present
         prompt = self._ensure_required_sections(prompt)
@@ -1459,7 +1583,7 @@ class NeuralPromptRouter(nn.Module):
             message_embs: [batch, seq_len, dim]
             user_profile: [batch, profile_dim]
             metadata: [batch, metadata_dim]
-            context_metadata: Dict with user_tier, message_count, etc.
+            context_metadata: Dict with user_access, message_count, etc.
             message_mask: Optional padding mask
             return_trace: If True, return execution trace
             
@@ -1644,10 +1768,12 @@ class SafeRouterWrapper:
         self,
         neural_router: NeuralPromptRouter,
         jinja_template: any,  # Your existing Jinja2 template
-        device: Optional[torch.device] = None
+        device: Optional[torch.device] = None,
+        memory_manager: Optional[Any] = None,
     ):
         self.neural_router = neural_router
         self.jinja_template = jinja_template
+        self.memory_manager = memory_manager
         self.failure_count = 0
         self.total_routes = 0
         self.neural_routes = 0
@@ -1662,6 +1788,8 @@ class SafeRouterWrapper:
         self.input_preparer.to(device)
         
         logger.info(f"SafeRouterWrapper initialized on device: {device}")
+        if memory_manager:
+            logger.info("Memory system integrated — hybrid retrieval active")
         
     def route(
         self,
@@ -1673,7 +1801,7 @@ class SafeRouterWrapper:
         Route with automatic fallback.
         
         Args:
-            context: Context dictionary with messages, user_tier, etc.
+            context: Context dictionary with messages, user_access, etc.
             use_neural: Whether to attempt neural routing
             timeout: Timeout for neural routing (future use)
             
@@ -1722,7 +1850,27 @@ class SafeRouterWrapper:
     def _fallback_route(self, context: Dict, reason: str) -> Tuple[str, Dict]:
         """Fallback to Jinja2 template with proper error handling."""
         try:
-            prompt = self.jinja_template.render(**context)
+            context_layers = self.neural_router.template_library._extract_memory_context_layers(
+                context
+            )
+            render_params = {
+                'current_date': datetime.now().strftime("%Y-%m-%d"),
+                'knowledge_cutoff': '2024-06',
+                'strftime_now': lambda fmt: datetime.now().strftime(fmt),
+                'add_generation_prompt': False,
+                'messages': context.get('messages', []),
+                'tools': context.get('tools'),
+                'model_identity': context.get(
+                    'model_identity',
+                    'You are a large language model assistant.'
+                ),
+                **context_layers,
+            }
+            prompt = self.jinja_template.render(**render_params)
+            prompt = self.neural_router.template_library._inject_memory_context_block(
+                prompt,
+                context_layers.get('memory_context_xml', ''),
+            )
             return prompt, {
                 'method': 'jinja2_fallback',
                 'reason': reason,
@@ -1776,6 +1924,99 @@ Calls to these tools must go to the commentary channel: 'functions'.
         required = ['<|start|>system<|message|>', '<|end|>']
         return all(section in prompt for section in required)
 
+    def _build_memory_context(self, context: Dict) -> Dict[str, str]:
+        """
+        Build memory context layers via the integrated MemoryManager.
+        
+        When a MemoryManager is wired in, this method calls the
+        prompt assembler to produce all memory layers (summary,
+        preferences, semantic, archive) for injection into the
+        template rendering pipeline.
+        
+        Returns:
+            Dictionary of memory context layers keyed by layer name,
+            or empty dict if no memory manager is configured.
+        """
+        if not self.memory_manager:
+            return {}
+
+        user_id = context.get('user_id', '')
+        if not user_id:
+            return {}
+
+        current_query = ''
+        messages = context.get('messages', [])
+        for msg in reversed(messages):
+            if isinstance(msg, dict) and msg.get('role') == 'user':
+                current_query = msg.get('content', '')
+                break
+
+        if not current_query:
+            return {}
+
+        try:
+            loop = asyncio.get_event_loop()
+            if loop.is_running():
+                # Already in async context — schedule as coroutine
+                import concurrent.futures
+                with concurrent.futures.ThreadPoolExecutor() as pool:
+                    memory_context = pool.submit(
+                        asyncio.run,
+                        self.memory_manager.build_prompt_context(
+                            user_id=user_id,
+                            current_query=current_query,
+                        )
+                    ).result(timeout=5.0)
+            else:
+                memory_context = loop.run_until_complete(
+                    self.memory_manager.build_prompt_context(
+                        user_id=user_id,
+                        current_query=current_query,
+                    )
+                )
+            return memory_context
+        except Exception as exc:
+            logger.warning(
+                f"Memory context assembly failed: {exc}",
+                exc_info=True,
+            )
+            return {}
+
+    def get_all_tool_definitions(self) -> List[Dict[str, Any]]:
+        """
+        Return unified tool definitions from both the router config
+        and the memory system. Merges RouterConfig.builtin_tools with
+        MemoryToolDefinitions into a single source of truth.
+        
+        This ensures callers get a complete tool manifest without
+        querying router and memory system separately.
+        """
+        router_tools = []
+        for tool_name in self.neural_router.config.builtin_tools:
+            router_tools.append({
+                'type': 'function',
+                'function': {
+                    'name': tool_name,
+                    'description': f'Built-in {tool_name} tool',
+                    'parameters': {'type': 'object', 'properties': {}},
+                }
+            })
+
+        memory_tools = []
+        if self.memory_manager:
+            memory_tools = self.memory_manager.get_tool_definitions()
+
+        # Deduplicate by function name
+        seen_names = set()
+        unified = []
+        for tool in memory_tools + router_tools:
+            name = tool.get('function', {}).get('name', '')
+            if name and name not in seen_names:
+                seen_names.add(name)
+                unified.append(tool)
+
+        return unified
+
 
 # ============================================================================
 # Example Usage
@@ -1797,7 +2038,7 @@ if __name__ == '__main__':
         'user_profile': torch.randn(1, 128),
         'metadata': torch.randn(1, 64),
         'context_metadata': {
-            'user_tier': 'free',
+            'user_access': 'user',
             'message_count': 5,
             'has_tool_calls': False
         }
