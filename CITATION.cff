@@ -1,10 +1,10 @@
-cff-version: 1.1.0
-message: "If you use this software, please cite it as below. All software, files, ideas etc are under the Anti-Exploit License Terms."
+cff-version: 2.0.0
+message: "If you use this software, please cite it as below. All software, files, ideas etc are under the GPLv3 Terms."
 authors:
 - family-names: Rowell
   given-names: Christian Trey Levi
 orcid: https://orcid.org/0009-0008-6550-6316
 title: "SOTA Runtime Core"
-version: v2.0.0
+version: v3.0.1
 date-released: 2026-02-08
 repository-code: "https://github.com/calisweetleaf/SOTA-Runtime-Core"
