@@ -1,307 +1,263 @@
-<div align="center">
+# Somnus Router Toolkit
 
-# Somnus Router Toolkit: Last Updated 03-08-2026 retiring the somnus-license and changing completely to GPLv3.
+### Last Updated 03-24-2026 — v2 update to Drop 2 of Operation SOTA
 
-### Standalone SOTA Runtime Components (Drop 2)
+### Neural routing and long-horizon memory infrastructure for local AI systems
 
 ![Python 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=yellow)
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=orange)
 
-[![SOTA-Toolkit-Drop-One: RLHF](https://img.shields.io/badge/Toolkit_Drop_One-RLHF%20Pipeline-0A66C2?style=for-the-badge)](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline)
+![Drop One: RLHF](https://img.shields.io/badge/Toolkit_Drop_One-RLHF%20Pipeline-0A66C2?style=for-the-badge)
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blueviolet.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blueviolet.svg)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18607898.svg)](https://doi.org/10.5281/zenodo.18607898)
+![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18607898.svg)
 
-<br/>
-
-[**Quick Start**](#quick-start-windows--powershell) • [**Module Overview**](#module-overview) • [**Verification**](#end-to-end-verification-latest-run) • [**Related Projects**](#related-projects) • [**License**](#license-governance)
-
-<br/>
-</div>
+**Quick Start** • **Module Overview** • **Architecture** • **Verification** • **License**
 
 ---
 
 ## Overview
 
-This repository provides production-grade implementations of three runtime tools built for SOTA-tier local AI systems. `neural_router.py` handles prompt policy generation and tool-routing decisions, `memory_injection_system.py` handles cross-chat memory extraction/retrieval/injection, and `integrated_system.py` demonstrates composition. Each file is intentionally reusable as a standalone module so teams can copy, drop-in, and integrate without adopting a full monolith.
+This repository contains two standalone runtime modules for local AI systems:
 
-This is positioned as installment #2 in a broader open toolkit line. The design goal is practical decentralization: high-leverage runtime infrastructure available through open research reconstruction and non-proprietary implementation, with reproducible smoke evidence and integrity artifacts.
+- `file neural_router.py` for prompt-policy generation, routing, tool gating, template assembly, and fallback handling.
+- `file memory_injection_system.py` for persistent memory synthesis, semantic retrieval, archive search, scoped isolation, explicit edits, and prompt-context assembly.
 
-These tools have standalone test, and an integration example. You can do whatever you like, adhering to the Anti-Exploit license governing all contents that touch this repository. The goal is to make it easy as Copy/Paste into your personal projects, integrate an already finished Production Module, and get an SaaS worthy experience free, easy, and local.
+The current repository is not a monolith and it is not a packaged framework. It is a toolkit surface: two reusable Python modules plus lightweight documentation in `docs/`.
 
-Be looking for drop 3 in this trilogy which involves even larger advancements. Drop 3 will be the biggest drop and will broadly be about "infinite" effective context with an 80-92% compression enabling pretrained open models to be able to do long horizon task, guided reasoning, and context conversion.(it is not full compression more than it is a reprentational conversion.)
-
----
-
-## Update March 2, 2026
-
-The discord server has been setup for the broader ecosystem from toolkit to the recursive-categorical-framework, this was done as I move towards more open collaboration and engagement. I am new to setting up these channels so quality and entry barrier will decrease. Feel free to message the categories channels, message me personally for any questions, collaborations, or other general discussion.
-
-[Discord-New-Channel](https://discord.gg/uj6ug5Sdw)
-
----
+If you want composition, that path already exists in the codebase: `SafeRouterWrapper` in `file neural_router.py` can integrate with `MemoryManager` from `file memory_injection_system.py`.
 
 ## Mission
 
-The exclusive control over post-training infrastructure has allowed a few organizations to artificially monopolize AI capabilities. They claim innovation while simply gating access to standard reinforcement learning techniques. THIS REPOSITORY IS GOVERNED BY GPLv3 AS OF March 08, 2026. The anti-exploitation, for the current released drops, further planned, and then qwen3-pinion models are droping the custom restrictive LICENSE, and swithcing to one that is more public friendly, makes barrier of entry easy for engagement, I'd love people using my tools, genuinely benefiting everyday from them and not being exploited during the process, but actual dedication put into cattering purely against monetary gain, and shifting more towards a "stance." I hope you all will joing discussion, I have added the link to the public discord Serve (apologies if it is poorly setup. It is my 'just enough to get by' extended public engagement until the official websites are published. My end goal is one website, categories of my internal research over the past year and month+, then explain out my systems, etc akin to how the industry does just tailored the "Somnus Sovereign Systems" way so no user data collection etc, but the end goal is a high fidelity experience to engage with the mass of innovation I have been building up from Jan 2025 to today, 3-08-2026.
+The point of this repo is practical runtime sovereignty. Routing, memory, context control, and prompt assembly should not be locked behind closed service boundaries when they can be built locally, inspected directly, and integrated into personal or production systems.
 
-This repository dismantles that barrier by open-sourcing runtime infrastructure that is usually hidden behind service boundaries. The goal is direct and practical: put state-of-the-art routing and memory tooling into local developer workflows so users are not blocked by closed deployment gates.
+This is **Drop 2** of Operation SOTA, a five-drop open-source program delivering production-grade AI infrastructure.
 
----
+**Versioning note:** This is the **v3.0.0** release. What appeared as v1 was baseline establishment; this is the first complete, timed rollout. Staged releases, not continuous deployment — the memory system is where it needs to be. The router has room to grow, but this was always the vision for Drop 2.
 
-# Somnus Router Toolkit
+This v3.0.0 release reflects: unified embedding protocols, capability-based (not tier-gated) access, and validated integration (55/55 tests).
 
-Tool-first release focused on three standalone Python modules:
+This release is now GPLv3.
 
-- `neural_router.py`: neural prompt routing stack with safety validation and prompt assembly.
-- `memory_injection_system.py`: cross-chat memory extraction, storage, retrieval, and context injection.
-- `integrated_system.py`: orchestration demo showing how router + memory can work together.
+## Current Repository Surface
 
-This repository is structured as reusable components, not a locked monolith. Each core module can be copied into another project and integrated independently.
+```text
+Somnus-Router/
+├── neural_router.py              # Core routing module
+├── memory_injection_system.py    # Memory & context injection
+├── requirements.txt              # Dependencies
+├── run_neural_router_smoke.py    # Smoke test runner
+├── run_memory_injection_smoke.py # Smoke test runner
+├── run_integrated_system_smoke.py# Integration smoke test
+├── router-full-terminal-validation.md
+├── test_input_preparer.py
+├── verify_prompt_integration.py
+├── CITATION.cff
+├── BLAKE2BSUMS.txt
+├── zenodo.json / zenodo_doi.txt
+├── DOCTOR_CONFIG.json
+├── prompt_templates/             # Template assets
+├── output/                       # Generated outputs
+├── reports/                      # Validation reports
+├── docs/
+│   ├── MODULE_GUIDE.md
+│   ├── USAGE_GUIDE.md
+│   ├── PROVENANCE.md
+│   └── RELEASE_CHECKLIST.md
+└── .metadata/ / .reports/ / .sbom/  # Provenance & SBOM
+```
 
-Execution model:
-
-- Standalone tool validation:
-  - `python run_neural_router_smoke.py`
-  - `python run_memory_injection_smoke.py`
-- Composition validation:
-  - `python run_integrated_system_smoke.py`
-- Integration rule: run standalone smokes first, then run integrated smoke to validate orchestration.
-
-## Scope
-
-- Preserve core logic and behavior of existing implementations.
-- Document how to run each tool standalone.
-- Keep prompt-routing asset loading supported in router flow.
-- Keep active prompt assets in the runtime prompt asset folder and archive legacy prompt/UI assets in the legacy archive folder.
+**Verification status:** `run_integrated_system_smoke.py` — 55/55 tests passing (router↔memory bridge, capability ungating, embedding alignment, health checks, prompt assembly).
 
 ## Module Overview
 
-### `neural_router.py`
+### `file neural_router.py`
 
-- Context encoder (`ContextEncoder`) for message/profile/metadata fusion.
-- Slot prediction (`SlotPredictorNetwork`) for reasoning effort + tool gates/weights.
-- Safety enforcement (`SafetyValidator`) for tier/tool/reasoning constraints.
-- Prompt policy selection and assembly via the router library stack.
-- Production wrapper (`SafeRouterWrapper`) with fallback path and prompt validation.
-- Includes `RouterTrainer` for multi-objective training.
+Primary capabilities:
 
-Standalone run:
+- `ContextEncoder` for message, profile, and metadata fusion.
+- `SlotPredictorNetwork` for reasoning-effort and tool-gate prediction.
+- `SafetyValidator` for constraints around routing behavior.
+- `TemplateLibrary` for prompt asset loading and prompt assembly.
+- `RouterTrainer` for multi-objective training workflows.
+- `SafeRouterWrapper` for production inference with Jinja fallback and validation.
 
-```powershell
-python run_neural_router_smoke.py
+Current behavior notes:
+
+- The router supports template loading from `prompt_templates/` when present.
+- It also includes legacy fallback resolution for template files located alongside the module.
+- The module includes a direct example entrypoint under `if __name__ == "__main__":`.
+
+Run directly:
+
+```bash
+python neural_router.py
 ```
 
-Outputs:
+### `file memory_injection_system.py`
 
-- `reports/neural_router_smoke.json`
-- `reports/neural_router_smoke.md`
-- `reports/neural_router_prompt.txt`
-- `reports/neural_router_smoke_manifest.json`
-- `output/neural_router_smoke.json`
-- `output/neural_router_smoke.md`
-- `output/neural_router_prompt.txt`
-- `output/neural_router_smoke_manifest.json`
+Primary capabilities:
 
-### `memory_injection_system.py`
+- Scoped memory isolation via `MemoryScope` with `GLOBAL`, `PROJECT`, and `INCOGNITO` modes.
+- Summary memory via `GlobalMemorySummary` and `ProjectMemorySummary`.
+- User preference persistence via `ProfilePreferences` and `UserStyle`.
+- Atomic memory storage and retrieval via `MemoryItem`, `MemoryStore`, and `MemoryScorer`.
+- Local deterministic embeddings via `PipelineEmbeddingBackend` and `MemoryEmbedder`.
+- Full archive storage and RAG-style recall via `ConversationArchive`.
+- Structured synthesis via `DeterministicSynthesisBackend`, optional spaCy enrichment, and refresh orchestration.
+- Explicit user memory edits, deletion propagation, controls, metrics, health checks, rate limiting, and lifecycle management.
+- Prompt assembly via `PromptContextAssembler`, `ContextInjectionManager`, and `MemoryManager`.
 
-- Structured memory model (`MemoryItem`, `MemoryType`, `ConversationContext`).
-- Extraction pipeline (`MemoryExtractor`) for facts/preferences/entities/topics/tool patterns.
-- Embedding + semantic retrieval (`MemoryEmbedder`, `MemoryStore`).
-- Prompt injection manager (`ContextInjectionManager`) for memory block insertion.
-- Orchestrator (`MemoryManager`) for end-to-end conversation turn processing.
+The file is materially broader than a simple memory injector. It is a layered memory runtime with synthesis, retrieval, control-plane logic, and prompt-context assembly in one standalone module.
 
-Provenance framing for this module:
+Run directly:
 
-- Implemented from open research and public technical references.
-- Reverse-engineered as a public-data reconstruction of frontier memory behavior.
-- Public provider systems (including OpenAI) are treated as benchmark examples only.
-- No proprietary source code is used in this implementation.
-
-Standalone run:
-
-```powershell
+```bash
 python memory_injection_system.py
 ```
 
-Smoke run with report output:
+## Smoke Test Runners
 
-```powershell
-python run_memory_injection_smoke.py
-```
+Three standalone smoke test runners validate each module:
 
-Memory system docs (standalone behavior):
+- `file run_neural_router_smoke.py` — Validates router initialization, template loading, slot prediction, and safety checks.
+- `file run_memory_injection_smoke.py` — Tests memory extraction, synthesis, embedding, retrieval, and prompt assembly.
+- `file run_integrated_system_smoke.py` — End-to-end integration test suite (55/55 tests) exercising the router↔memory bridge, capability ungating, embedding alignment, health checks, and full prompt assembly pipeline.
 
-1. Ingestion: parses recent conversation turns and extracts candidate facts, preferences, entities, topics, and tool-usage patterns.
-2. Normalization: maps extracted items to typed `MemoryItem` records with confidence, importance, and relationship metadata.
-3. Embedding: generates vector representations for both memory entries and runtime queries.
-4. Retrieval: combines semantic similarity, recency, and importance to select context-relevant memories.
-5. Injection: writes a bounded `<memory> ... </memory>` block into the active prompt context.
-6. Persistence: keeps memory state available across sessions for the same user id.
+These are validation/demonstration scripts — not production infrastructure. They prove the modules integrate correctly and provide reference usage patterns.
 
-Standalone acceptance signal for this module:
+Run any smoke test:
 
-- `reports/memory_injection_smoke.md` must show `Developer memory block injected: True`.
-- `reports/memory_injection_smoke.json` must exist and include non-empty seeded memory summary.
-
-### `integrated_system.py`
-
-- `IntegratedChatSystem` for request processing flow:
-  1. memory retrieval/injection
-  2. neural routing (or Jinja fallback)
-  3. response generation hook
-  4. background memory extraction
-- Additional helpers: `MemoryInsights`, `MemoryOptimizer`.
-- Includes end-to-end demo entrypoint.
-
-Standalone run:
-
-```powershell
-python integrated_system.py
-```
-
-Smoke run with report output:
-
-```powershell
-python run_integrated_system_smoke.py
-```
-
-Note: this file is a demo scaffold and may require import wiring in your target project (for example, router module path alignment).
-The integrated smoke is the third proof run that combines all three components while keeping each module independently reusable.
-
-## Quick Start (Windows / PowerShell)
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+```bash
 python run_neural_router_smoke.py
 python run_memory_injection_smoke.py
 python run_integrated_system_smoke.py
 ```
 
-## Dependency Profile (Unpinned)
+## Memory Architecture
 
-This repository intentionally keeps dependency messaging unpinned for portability in local setups.
+The current memory system is organized into five layers:
 
-Core runtime packages:
+1. Summary-based persistent memory
+2. Atomic memory items for semantic retrieval
+3. Full conversation archive with on-demand RAG search
+4. Profile preferences and styles that survive incognito boundaries
+5. Control, audit, deletion propagation, and operational infrastructure
+
+In practice this gives you:
+
+- always-on memory summaries for prompt injection
+- semantic recall over atomic memories
+- archive search over stored conversations
+- project isolation to prevent cross-chat bleed
+- explicit user-editable memory state
+- bounded prompt assembly through token budgeting
+
+## Prompt Context Model
+
+`file memory_injection_system.py` does not just return one blob. It assembles structured prompt context through `PromptContext`, including:
+
+- `user_memories_xml`
+- `profile_preferences_xml`
+- `project_instructions_xml`
+- `styles_xml`
+- `semantic_memories_xml`
+- `archive_references_xml`
+
+Those sections can be combined into a single developer-context block or serialized back into message form.
+
+## Training
+
+The router is **trainable** — see `RouterTrainer` in `file neural_router.py` for the SFT/DPO/GRPO infrastructure. A complete training proposal using the RLHF pipeline from [Drop 1](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline) is documented in `file docs/ROUTER_TRAINING_PROPOSAL.md`.
+
+**Default stance:** The reference implementation runs as-is. Training is available if you have your own data and compute substrate, but it's not required to use the system. Custom training is not a default service offering — the code is released so you can train it yourself.
+
+## Quick Start
+
+### Minimal verification
+
+```bash
+python -m py_compile neural_router.py memory_injection_system.py
+python neural_router.py
+python memory_injection_system.py
+python run_integrated_system_smoke.py
+```
+
+### Suggested virtual environment setup
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install numpy torch jinja2
+python -m py_compile neural_router.py memory_injection_system.py
+python memory_injection_system.py
+```
+
+### Optional memory enrichment
+
+If you want the optional spaCy stages to activate instead of gracefully no-oping:
+
+```bash
+pip install spacy
+python -m spacy download en_core_web_sm
+```
+
+## Dependency Notes
+
+Core dependencies (see `file requirements.txt`):
 
 - `numpy`
-- `scipy`
-- `scikit-learn`
 - `torch`
-- `transformers`
-- `tqdm`
-- `rich`
 - `jinja2`
 
-## End-to-End Verification (Latest Run)
+Optional:
 
-Verified with `.venv` on **2026-02-09 (UTC)**:
+- `spacy` (for enrichment stages)
 
-```powershell
-python run_neural_router_smoke.py
-python run_memory_injection_smoke.py
-python run_integrated_system_smoke.py
-python -m py_compile neural_router.py memory_injection_system.py integrated_system.py run_neural_router_smoke.py run_memory_injection_smoke.py run_integrated_system_smoke.py
-python tools/build_smoke_manifest.py
+This is source-first infrastructure — bring your own substrate (hardware, Python environment, PyTorch) and output destination.
+
+## Verification
+
+Verified in this workspace:
+
+```bash
+python -m py_compile neural_router.py memory_injection_system.py
 ```
 
-Latest pass summary:
+That compile check passes against the current files in this repo.
 
-- `neural_router_smoke`: pass (`2026-02-09T03:00:27Z`)
-- `memory_injection_smoke`: pass (`2026-02-09T03:00:36Z`)
-- `integrated_system_smoke`: pass (`2026-02-09T03:00:46Z`)
-- `smoke_manifest`: generated (`2026-02-09T03:02:07Z`)
+## Documentation
 
-## Evidence Artifacts
+Current docs in this repository:
 
-- `reports/neural_router_smoke.json`
-- `reports/neural_router_smoke.md`
-- `reports/memory_injection_smoke.json`
-- `reports/memory_injection_smoke.md`
-- `reports/integrated_system_smoke.json`
-- `reports/integrated_system_smoke.md`
-- `reports/smoke_manifest.json`
-- `reports/_hash_smoke/SHA256SUMS.txt`
-- `reports/_hash_smoke/SHA256SUMS.json`
+- `file docs/MODULE_GUIDE.md` — Class-level surface map and integration notes
+- `file docs/USAGE_GUIDE.md` — Usage patterns and examples
+- `file docs/PROVENANCE.md` — Manifest workflow and hash snapshots
+- `file docs/RELEASE_CHECKLIST.md` — Release readiness checklist
 
-## Production Readiness Snapshot
+These notes capture implementation behavior, validation breadcrumbs, and repo-specific gotchas around memory scope, archive gating, XML injection, router fallback behavior, and current validation posture.
 
-- `neural_router.py` doctor scan: **6 findings** (`1 serious`, `5 minor`), no critical findings.
-- `memory_injection_system.py` doctor scan: **8 findings** (`1 serious`, `7 minor`), no critical findings.
-- Current serious findings are test-gap findings (expected in single-file standalone packaging) and are explicitly tracked in the reports.
+## Important Behavior Notes
 
-Reports:
+- Scope discipline matters. If you want project isolation, pass a `ConversationContext(project_id=...)` instead of relying on global defaults.
+- Archive recall is intentionally gated in the memory control logic.
+- XML memory context is assembled as message-level context, not as a magic hidden template variable.
+- The router integrates with memory through `SafeRouterWrapper` — see `file run_integrated_system_smoke.py` for validated integration patterns.
 
-- `reports/neural_router_production_doctor.md`
-- `reports/neural_router_production_doctor.json`
-- `reports/memory_injection_production_doctor.md`
-- `reports/memory_injection_production_doctor.json`
+## Related Project
 
-## SOTA Readiness Bar
+- `Reinforcement-Learning-Full-Pipeline`: https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline
 
-This release is positioned as SOTA-grade engineering through:
+## License
 
-- Neural routing with context fusion, slot prediction, and constraint enforcement.
-- Standalone cross-session memory extraction, storage, retrieval, and injection.
-- Integrated orchestrator path proving router + memory composition.
-- Reproducible verification artifacts generated on every validation cycle.
-- Local-first, open-research, non-proprietary implementation path.
+This repository is GPLv3.
 
-## Related Projects
-
-- `Reinforcement-Learning-Full-Pipeline` (installment #1): foundational behavior/alignment toolkit release.
-  - `https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline`
-- `distill-the-flow` (installment #3): JSON/JSONL to DB TOken Forensice cleaning and organizational processing pipeline.
-
-## License Governance
-
-Canonical license governance lives in the dedicated license repository:
-
-- <https://github.com/calisweetleaf/SOTA-Runtime-Core/blob/main/LICENSE>
-
-For repo handoff, include:
-
-- `LICENSE` (license text copy for this release)
-- `tools/hash-index.ps1` (integrity + provenance indexing)
-
-## Integrity Workflow (`hash-index.ps1`)
-
-Generate a fresh integrity index before release:
-
-```powershell
-pwsh -NoProfile -ExecutionPolicy Bypass -File tools/hash-index.ps1 -Path . -Algorithm SHA256 -UseGitIgnore -ExportJSON -GenerateReport
-```
-
-Verify integrity later:
-
-```powershell
-pwsh -NoProfile -ExecutionPolicy Bypass -File tools/hash-index.ps1 -Path . -Verify -UseGitIgnore
-```
-
-Note: `hash-index.ps1` is validated with PowerShell 7 (`pwsh`).
-
-## Current Documentation
-
-- `README.md`: repository-level overview and commands.
-- `CITATION.cff`: software citation metadata with related toolkit references.
-- `docs/MODULE_GUIDE.md`: class-level surface map and integration notes.
-- `docs/PROVENANCE.md`: manifest workflow and current hash snapshot.
-- `docs/RELEASE_CHECKLIST.md`: release-readiness checklist.
-
-### Provenance
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18607898.svg)](https://doi.org/10.5281/zenodo.18607898)
-
-- **Author ORCID:** [0009-0008-6550-6316](https://orcid.org/0009-0008-6550-6316)
-- **Prior Work:** [Reinforcement-Learning-Full-Pipeline](https://github.com/calisweetleaf/Reinforcement-Learning-Full-Pipeline)
-- **License:** [Sovereign Anti-Exploitation Software License](https://github.com/calisweetleaf/somnus-license)
+- Full license text: https://www.gnu.org/licenses/gpl-3.0
 
 ## Citation
 
 ```bibtex
-@misc{https://doi.org/10.5281/zenodo.18607898,  doi = {10.5281/ZENODO.18607898},  url = {https://zenodo.org/doi/10.5281/zenodo.18607898},  author = {Rowell, Christian Trey Levi},  title = {SOTA Runtime Core: Neural Prompt Router and Dual-Method Memory System},  publisher = {Zenodo},  year = {2026},  copyright = {Somnus Anti-Exploitation License }}
+@misc{https://doi.org/10.5281/zenodo.18607898, doi = {10.5281/ZENODO.18607898}, url = {https://zenodo.org/doi/10.5281/zenodo.18607898}, author = {Rowell, Christian Trey Levi}, title = {SOTA Runtime Core: Neural Prompt Router and Dual-Method Memory System}, publisher = {Zenodo}, year = {2026}, copyright = {GPLv3 }}
 ```
