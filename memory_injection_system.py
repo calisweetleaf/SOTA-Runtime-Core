@@ -4896,6 +4896,245 @@ class MemoryManager:
             "conversations_imported": imported_conversations,
         }
 
+    async def import_conversations_json(
+        self,
+        user_id: str,
+        file_path: str,
+        scope: MemoryScope = MemoryScope.GLOBAL,
+        project_id: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """
+        Universal importer for raw JSON/JSONL conversation exports (ChatGPT, Claude, etc).
+        Auto-detects format, converts to Conversation objects, and stores them in the archive.
+        """
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                while True:
+                    first_char = f.read(1)
+                    if not first_char or not first_char.isspace():
+                        break
+                f.seek(0)
+
+                if first_char == "[":
+                    data = json.load(f)
+                else:
+                    data = []
+                    for line_number, line in enumerate(f, 1):
+                        if not line.strip():
+                            continue
+                        try:
+                            data.append(json.loads(line))
+                        except json.JSONDecodeError as e:
+                            raise ValueError(
+                                f"Invalid JSONL at line {line_number} in {file_path}: {e}"
+                            ) from e
+
+        except Exception as e:
+            raise ValueError(f"Failed to load JSON/JSONL file {file_path}: {e}") from e
+
+        if not isinstance(data, list):
+            raise ValueError("Expected a JSON list of conversations at the root level.")
+
+        # Auto-detect flat message list (e.g. from custom CSV/JSON exports)
+        if data and isinstance(data[0], dict) and "conversation_id" in data[0] and "role" in data[0]:
+            grouped = {}
+            for msg in data:
+                cid = msg.get("conversation_id")
+                if not cid:
+                    continue
+                if cid not in grouped:
+                    grouped[cid] = {
+                        "id": cid,
+                        "title": msg.get("conversation_title", "Imported Conversation"),
+                        "messages": []
+                    }
+                grouped[cid]["messages"].append({
+                    "id": msg.get("message_id", str(uuid.uuid4())),
+                    "role": msg.get("role", "user"),
+                    "content": msg.get("text") or msg.get("content") or "",
+                    "timestamp": msg.get("create_time")
+                })
+            data = list(grouped.values())
+
+        conversations_imported = 0
+        messages_processed = 0
+
+        for item in data:
+            if not isinstance(item, dict):
+                continue
+            
+            conv = None
+            if "chat_messages" in item:
+                conv = self._parse_claude_export(user_id, item, scope, project_id)
+            elif "mapping" in item:
+                conv = self._parse_chatgpt_export(user_id, item, scope, project_id)
+            elif "messages" in item:
+                conv = self._parse_generic_export(user_id, item, scope, project_id)
+                
+            if conv and conv.messages:
+                await self.store_conversation(conv)
+                conversations_imported += 1
+                messages_processed += len(conv.messages)
+
+        return {
+            "conversations_imported": conversations_imported,
+            "messages_processed": messages_processed,
+            "source_file": file_path
+        }
+
+    def _parse_claude_export(
+        self, user_id: str, item: Dict[str, Any], scope: MemoryScope, project_id: Optional[str]
+    ) -> Optional[Conversation]:
+        """Convert a Claude-format export item into a Conversation."""
+        conv_id = item.get("uuid", str(uuid.uuid4()))
+        title = item.get("name") or item.get("summary") or "Imported Claude Conversation"
+        created_at_str = item.get("created_at")
+        timestamp = datetime.now()
+        if created_at_str:
+            try:
+                # Basic ISO parse attempt
+                timestamp = datetime.fromisoformat(created_at_str.replace("Z", "+00:00"))
+            except ValueError:
+                pass
+
+        messages = []
+        for msg_item in item.get("chat_messages", []):
+            sender = msg_item.get("sender", "human").lower()
+            role = "user" if sender == "human" else "assistant"
+            text_parts = []
+            
+            # Text might be in 'text' directly, or inside 'content' arrays
+            if "text" in msg_item and msg_item["text"]:
+                text_parts.append(msg_item["text"])
+            
+            for content_block in msg_item.get("content", []):
+                if isinstance(content_block, dict) and "text" in content_block and content_block["text"]:
+                    text_parts.append(content_block["text"])
+            
+            content = "\n".join(text_parts).strip()
+            if not content:
+                continue
+                
+            messages.append(ConversationMessage(
+                message_id=msg_item.get("uuid", str(uuid.uuid4())),
+                role=role,
+                content=content,
+                timestamp=timestamp
+            ))
+            
+        if not messages:
+            return None
+            
+        return Conversation(
+            conversation_id=conv_id,
+            user_id=user_id,
+            scope=scope,
+            project_id=project_id,
+            title=title,
+            messages=messages,
+            created_at=timestamp,
+            updated_at=timestamp
+        )
+
+    def _parse_chatgpt_export(
+        self, user_id: str, item: Dict[str, Any], scope: MemoryScope, project_id: Optional[str]
+    ) -> Optional[Conversation]:
+        """Convert a ChatGPT-format export item into a Conversation by walking the mapping graph."""
+        conv_id = item.get("id") or item.get("conversation_id", str(uuid.uuid4()))
+        title = item.get("title") or "Imported ChatGPT Conversation"
+        mapping = item.get("mapping", {})
+        
+        nodes = []
+        for node_id, node_data in mapping.items():
+            if not isinstance(node_data, dict):
+                continue
+            message = node_data.get("message")
+            if not message or not isinstance(message, dict):
+                continue
+                
+            author = message.get("author", {})
+            role = author.get("role")
+            if role not in ("user", "assistant"):
+                continue
+                
+            content_dict = message.get("content", {})
+            parts = content_dict.get("parts", [])
+            text = "\n".join(str(p) for p in parts if isinstance(p, str)).strip()
+            if not text:
+                continue
+                
+            create_time = message.get("create_time") or 0.0
+            nodes.append({
+                "id": node_id,
+                "role": role,
+                "text": text,
+                "time": create_time
+            })
+            
+        nodes.sort(key=lambda x: x["time"])
+        
+        messages = []
+        for n in nodes:
+            messages.append(ConversationMessage(
+                message_id=n["id"],
+                role=n["role"],
+                content=n["text"],
+                timestamp=datetime.fromtimestamp(n["time"]) if n["time"] > 0 else datetime.now()
+            ))
+            
+        if not messages:
+            return None
+            
+        return Conversation(
+            conversation_id=conv_id,
+            user_id=user_id,
+            scope=scope,
+            project_id=project_id,
+            title=title,
+            messages=messages,
+            created_at=messages[0].timestamp if messages else datetime.now()
+        )
+
+    def _parse_generic_export(
+        self, user_id: str, item: Dict[str, Any], scope: MemoryScope, project_id: Optional[str]
+    ) -> Optional[Conversation]:
+        """Fallback for simple {"messages": [{"role": "user", "content": "..."}]} formats."""
+        conv_id = item.get("id", str(uuid.uuid4()))
+        title = item.get("title", "Imported Conversation")
+        
+        messages = []
+        for msg in item.get("messages", []):
+            role = msg.get("role")
+            content = msg.get("content")
+            if role in ("user", "assistant") and content:
+                timestamp_val = msg.get("timestamp")
+                if timestamp_val:
+                    if isinstance(timestamp_val, (int, float)):
+                        timestamp = datetime.fromtimestamp(timestamp_val)
+                    else:
+                        timestamp = datetime.now()
+                else:
+                    timestamp = datetime.now()
+                
+                messages.append(ConversationMessage(
+                    message_id=msg.get("id", str(uuid.uuid4())),
+                    role=role,
+                    content=content,
+                    timestamp=timestamp
+                ))
+                
+        if not messages:
+            return None
+            
+        return Conversation(
+            conversation_id=conv_id,
+            user_id=user_id,
+            scope=scope,
+            project_id=project_id,
+            title=title,
+            messages=messages,
+        )
+
     async def delete_conversation(self, conversation_id: str) -> bool:
         """Delete a conversation and immediately run targeted synthesis refreshes."""
         if not self.deletion_service.mark_deleted(conversation_id):
